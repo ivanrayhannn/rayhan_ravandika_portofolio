@@ -27,16 +27,17 @@ window.PORTFOLIO = {
   /*
    * Clients and employers shown in the "Worked with" strip.
    * logo: optional path to an official logo file, e.g. "assets/clients/toyota.svg".
+   * logoHeight: optional display height in px, to balance logos of different shapes.
    * Leave it empty to show the name as a text wordmark.
    */
   clients: [
     { name: "Toyota Indonesia", sector: "Automotive", logo: "" },
     { name: "Fujitsu", sector: "IT services", logo: "" },
-    { name: "Adhi Persada Beton", sector: "Construction materials", logo: "" },
-    { name: "Amway", sector: "Direct selling", logo: "" },
-    { name: "CIMB Niaga", sector: "Banking", logo: "" },
-    { name: "Bank Papua", sector: "Banking", logo: "" },
-    { name: "FWD", sector: "Insurance", logo: "" },
+    { name: "Adhi Persada Beton", sector: "Construction materials", logo: "assets/clients/adhi-beton.png", logoHeight: 58 },
+    { name: "Amway", sector: "Direct selling", logo: "assets/clients/amway.png", logoHeight: 40 },
+    { name: "CIMB Niaga", sector: "Banking", logo: "assets/clients/cimb-niaga.png", logoHeight: 26 },
+    { name: "Bank Papua", sector: "Banking", logo: "assets/clients/bank-papua.png", logoHeight: 40 },
+    { name: "FWD", sector: "Insurance", logo: "assets/clients/fwd.png", logoHeight: 32 },
     { name: "Jojonomic", sector: "HR tech", logo: "" },
   ],
 

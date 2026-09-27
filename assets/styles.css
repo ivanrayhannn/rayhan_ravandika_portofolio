@@ -176,6 +176,29 @@ h2 { font-size: 28px; line-height: 1.15; }
 .note--fig { position: absolute; right: 12px; bottom: -34px; }
 @media (max-width: 880px) { .note--fig { position: static; margin-top: 12px; } }
 
+/* ---------- Clients strip ---------- */
+.clients { padding-block: 56px 8px; }
+.clients__head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 24px; margin-bottom: 14px; }
+.clients__title { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); }
+.clients__sub { color: var(--graphite); }
+.clients__grid {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1.5px solid var(--rule-strong); border-left: 1px solid var(--rule);
+}
+.client {
+  display: flex; flex-direction: column; justify-content: space-between; gap: 18px;
+  min-height: 116px; padding: 18px 18px 14px;
+  border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+  transition: background 150ms ease;
+}
+.client:hover { background: var(--paper-2); }
+.client__name { font: 700 22px/1.1 var(--f-display); letter-spacing: -0.02em; color: var(--ink); text-wrap: balance; }
+.client img { max-width: 100%; max-height: 40px; width: auto; object-fit: contain; object-position: left center; filter: grayscale(1); opacity: 0.85; transition: filter 150ms, opacity 150ms; }
+.client:hover img { filter: none; opacity: 1; }
+.client__sector { color: var(--graphite); font-size: 11px; }
+@media (max-width: 760px) { .clients__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .client { min-height: 96px; } .client__name { font-size: 19px; } }
+@media (prefers-reduced-motion: reduce) { .client, .client img { transition: none; } }
+
 /* ---------- Sections ---------- */
 .sec {
   display: grid; grid-template-columns: var(--side) minmax(0, 1fr); gap: 32px;

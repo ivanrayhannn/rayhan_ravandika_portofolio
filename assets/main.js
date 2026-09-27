@@ -24,6 +24,13 @@
     return "<tr><th>" + esc(f[0]) + "</th><td>" + esc(f[1]) + "</td></tr>";
   }));
 
+  $("#clients").innerHTML = list(D.clients || [], function (c) {
+    var mark = c.logo
+      ? '<img src="' + esc(c.logo) + '" alt="' + esc(c.name) + '" loading="lazy" />'
+      : '<span class="client__name">' + esc(c.name) + "</span>";
+    return '<li class="client">' + mark + '<span class="client__sector mono">' + esc(c.sector) + "</span></li>";
+  });
+
   $("#aboutText").innerHTML = list(D.about, function (p) { return "<p>" + esc(p) + "</p>"; });
 
   $("#req").innerHTML =

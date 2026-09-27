@@ -24,6 +24,22 @@ window.PORTFOLIO = {
     ["Education", "B.Sc. Information Systems, Brawijaya University (2017–2021)"],
   ],
 
+  /*
+   * Clients and employers shown in the "Worked with" strip.
+   * logo: optional path to an official logo file, e.g. "assets/clients/toyota.svg".
+   * Leave it empty to show the name as a text wordmark.
+   */
+  clients: [
+    { name: "Toyota Indonesia", sector: "Automotive", logo: "" },
+    { name: "Fujitsu", sector: "IT services", logo: "" },
+    { name: "Adhi Persada Beton", sector: "Construction materials", logo: "" },
+    { name: "Amway", sector: "Direct selling", logo: "" },
+    { name: "CIMB Niaga", sector: "Banking", logo: "" },
+    { name: "Bank Papua", sector: "Banking", logo: "" },
+    { name: "FWD", sector: "Insurance", logo: "" },
+    { name: "Jojonomic", sector: "HR tech", logo: "" },
+  ],
+
   about: [
     "I'm an IT Project Manager and Business System Analyst with four years of experience bridging business and technology. I start from the stakeholder's pain point, analyse how the operation actually runs, and turn it into a solution that fits the business goal: requirements, system architecture, ERD, and FSD documentation that engineering teams can build from.",
     "I've led product work end to end, from market research and product-market fit to MVP definition, PRDs, and release. On digitalisation projects I also write SQL, design data integrations, and define the testing strategy.",

@@ -26,9 +26,9 @@
 
   $("#clients").innerHTML = list(D.clients || [], function (c) {
     var mark = c.logo
-      ? '<img src="' + esc(c.logo) + '" alt="' + esc(c.name) + '" loading="lazy"' + (c.logoHeight ? ' style="height:' + Number(c.logoHeight) + 'px"' : "") + " />"
+      ? '<img src="' + esc(c.logo) + '" alt="' + esc(c.name) + '"' + (c.logoHeight ? ' style="height:' + Number(c.logoHeight) + 'px"' : "") + " />"
       : '<span class="client__name">' + esc(c.name) + "</span>";
-    return '<li class="client">' + mark + '<span class="client__sector mono">' + esc(c.sector) + "</span></li>";
+    return '<li class="client' + (c.logoLight ? " client--light" : "") + '">' + mark + '<span class="client__sector mono">' + esc(c.sector) + "</span></li>";
   });
 
   $("#aboutText").innerHTML = list(D.about, function (p) { return "<p>" + esc(p) + "</p>"; });

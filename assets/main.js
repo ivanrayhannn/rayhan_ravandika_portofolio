@@ -11,7 +11,7 @@
   document.querySelectorAll("[data-bind]").forEach(function (el) {
     el.textContent = D[el.dataset.bind] || "";
   });
-  var hrefs = { cv: D.cv, linkedin: D.linkedin, github: D.github, mailto: "mailto:" + D.email };
+  var hrefs = { cv: D.cv, linkedin: D.linkedin, github: D.github, whatsapp: D.whatsapp, mailto: "mailto:" + D.email };
   document.querySelectorAll("[data-href]").forEach(function (el) {
     el.href = hrefs[el.dataset.href] || "#";
   });
@@ -19,6 +19,10 @@
   var now = new Date();
   $("#year").textContent = now.getFullYear();
   $("#rev").textContent = now.getFullYear() + "." + String(now.getMonth() + 1).padStart(2, "0");
+
+  $("#props").insertAdjacentHTML("beforeend", list(D.facts || [], function (f) {
+    return "<tr><th>" + esc(f[0]) + "</th><td>" + esc(f[1]) + "</td></tr>";
+  }));
 
   $("#aboutText").innerHTML = list(D.about, function (p) { return "<p>" + esc(p) + "</p>"; });
 

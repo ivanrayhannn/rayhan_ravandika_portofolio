@@ -51,12 +51,10 @@
         </div>
 
         <aside class="cover__card" aria-label="Document properties">
-          <table class="props">
+          <table class="props" id="props">
             <tr><th>Owner</th><td data-bind="name"></td></tr>
             <tr><th>Role</th><td data-bind="role"></td></tr>
             <tr><th>Based in</th><td data-bind="location"></td></tr>
-            <tr><th>Produces</th><td>BRD, FSD, TSD, test strategy</td></tr>
-            <tr><th>Works in</th><td>Agile and waterfall teams</td></tr>
           </table>
           <p class="note note--card">every project starts with “why?”</p>
         </aside>
@@ -216,8 +214,11 @@
           <div class="sign__contact">
             <span class="mono sign__label">Email</span>
             <span class="sign__email" data-bind="email"></span>
+            <span class="mono sign__label">Phone / WhatsApp</span>
+            <span class="sign__email" data-bind="phone"></span>
             <div class="sign__links">
               <a class="btn btn--ink" data-href="mailto">Write to me</a>
+              <a class="btn btn--line" data-href="whatsapp" target="_blank" rel="noopener">WhatsApp</a>
               <a class="btn btn--line" data-href="linkedin" target="_blank" rel="noopener">LinkedIn</a>
               <a class="btn btn--line" data-href="github" target="_blank" rel="noopener">GitHub</a>
             </div>

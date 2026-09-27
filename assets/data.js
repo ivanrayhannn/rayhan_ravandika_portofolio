@@ -4,24 +4,30 @@
  */
 window.PORTFOLIO = {
   name: "Rayhan Ravandika",
-  role: "Business System Analyst",
+  fullName: "Muhammad Rayhan Ravandika",
+  role: "IT PM & Business System Analyst",
   tagline:
-    "I turn business needs into clear requirements, process flows, and system designs that engineering teams can build and business teams can trust.",
-  location: "Indonesia",
-  email: "your.email@example.com", // TODO: your contact email
-  linkedin: "https://www.linkedin.com/in/", // TODO: your LinkedIn URL
+    "Four years of turning stakeholder pain points into requirements, system designs, and delivery plans that cross-functional teams ship on time and on budget.",
+  location: "South Jakarta, Indonesia",
+  email: "ivanrayhanravan@gmail.com",
+  phone: "+62 822 5795 8517",
+  whatsapp: "https://wa.me/6282257958517",
+  linkedin: "https://www.linkedin.com/in/rayhanravandika/",
   github: "https://github.com/ivanrayhannn",
-  cv: "#", // TODO: link to your CV PDF, e.g. "assets/Rayhan_Ravandika_CV.pdf"
+  cv: "assets/CV_Muhammad_Rayhan_Ravandika.pdf",
 
-  stats: [
-    { value: "BRD · FSD · TSD", label: "End-to-end documentation" },
-    { value: "BPMN", label: "Business flow modelling" },
-    { value: "UAT / SIT", label: "Testing strategy" },
+  // Shown in the cover's document-properties table
+  facts: [
+    ["Experience", "4 years · Fujitsu, Jojonomic"],
+    ["Track record", "4 projects · 8 vendor teams · 8 systems · 50+ integrations"],
+    ["Budget", "$12M+ digital transformation"],
+    ["Education", "B.Sc. Information Systems, Brawijaya University (2017–2021)"],
   ],
 
   about: [
-    "I'm a Business System Analyst who works at the point where business operations meet technology. I start by understanding how a business actually runs: its people, rules, and pain points. Then I turn that into requirements, process models, and specifications that developers, testers, and stakeholders can all follow.",
-    "My work covers the whole delivery lifecycle: gathering user requirements, analysing business operations, defining as-is and to-be business flows, designing UI, writing BRD, FSD, and TSD documents, and planning a test strategy that proves the solution meets the need.",
+    "I'm an IT Project Manager and Business System Analyst with four years of experience bridging business and technology. I start from the stakeholder's pain point, analyse how the operation actually runs, and turn it into a solution that fits the business goal: requirements, system architecture, ERD, and FSD documentation that engineering teams can build from.",
+    "I've led product work end to end, from market research and product-market fit to MVP definition, PRDs, and release. On digitalisation projects I also write SQL, design data integrations, and define the testing strategy.",
+    "As a project lead I run cross-functional and vendor teams through proposal, planning, budgeting, risk mitigation, and daily execution, so delivery stays on time and on budget and everyone stays accountable.",
   ],
 
   services: [
@@ -153,10 +159,10 @@ window.PORTFOLIO = {
   ],
 
   domains: [
-    { title: "ERP & Inventory", text: "Procurement, stock movement, warehouse, and purchase-to-accounting flows." },
-    { title: "Finance & Accounting", text: "Approval chains, journal postings, reconciliation, and reporting." },
-    { title: "E-commerce", text: "Catalogue, cart and checkout, payment gateway integration, and promotions." },
-    { title: "HR & Operations", text: "Employee lifecycle, role-based permissions, and approval workflows." },
+    { title: "Automotive logistics", text: "Material resource and logistics systems at Toyota: 8 systems and 50+ data integrations." },
+    { title: "HRIS", text: "HR information system product: roadmap, PRD, user stories, and release management." },
+    { title: "No-code platform", text: "Product requirements and delivery support for a no-code application platform." },
+    { title: "Insurance & banking", text: "Module improvements for FWD Insurance and CIMB Niaga to match customer needs." },
   ],
 
   projects: [
@@ -182,10 +188,11 @@ window.PORTFOLIO = {
   ],
 
   skills: {
-    "Analysis & Modelling": ["Requirement Elicitation", "Gap Analysis", "BPMN 2.0", "UML", "Use Case", "User Story", "ERD", "Data Flow Diagram"],
-    "Documentation": ["BRD", "FSD", "TSD", "SRS", "RTM", "Test Strategy", "UAT Scenario"],
-    "Tools": ["Figma", "Draw.io", "Visio", "Jira", "Confluence", "Postman", "SQL", "Excel"],
-    "Methodology": ["Agile / Scrum", "Waterfall", "SDLC", "Stakeholder Management"],
+    "Analysis & Modelling": ["Requirement Gathering", "Feasibility Study", "Business Process (BPMN)", "Use Case", "User Story", "ERD", "Impact & Risk Analysis"],
+    "Documentation": ["BRD", "FSD", "TSD", "PRD", "JSON API Spec", "Test Strategy", "UAT Scenario"],
+    "Data & Integration": ["SQL Query", "SQL Server", "Oracle", "DBeaver", "Power BI (DAX)", "Postman"],
+    "Design & Delivery": ["Figma (UI Design)", "Jira", "Trello", "CI/CD GitHub", "Microsoft 365", "Hermes Agent", "AI Prompting"],
+    "Methodology": ["Waterfall", "Agile / Scrum", "Project Planning & Budgeting", "Stakeholder Management"],
   },
 
   experience: [

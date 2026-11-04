@@ -151,7 +151,13 @@
         <div class="wf-tabs" id="wf-tabs" role="tablist" aria-label="Project methodology"></div>
       </div>
       <div class="wf-full">
-        <div id="wf-panels"></div>
+        <div id="wf-panels" class="is-collapsed"></div>
+        <div class="wf-toggle-row">
+          <button type="button" class="wf-toggle" id="wf-toggle" aria-controls="wf-panels" aria-expanded="false">
+            <span class="wf-toggle__open">Expand full workflow</span><span class="wf-toggle__close">Collapse workflow</span>
+            <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.5l4 4 4-4" /></svg>
+          </button>
+        </div>
         <ul class="wf-legend mono">
           <li><i class="lg lg--flow"></i>Next step</li>
           <li><i class="lg lg--assoc"></i>Runs in parallel / I support</li>

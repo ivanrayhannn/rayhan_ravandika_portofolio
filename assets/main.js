@@ -165,6 +165,17 @@
     });
   });
 
+  // Expand / collapse the workflow diagrams (state is shared by both tabs)
+  var wfPanels = $("#wf-panels"), wfToggle = $("#wf-toggle");
+  wfToggle.addEventListener("click", function () {
+    var open = wfPanels.classList.toggle("is-collapsed") === false;
+    wfToggle.setAttribute("aria-expanded", open);
+    if (!open) {
+      var top = $("#workflow").getBoundingClientRect().top;
+      if (top < 0) $("#workflow").scrollIntoView({ block: "start" });
+    }
+  });
+
   $("#cases").innerHTML = list(D.projects, function (p) {
     return '<article class="case"><div><span class="case__tag">' + esc(p.tag) + "</span><h3>" + esc(p.title) +
       "</h3></div><p>" + esc(p.summary) + "</p><ul>" +

@@ -1,6 +1,10 @@
+/* Renders assets/data.js into the page. Each section renders on its own, so one bad entry can't blank the page. */
 (function () {
   var D = window.PORTFOLIO;
   var $ = function (s) { return document.querySelector(s); };
+  var showAppError = function () { var el = $("#appError"); if (el) el.hidden = false; };
+  if (!D) { showAppError(); return; }
+
   var esc = function (s) {
     return String(s).replace(/[&<>"']/g, function (c) {
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
@@ -8,42 +12,77 @@
   };
   var list = function (arr, fn) { return arr.map(fn).join(""); };
 
-  var ICONS = {
-    users: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/>',
-    activity: '<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>',
-    flow: '<rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="15" width="6" height="6" rx="1"/><path d="M6 9v3a3 3 0 0 0 3 3h6"/><path d="M18 9V3M15 6h6"/>',
-    layout: '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>',
-    file: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/>',
-    check: '<path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>',
-  };
-  var icon = function (n) { return '<svg viewBox="0 0 24 24">' + (ICONS[n] || ICONS.file) + "</svg>"; };
+  // Fills a container, or shows msg.empty when there is nothing to list.
+  // A render error shows msg.error in place and leaves the other sections working.
+  function section(sel, items, renderItem, msg) {
+    var el = $(sel);
+    if (!el) return;
+    var stateTag = /^(UL|OL)$/.test(el.tagName) ? "li" : "p";
+    try {
+      el.innerHTML = items && items.length
+        ? list(items, renderItem)
+        : "<" + stateTag + ' class="state">' + esc(msg.empty) + "</" + stateTag + ">";
+    } catch (err) {
+      console.error("Render failed for " + sel, err);
+      el.innerHTML = "<" + stateTag + ' class="state state--error" role="alert">' + esc(msg.error) + "</" + stateTag + ">";
+    }
+  }
+  var REFRESH = " Refresh the page, or download the CV for the same details.";
 
-  // ---------- Simple bindings ----------
+  // Logo lookup by path, so case studies reuse the client entry's size and alt text.
+  var logoInfo = {};
+  (D.clients || []).forEach(function (c) { if (c.logo) logoInfo[c.logo] = c; });
+  function logoImg(path, height) {
+    var c = logoInfo[path] || { name: "", logoSize: [160, 40] };
+    var size = c.logoSize || [160, 40];
+    var h = height || c.logoHeight || 40;
+    var w = Math.round(size[0] * h / size[1]);
+    return '<img src="' + esc(path) + '" alt="' + esc(c.name) + '" width="' + w + '" height="' + h + '" style="height:' + h + 'px" data-name="' + esc(c.name) + '" />';
+  }
+  // A missing logo file falls back to the company name as text.
+  document.addEventListener("error", function (e) {
+    var img = e.target;
+    if (img.tagName !== "IMG" || !img.dataset.name) return;
+    var span = document.createElement("span");
+    span.className = "client__name";
+    span.textContent = img.dataset.name;
+    img.replaceWith(span);
+  }, true);
+
   document.querySelectorAll("[data-bind]").forEach(function (el) {
     el.textContent = D[el.dataset.bind] || "";
   });
-  var hrefs = { cv: D.cv, linkedin: D.linkedin, github: D.github, whatsapp: D.whatsapp, mailto: "mailto:" + D.email };
+  var hrefs = { linkedin: D.linkedin, github: D.github, whatsapp: D.whatsapp, mailto: D.email && "mailto:" + D.email };
   document.querySelectorAll("[data-href]").forEach(function (el) {
-    el.href = hrefs[el.dataset.href] || "#";
+    var url = hrefs[el.dataset.href];
+    if (url) el.href = url;
+    else el.hidden = true;
+  });
+  // Without a CV file the buttons stay visible but say so, instead of linking nowhere.
+  document.querySelectorAll("[data-cv]").forEach(function (el) {
+    if (D.cv) { el.href = D.cv; return; }
+    el.removeAttribute("href");
+    el.setAttribute("aria-disabled", "true");
+    el.textContent = "CV coming soon";
   });
   $("#year").textContent = new Date().getFullYear();
 
-  // ---------- Hero ----------
-  $("#heroTags").innerHTML = list(D.heroTags || [], function (t) { return "<span>" + esc(t) + "</span>"; });
-  $("#stats").innerHTML = list(D.stats || [], function (s) {
-    return "<li><strong>" + esc(s.value) + "</strong><span>" + esc(s.label) + "</span></li>";
-  });
-  $("#badgeExp").textContent = D.badgeTag || "";
+  $("#heroWhere").textContent = D.heroWhere || "";
+  section("#heroTags", D.heroTags, function (t) { return "<span>" + esc(t) + "</span>"; }, { empty: "", error: "" });
+  section("#figures", D.stats, function (s) {
+    return "<div><dt>" + esc(s.label) + "</dt><dd>" + esc(s.value) + "</dd></div>";
+  }, { empty: "", error: "" });
   $("#badgePhoto").innerHTML = D.photo
-    ? '<img src="' + esc(D.photo) + '" alt="' + esc(D.fullName || D.name) + '" draggable="false" />'
-    : '<span class="badge__initials">' + esc((D.name || "").split(" ").map(function (w) { return w[0]; }).join("").slice(0, 2)) + "</span>";
+    ? '<img src="' + esc(D.photo) + '" alt="Photo of ' + esc(D.fullName || D.name) + '" width="224" height="186" draggable="false" />'
+    : '<span class="badge__initials" aria-hidden="true">' + esc((D.name || "").split(" ").map(function (w) { return w[0]; }).join("").slice(0, 2)) + "</span>";
 
-  // Lanyard card: drag to swing, it settles back like a pendulum
+  // Drag the lanyard card and it swings back like a pendulum. Decorative, so it is pointer-only.
   (function () {
     var badge = $("#badge"), area = $(".badge-area");
     if (!badge) return;
     var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    var angle = reduce ? 0 : 6, vel = 0, dragging = false, pivot, raf = null;
+    if (reduce) { $("#badgeHint").hidden = true; return; }
+    var angle = 6, vel = 0, dragging = false, pivot, raf = null;
     var render = function () { badge.style.transform = "rotate(" + angle.toFixed(2) + "deg)"; };
     var tick = function () {
       if (!dragging) {
@@ -52,7 +91,7 @@
       }
       render(); raf = requestAnimationFrame(tick);
     };
-    var start = function () { if (!raf && !reduce) raf = requestAnimationFrame(tick); };
+    var start = function () { if (!raf) raf = requestAnimationFrame(tick); };
     badge.addEventListener("pointerdown", function (e) {
       dragging = true; badge.classList.add("is-dragging"); badge.setPointerCapture(e.pointerId);
       var r = area.getBoundingClientRect(); pivot = { x: r.left + r.width / 2, y: r.top };
@@ -60,8 +99,7 @@
     });
     badge.addEventListener("pointermove", function (e) {
       if (!dragging) return;
-      var next = Math.atan2(pivot.x - e.clientX, e.clientY - pivot.y) * -180 / Math.PI;
-      next = Math.max(-55, Math.min(55, next));
+      var next = Math.max(-55, Math.min(55, Math.atan2(pivot.x - e.clientX, e.clientY - pivot.y) * -180 / Math.PI));
       vel = next - angle; angle = next;
     });
     var end = function () { if (!dragging) return; dragging = false; badge.classList.remove("is-dragging"); start(); };
@@ -70,23 +108,21 @@
     render(); start();
   })();
 
-  // ---------- About ----------
-  $("#aboutText").innerHTML = list(D.about, function (p) { return "<p>" + esc(p) + "</p>"; });
-  $("#facts").innerHTML = list([["Based in", D.location]].concat(D.facts || []), function (f) {
+  section("#aboutText", D.about, function (p) { return "<p>" + esc(p) + "</p>"; },
+    { empty: "The profile summary hasn't been written yet.", error: "Couldn't show the profile summary." + REFRESH });
+  section("#facts", [["Based in", D.location]].concat(D.facts || []), function (f) {
     return "<div><dt>" + esc(f[0]) + "</dt><dd>" + esc(f[1]) + "</dd></div>";
-  });
+  }, { empty: "", error: "Couldn't show these details." });
 
-  // ---------- Services & documents ----------
-  $("#services-grid").innerHTML = list(D.services, function (s, i) {
-    return '<article class="card"><div class="card__top"><div class="card__icon">' + icon(s.icon) + '</div><span class="card__id">REQ-' +
-      String(i + 1).padStart(2, "0") + "</span></div><h3>" + esc(s.title) + "</h3><p>" + esc(s.text) + "</p></article>";
-  });
-  $("#docs").innerHTML = list(D.deliverables, function (d) {
-    return '<article class="card doc"><div class="doc__code">' + esc(d.code) + '</div><p class="doc__name">' + esc(d.name) +
-      "</p><ul>" + list(d.items, function (i) { return "<li>" + esc(i) + "</li>"; }) + "</ul></article>";
-  });
+  section("#reqs", D.services, function (s, i) {
+    return '<li><span class="req__id">REQ-' + String(i + 1).padStart(2, "0") + "</span><h3>" + esc(s.title) + "</h3><p>" + esc(s.text) + "</p></li>";
+  }, { empty: "No services are listed yet. The work history below shows what I've delivered.", error: "Couldn't show the services list." + REFRESH });
+  section("#docs", D.deliverables, function (d) {
+    return '<li class="doc"><div class="doc__code">' + esc(d.code) + '</div><p class="doc__name">' + esc(d.name) +
+      '</p><ul class="doc__items">' + list(d.items, function (i) { return "<li>" + esc(i) + "</li>"; }) + "</ul></li>";
+  }, { empty: "No document types are listed yet.", error: "Couldn't show the document list." + REFRESH });
 
-  // ---------- Workflow swimlanes (vertical: lanes are columns, phases run downward) ----------
+  // Swimlane SVG. Lanes are columns and phases run downward, so the long flow scrolls with the page.
   function swimlane(wf) {
     var W = 1120, PH = 120, HEAD = 52, PITCH = 72, NH = 48, PAD = 20;
     var LW = (W - PH) / wf.lanes.length;
@@ -113,14 +149,12 @@
       var p = { down: [[x - 4, y - 7], [x + 4, y - 7]], left: [[x + 7, y - 4], [x + 7, y + 4]], right: [[x - 7, y - 4], [x - 7, y + 4]] }[dir];
       return '<path d="M' + x + " " + y + "L" + p[0][0] + " " + p[0][1] + "L" + p[1][0] + " " + p[1][1] + 'Z" class="wl-head-arrow"/>';
     };
-    // lanes
     wf.lanes.forEach(function (name, i) {
       o.push('<rect x="' + laneX(i) + '" y="0" width="' + LW + '" height="' + H + '" class="' + (i === wf.me ? "wl-lane wl-lane--me" : "wl-lane") + '"/>');
       o.push('<text x="' + (laneX(i) + LW / 2) + '" y="' + HEAD / 2 + '" class="wl-head">' + esc(name.toUpperCase()) + "</text>");
     });
     o.push('<line x1="0" y1="' + HEAD + '" x2="' + W + '" y2="' + HEAD + '" class="wl-rule-strong"/>');
     o.push('<text x="14" y="' + HEAD / 2 + '" class="wl-head" text-anchor="start">PHASE</text>');
-    // phases
     wf.phases.forEach(function (p, i) {
       var y0 = HEAD + p[1] * PITCH;
       if (i) o.push('<line x1="0" y1="' + y0 + '" x2="' + W + '" y2="' + y0 + '" class="wl-phase-rule"/>');
@@ -133,7 +167,7 @@
         if (k === words.length - 1) o.push('<text x="14" y="' + ly + '" class="wl-phase">' + esc(line) + "</text>");
       });
     });
-    // edges (drawn before nodes so boxes sit on top)
+    // Edges first, so the boxes draw over their ends.
     wf.edges.forEach(function (e) {
       var a = byId[e[0]], b = byId[e[1]], opt = e[2] || {}, d, lx, ly, tip;
       if (opt.kind === "assoc") {
@@ -165,7 +199,6 @@
       o.push('<path d="' + d + '" class="wl-edge"/>' + tip);
       if (opt.label) o.push('<text x="' + lx + '" y="' + ly + '" class="wl-elabel">' + esc(opt.label) + "</text>");
     });
-    // nodes
     wf.nodes.forEach(function (n) {
       var g = byId[n.id], lines = n.label.split("\n");
       if (n.type === "start" || n.type === "end") {
@@ -189,91 +222,124 @@
     return o.join("");
   }
 
+  // Workflow tabs: one panel per methodology, arrow keys move between tabs (ARIA tabs pattern).
   var wfs = D.workflows || [];
-  $("#wf-tabs").innerHTML = list(wfs, function (w, i) {
-    return '<button type="button" role="tab" id="tab-' + w.id + '" aria-controls="panel-' + w.id + '" aria-selected="' + (i === 0) + '">' + esc(w.name) + "</button>";
-  });
-  $("#wf-panels").innerHTML = list(wfs, function (w, i) {
-    return '<figure class="wf" role="tabpanel" id="panel-' + w.id + '" aria-labelledby="tab-' + w.id + '"' + (i ? " hidden" : "") +
-      "><figcaption>" + esc(w.caption) + '</figcaption><div class="wf__scroll">' + swimlane(w) + "</div></figure>";
-  });
-  $("#wf-tabs").addEventListener("click", function (ev) {
-    var btn = ev.target.closest("button");
-    if (!btn) return;
-    document.querySelectorAll("#wf-tabs button").forEach(function (b) {
+  var wfToggle = $("#wf-toggle"), wfPanels = $("#wf-panels");
+  section("#wf-tabs", wfs, function (w, i) {
+    return '<button type="button" role="tab" id="tab-' + w.id + '" aria-controls="panel-' + w.id + '" aria-selected="' + (i === 0) + '" tabindex="' + (i === 0 ? 0 : -1) + '">' + esc(w.name) + "</button>";
+  }, { empty: "", error: "" });
+  section("#wf-panels", wfs, function (w, i) {
+    return '<div role="tabpanel" id="panel-' + w.id + '" aria-labelledby="tab-' + w.id + '"' + (i ? " hidden" : "") +
+      '><figure class="wf"><figcaption>' + esc(w.caption) + '</figcaption><div class="wf__scroll" tabindex="0" aria-label="' + esc(w.caption) + ', scrollable">' + swimlane(w) +
+      '</div><p class="wf__hint">Swipe sideways to see every lane.</p></figure></div>';
+  }, { empty: "The workflow diagrams aren't published yet.", error: "Couldn't draw the workflow diagram." + REFRESH });
+  if (!$("#wf-panels .wf")) { wfToggle.disabled = true; wfPanels.classList.remove("is-collapsed"); }
+
+  var tabs = function () { return Array.prototype.slice.call(document.querySelectorAll("#wf-tabs [role=tab]")); };
+  function selectTab(btn) {
+    tabs().forEach(function (b) {
       var on = b === btn;
       b.setAttribute("aria-selected", on);
+      b.tabIndex = on ? 0 : -1;
       document.getElementById(b.getAttribute("aria-controls")).hidden = !on;
     });
+  }
+  $("#wf-tabs").addEventListener("click", function (ev) {
+    var btn = ev.target.closest("[role=tab]");
+    if (btn) selectTab(btn);
+  });
+  $("#wf-tabs").addEventListener("keydown", function (ev) {
+    var all = tabs(), i = all.indexOf(document.activeElement);
+    if (i < 0) return;
+    var next = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: all.length - 1 }[ev.key];
+    if (next === undefined) return;
+    ev.preventDefault();
+    var btn = all[(next + all.length) % all.length];
+    selectTab(btn); btn.focus();
   });
 
-  // Expand / collapse the workflow diagrams (state is shared by both tabs)
-  var wfPanels = $("#wf-panels"), wfToggle = $("#wf-toggle");
+  // One expand state for both tabs. Collapsing from far below scrolls back to the section title.
   wfToggle.addEventListener("click", function () {
     var open = wfPanels.classList.toggle("is-collapsed") === false;
     wfToggle.setAttribute("aria-expanded", open);
     if (!open && $("#workflow").getBoundingClientRect().top < 0) $("#workflow").scrollIntoView({ block: "start" });
   });
 
-  // ---------- Projects ----------
-  var COVER = '<svg viewBox="0 0 170 170"><path d="M20 140h130M35 140v-30M60 140v-55M85 140v-40M110 140v-80M135 140v-60"/><path d="M30 60l35-25 30 15 40-35"/><circle cx="30" cy="60" r="4"/><circle cx="65" cy="35" r="4"/><circle cx="95" cy="50" r="4"/><circle cx="135" cy="15" r="4"/></svg>';
-  $("#cases").innerHTML = list(D.projects, function (p) {
-    return '<article class="card case"><div class="case__cover">' + COVER + '<span class="case__tag">' + esc(p.tag) + '</span></div><div class="case__body"><h3>' +
-      esc(p.title) + "</h3><p>" + esc(p.summary) + '</p><ul class="chips">' +
+  section("#cases", D.projects, function (p) {
+    return '<article class="case"><div class="case__logos">' + list(p.logos || [], function (l) { return logoImg(l); }) +
+      '</div><div class="case__body"><p class="case__meta">' + esc(p.client) + " · " + esc(p.period) + "</p><h3>" + esc(p.title) +
+      "</h3><p>" + esc(p.summary) + '</p><ul class="chips" aria-label="Deliverables">' +
       list(p.deliverables, function (d) { return "<li>" + esc(d) + "</li>"; }) + "</ul></div></article>";
-  });
-  $("#domains").innerHTML = list(D.domains, function (d) {
-    return '<article class="card domain"><h3>' + esc(d.title) + "</h3><p>" + esc(d.text) + "</p></article>";
-  });
+  }, { empty: "No case studies are published yet. The work history below covers the same projects.", error: "Couldn't show the case studies." + REFRESH });
 
-  // ---------- Skills ----------
-  $("#kit").innerHTML = list(Object.keys(D.skills), function (k) {
-    return '<div class="card"><h3>' + esc(k) + '</h3><ul class="chips">' + list(D.skills[k], function (s) { return "<li>" + esc(s) + "</li>"; }) + "</ul></div>";
-  });
+  section("#kit", Object.keys(D.skills || {}), function (k) {
+    return "<dt>" + esc(k) + "</dt><dd>" + list(D.skills[k], function (s) { return "<span>" + esc(s) + "</span>"; }) + "</dd>";
+  }, { empty: "No skills are listed yet.", error: "Couldn't show the skills list." + REFRESH });
 
-  // ---------- Experience (first 4 points, rest behind "Show all") ----------
+  // Work history: the first SHOW points of each role, the rest behind a toggle.
   var SHOW = 4;
-  $("#timeline").innerHTML = list(D.experience, function (e, n) {
-    var more = e.points.length - SHOW;
-    return '<li class="tl-item"><div class="tl-period">' + esc(e.period) + '</div><div class="card tl-card"><h3>' + esc(e.title) +
+  section("#timeline", D.experience, function (e, n) {
+    var total = e.points.length;
+    return '<li class="tl-item"><div class="tl-period">' + esc(e.period) + '</div><div class="tl-card"><h3>' + esc(e.title) +
       '</h3><p class="tl-org">' + esc(e.company) + '</p><ul class="tl-points" id="tl-' + n + '">' +
       list(e.points, function (p, i) { return "<li" + (i >= SHOW ? " hidden" : "") + ">" + esc(p) + "</li>"; }) + "</ul>" +
-      (more > 0 ? '<button type="button" class="tl-more" aria-expanded="false" aria-controls="tl-' + n + '" data-more="' + more + '">Show all ' + e.points.length + " points ↓</button>" : "") +
+      (total > SHOW ? '<button type="button" class="tl-more" aria-expanded="false" aria-controls="tl-' + n + '" data-total="' + total + '">Show all ' + total + " points</button>" : "") +
       "</div></li>";
-  });
+  }, { empty: "Work history will be added soon.", error: "Couldn't show the work history." + REFRESH });
   $("#timeline").addEventListener("click", function (ev) {
     var b = ev.target.closest(".tl-more");
     if (!b) return;
     var open = b.getAttribute("aria-expanded") !== "true";
     document.querySelectorAll("#" + b.getAttribute("aria-controls") + " li").forEach(function (li, i) { if (i >= SHOW) li.hidden = !open; });
     b.setAttribute("aria-expanded", open);
-    b.textContent = open ? "Show less ↑" : "Show all " + (SHOW + Number(b.dataset.more)) + " points ↓";
+    b.textContent = open ? "Show fewer points" : "Show all " + b.dataset.total + " points";
   });
 
-  // ---------- Clients ----------
-  $("#clientsGrid").innerHTML = list(D.clients || [], function (c) {
-    var mark = c.logo
-      ? '<img src="' + esc(c.logo) + '" alt="' + esc(c.name) + '"' + (c.logoHeight ? ' style="height:' + Number(c.logoHeight) + 'px"' : "") + " />"
-      : '<span class="client__name">' + esc(c.name) + "</span>";
+  section("#clientsGrid", D.clients, function (c) {
+    var mark = c.logo ? logoImg(c.logo) : '<span class="client__name">' + esc(c.name) + "</span>";
     return '<li class="client">' + mark + '<span class="client__sector">' + esc(c.sector) + "</span></li>";
+  }, { empty: "The client list will be added soon.", error: "Couldn't show the client list." + REFRESH });
+
+  // Copy email. Clipboard access can be refused (http, old browsers), so the fallback selects the text.
+  var copyBtn = $("#copyEmail"), copyStatus = $("#copyStatus"), emailText = $("#emailText");
+  function selectEmail() {
+    var range = document.createRange();
+    range.selectNodeContents(emailText);
+    var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+  }
+  copyBtn.addEventListener("click", function () {
+    var done = function () { copyStatus.textContent = "Email address copied."; copyBtn.textContent = "Copied"; };
+    var fail = function () { selectEmail(); copyStatus.textContent = "Couldn't copy automatically. The address is selected: press Ctrl+C (or Cmd+C) to copy it."; };
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(D.email).then(done, fail);
+    else fail();
+    setTimeout(function () { copyBtn.textContent = "Copy"; }, 2500);
   });
 
-  // ---------- Nav: mobile menu + active section ----------
-  var burger = $("#burger"), links = $("#navLinks");
-  burger.addEventListener("click", function () {
-    var open = links.classList.toggle("open");
+  // Mobile menu: the button label says what it will do; Escape and link taps close it.
+  var burger = $("#burger"), burgerLabel = $("#burgerLabel"), links = $("#navLinks");
+  function setMenu(open) {
+    links.classList.toggle("open", open);
     burger.setAttribute("aria-expanded", open);
+    burgerLabel.textContent = open ? "Close" : "Menu";
+  }
+  burger.addEventListener("click", function () { setMenu(!links.classList.contains("open")); });
+  links.addEventListener("click", function (e) { if (e.target.closest("a")) setMenu(false); });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && links.classList.contains("open")) { setMenu(false); burger.focus(); }
   });
-  links.addEventListener("click", function (e) {
-    if (e.target.tagName === "A") { links.classList.remove("open"); burger.setAttribute("aria-expanded", false); }
-  });
+
+  // Highlight the nav link of the section in the middle of the screen.
   if ("IntersectionObserver" in window) {
     var navA = {};
     links.querySelectorAll("a").forEach(function (a) { navA[a.getAttribute("href").slice(1)] = a; });
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        if (!en.isIntersecting || !navA[en.target.id]) return;
-        Object.keys(navA).forEach(function (k) { navA[k].classList.toggle("is-active", k === en.target.id); });
+        if (!en.isIntersecting) return;
+        Object.keys(navA).forEach(function (k) {
+          var on = k === en.target.id;
+          navA[k].classList.toggle("is-active", on);
+          if (on) navA[k].setAttribute("aria-current", "true"); else navA[k].removeAttribute("aria-current");
+        });
       });
     }, { rootMargin: "-45% 0px -50% 0px" });
     document.querySelectorAll("main section[id]").forEach(function (s) { io.observe(s); });

@@ -1,6 +1,6 @@
 /*
- * Portfolio content — edit this file to update the site.
- * Items marked "TODO" are placeholders to replace with your real details.
+ * Portfolio content. Edit this file to update the site; main.js renders it.
+ * Anything still marked "TODO" is a placeholder, not real data.
  */
 window.PORTFOLIO = {
   name: "Rayhan Ravandika",
@@ -16,9 +16,12 @@ window.PORTFOLIO = {
   github: "https://github.com/ivanrayhannn",
   cv: "assets/CV_Muhammad_Rayhan_Ravandika.pdf",
 
+  heroWhere: "South Jakarta · currently at Fujitsu, onsite at Toyota Indonesia",
   photo: "", // optional: path to your photo for the ID card, e.g. "assets/photo.jpg"
-  badgeTag: "4 YRS EXP",
+  badgeTag: "4 yrs experience",
   heroTags: ["Business System Analysis", "IT Project Management", "BRD · FSD · TSD", "Testing Strategy"],
+  // Figures come from the CV (Fujitsu role). statsSource is shown under them.
+  statsSource: "Figures from my Fujitsu role at Toyota Indonesia, 2023 to now.",
   stats: [
     { value: "4", label: "IT projects led" },
     { value: "8", label: "vendor teams managed" },
@@ -31,25 +34,24 @@ window.PORTFOLIO = {
     ["Experience", "4 years · Fujitsu, Jojonomic"],
     ["Track record", "4 projects · 8 vendor teams · 8 systems · 50+ integrations"],
     ["Budget", "$12M+ digital transformation"],
-    ["Education", "B.Sc. Information Systems, Brawijaya University (2017–2021)"],
+    ["Education", "B.Sc. Information Systems, Brawijaya University (2017 to 2021)"],
   ],
 
   /*
    * Clients and employers shown in the "Worked with" strip.
    * logo: optional path to an official logo file, e.g. "assets/clients/toyota.svg".
-   * logoHeight: optional display height in px, to balance logos of different shapes.
-   * logoLight: true for pale logos, so they stay readable when shown in greyscale.
+   * logoHeight: display height in px, to balance square and wide logos. logoSize: intrinsic [w, h].
    * Leave it empty to show the name as a text wordmark.
    */
   clients: [
-    { name: "Toyota Indonesia", sector: "Automotive", logo: "assets/clients/toyota-indonesia.png", logoHeight: 40 },
-    { name: "Fujitsu", sector: "IT services", logo: "assets/clients/fujitsu.png", logoHeight: 42 },
-    { name: "Adhi Persada Beton", sector: "Construction materials", logo: "assets/clients/adhi-beton.png", logoHeight: 58 },
-    { name: "Amway", sector: "Direct selling", logo: "assets/clients/amway.png", logoHeight: 40 },
-    { name: "CIMB Niaga", sector: "Banking", logo: "assets/clients/cimb-niaga.png", logoHeight: 26 },
-    { name: "Bank Papua", sector: "Banking", logo: "assets/clients/bank-papua.png", logoHeight: 40 },
-    { name: "FWD", sector: "Insurance", logo: "assets/clients/fwd.png", logoHeight: 32 },
-    { name: "Jojonomic", sector: "HR tech", logo: "assets/clients/jojonomic.png", logoHeight: 58, logoLight: true },
+    { name: "Toyota Indonesia", sector: "Automotive", logo: "assets/clients/toyota-indonesia.png", logoSize: [647, 240], logoHeight: 40 },
+    { name: "Fujitsu", sector: "IT services", logo: "assets/clients/fujitsu.png", logoSize: [495, 240], logoHeight: 42 },
+    { name: "Adhi Persada Beton", sector: "Construction materials", logo: "assets/clients/adhi-beton.png", logoSize: [267, 240], logoHeight: 58 },
+    { name: "Amway", sector: "Direct selling", logo: "assets/clients/amway.png", logoSize: [707, 240], logoHeight: 40 },
+    { name: "CIMB Niaga", sector: "Banking", logo: "assets/clients/cimb-niaga.png", logoSize: [548, 87], logoHeight: 26 },
+    { name: "Bank Papua", sector: "Banking", logo: "assets/clients/bank-papua.png", logoSize: [548, 118], logoHeight: 40 },
+    { name: "FWD", sector: "Insurance", logo: "assets/clients/fwd.png", logoSize: [548, 192], logoHeight: 32 },
+    { name: "Jojonomic", sector: "HR tech", logo: "assets/clients/jojonomic.png", logoSize: [251, 240], logoHeight: 58 },
   ],
 
   about: [
@@ -78,13 +80,13 @@ window.PORTFOLIO = {
    * Project workflows drawn as vertical swimlanes.
    * lanes: columns, left to right. phases: [label, firstRow, lastRow].
    * nodes: { id, row, lane, label ("\n" = new line), type: task | start | end | gw, span: [fromLane, toLane] }
-   * edges: [from, to, options] — options: { label, kind: "assoc" (dashed, no arrow) | "loop" (drawn on the right side) }
+   * edges: [from, to, options]. options: { label, kind: "assoc" (dashed, no arrow) | "loop" (drawn on the right side) }
    */
   workflows: [
     {
       id: "waterfall",
       name: "Waterfall",
-      caption: "Fig. 2 — Waterfall project, from user requirement to go-live",
+      caption: "Fig. 1: Waterfall project, from user requirement to go-live",
       lanes: ["Business User", "Business System Analyst", "IT Management", "Vendor / Dev Team"],
       me: 1,
       phases: [
@@ -102,7 +104,7 @@ window.PORTFOLIO = {
         { id: "val", row: 3, lane: 1, label: "Validate with user" },
         { id: "rev", row: 3, lane: 0, label: "Review BRD & FSD" },
         { id: "ok", row: 4, lane: 1, type: "gw", label: "Approved?" },
-        { id: "so", row: 5, span: [0, 2], label: "Sign-off BRD & FSD — Business User & IT Management" },
+        { id: "so", row: 5, span: [0, 2], label: "Sign-off BRD & FSD: Business User & IT Management" },
         { id: "plan", row: 6, lane: 1, label: "Project schedule, budget\n& resource per feature" },
         { id: "tsd", row: 7, lane: 3, label: "Write TSD" },
         { id: "mon1", row: 7, lane: 1, label: "Monitor daily progress,\nanswer questions" },
@@ -138,7 +140,7 @@ window.PORTFOLIO = {
     {
       id: "agile",
       name: "Agile",
-      caption: "Fig. 3 — Agile (Scrum) project, repeated every sprint",
+      caption: "Fig. 2: Agile (Scrum) project, repeated every sprint",
       lanes: ["Product Owner / User", "Business System Analyst", "Scrum Team (Dev & QA)", "IT Management"],
       me: 1,
       phases: [
@@ -156,7 +158,7 @@ window.PORTFOLIO = {
         { id: "pb", row: 3, lane: 0, label: "Prioritise product\nbacklog" },
         { id: "rm", row: 4, lane: 1, label: "Release roadmap, budget\n& resource plan" },
         { id: "arm", row: 5, lane: 3, label: "Approve roadmap\n& budget" },
-        { id: "sp", row: 6, span: [0, 2], label: "Sprint planning — pick stories, estimate, assign per feature" },
+        { id: "sp", row: 6, span: [0, 2], label: "Sprint planning: pick stories, estimate, assign per feature" },
         { id: "ref", row: 7, lane: 1, label: "Refine stories into\nlight FSD / TSD" },
         { id: "td", row: 7, lane: 2, label: "Technical design\nper story" },
         { id: "bld", row: 8, lane: 2, label: "Build stories" },
@@ -173,7 +175,7 @@ window.PORTFOLIO = {
         { id: "dpl", row: 15, lane: 1, label: "Deployment procedure\n& monitoring" },
         { id: "go", row: 15, lane: 2, label: "Deploy increment" },
         { id: "e", row: 16, lane: 2, type: "end", label: "Increment live" },
-        { id: "retro", row: 17, span: [0, 2], label: "Retrospective — lessons feed the next sprint" },
+        { id: "retro", row: 17, span: [0, 2], label: "Retrospective: lessons feed the next sprint" },
       ],
       edges: [
         ["s", "ng"], ["ng", "cd"], ["cd", "us"], ["us", "pb"], ["pb", "rm"], ["rm", "arm"], ["arm", "sp"],
@@ -186,34 +188,39 @@ window.PORTFOLIO = {
     },
   ],
 
-  domains: [
-    { title: "Automotive logistics", text: "Material resource and logistics systems at Toyota: 8 systems and 50+ data integrations." },
-    { title: "HRIS", text: "HR information system product: roadmap, PRD, user stories, and release management." },
-    { title: "No-code platform", text: "Product requirements and delivery support for a no-code application platform." },
-    { title: "Insurance & banking", text: "Module improvements for FWD Insurance and CIMB Niaga to match customer needs." },
-  ],
 
+  /*
+   * Case studies. Every fact here comes from the CV.
+   * logos: client logos shown on the case (paths under assets/clients/).
+   */
   projects: [
-    // TODO: replace with your real case studies
     {
-      title: "Inventory Management Enhancement",
-      tag: "ERP",
-      summary: "Mapped multi-warehouse stock-transfer flows and redesigned the approval process to cut manual reconciliation.",
-      deliverables: ["BRD", "BPMN", "FSD", "UAT Plan"],
+      title: "Logistics digital transformation",
+      client: "Toyota Indonesia, via Fujitsu",
+      period: "2023 to present",
+      logos: ["assets/clients/toyota-indonesia.png"],
+      summary: "Led 4 IT development projects for the Logistic Department: 8 vendor teams, 8 systems and 50+ data integrations, delivered with both waterfall and agile, within a $12M+ budget and on schedule.",
+      deliverables: ["Feasibility study", "System architecture", "FSD & specs", "Test strategy", "API validation", "Dashboards"],
     },
     {
-      title: "Customer Onboarding Portal",
-      tag: "Web App",
-      summary: "Gathered requirements from operations and compliance, then designed the onboarding UI and validation rules.",
-      deliverables: ["User Stories", "Wireframes", "FSD", "Test Scenarios"],
+      title: "HRIS product and no-code platform",
+      client: "Jojonomic",
+      period: "2022 to 2023",
+      logos: ["assets/clients/jojonomic.png"],
+      summary: "As associate Product Owner for the HRIS, owned the roadmap, PRD and user stories, aligned CTO, VP and product teams on scope and releases, and supported the No-Code Platform product.",
+      deliverables: ["Roadmap", "PRD", "User stories", "JSON API spec", "UI design", "UAT"],
     },
     {
-      title: "Approval Workflow Digitalisation",
-      tag: "Workflow",
-      summary: "Replaced a paper-based approval chain with a configurable, role-based digital workflow and audit trail.",
-      deliverables: ["As-is / To-be", "BRD", "TSD", "RTM"],
+      title: "Insurance and banking module improvements",
+      client: "FWD Insurance and CIMB Niaga, via Jojonomic",
+      period: "2022 to 2023",
+      logos: ["assets/clients/fwd.png", "assets/clients/cimb-niaga.png"],
+      summary: "Improved several modules to match customer needs: gathered and prioritised requirements, ran sprint planning and reviews, monitored daily progress and resolved data and integration issues during unit testing.",
+      deliverables: ["Requirement backlog", "Sprint planning", "Daily monitoring", "Issue resolution"],
     },
   ],
+  // Shown under the case studies until their write-ups exist.
+  projectsPending: "Write-ups for Adhi Persada Beton, Amway and Bank Papua are in progress.",
 
   skills: {
     "Analysis & Modelling": ["Requirement Gathering", "Feasibility Study", "Business Process (BPMN)", "Use Case", "User Story", "ERD", "Impact & Risk Analysis"],
@@ -225,7 +232,7 @@ window.PORTFOLIO = {
 
   experience: [
     {
-      period: "2023 — Present",
+      period: "2023 to present",
       title: "IT PM & Business System Analyst",
       company: "Fujitsu · onsite at Toyota, Logistic Department",
       points: [
@@ -242,7 +249,7 @@ window.PORTFOLIO = {
       ],
     },
     {
-      period: "2022 — 2023",
+      period: "2022 to 2023",
       title: "System Analyst",
       company: "Jojonomic",
       points: [
@@ -258,7 +265,7 @@ window.PORTFOLIO = {
       ],
     },
     {
-      period: "2022 — 2023",
+      period: "2022 to 2023",
       title: "Business Analyst (Interim)",
       company: "Jojonomic · FWD Insurance and CIMB Niaga projects",
       points: [

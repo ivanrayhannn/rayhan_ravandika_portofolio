@@ -1,30 +1,36 @@
-# Rayhan Ravandika — Portfolio
+# Rayhan Ravandika portfolio
 
-Static single-page portfolio for a Business System Analyst, in a deep-blue theme with a draggable lanyard ID card. No build step: plain HTML, CSS and JavaScript.
+Single-page portfolio for an IT PM and Business System Analyst. Plain HTML, CSS and JavaScript, no build step. Design direction and the reason behind each choice are in [DESIGN.md](DESIGN.md).
 
-## Structure
+Live: https://ivanrayhannn.github.io/rayhan_ravandika_portofolio/
+
+## Files
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | Page layout and sections |
-| `assets/data.js` | **All content** (name, services, projects, skills, experience, links). Edit this file to update the site. |
-| `assets/main.js` | Renders content, the workflow swimlanes, the draggable ID card, and the nav |
-| `assets/styles.css` | Styling, light and dark themes |
+| `index.html` | Page structure, loading text and the no-JavaScript message |
+| `assets/data.js` | All content: profile, services, workflows, case studies, skills, work history, clients, links |
+| `assets/main.js` | Renders the content, the workflow swimlanes, the ID card, the tabs, the copy button and the nav |
+| `assets/styles.css` | Styles for desktop, tablet and phone |
+| `assets/clients/` | Client logos (see the README there) |
+| `assets/CV_Muhammad_Rayhan_Ravandika.pdf` | The CV behind the "Download CV" buttons |
 
-To show your photo on the ID card, add the image to `assets/` and set `photo` in `assets/data.js`.
+## Common edits
 
-Entries marked `TODO` in `assets/data.js` are placeholders: email, LinkedIn, CV link, projects, and work history.
+- Content: edit `assets/data.js`. Empty lists show an explanation instead of a blank section.
+- Photo on the ID card: add the image to `assets/` and set `photo` in `assets/data.js`.
+- Workflow steps: edit `workflows` in `assets/data.js`; the diagrams redraw from it.
 
 ## Run locally
-
-Open `index.html` in a browser, or serve it:
 
 ```bash
 python3 -m http.server 8000
 ```
 
+Then open http://localhost:8000. Copy-to-clipboard needs `localhost` or HTTPS; elsewhere it falls back to selecting the address.
+
 ## Deploy
 
-Figma design: https://www.figma.com/design/gU6TdvJecOgKTtGIuvIjF3
+Every push to `claude/optimistic-faraday-6kxzio` or `main` deploys to GitHub Pages through `.github/workflows/pages.yml`.
 
-Netlify: connect the repository. `netlify.toml` publishes the repo root. It also works as-is on GitHub Pages or Vercel.
+The Figma file (https://www.figma.com/design/gU6TdvJecOgKTtGIuvIjF3) still shows an earlier design.

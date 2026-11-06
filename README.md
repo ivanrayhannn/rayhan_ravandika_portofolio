@@ -1,6 +1,6 @@
 # Rayhan Ravandika — Portfolio
 
-Static single-page portfolio for a Business System Analyst, styled as a working specification document ("Spec Sheet"). No build step: plain HTML, CSS and JavaScript.
+Static single-page portfolio for a Business System Analyst, in a deep-blue theme with a draggable lanyard ID card. No build step: plain HTML, CSS and JavaScript.
 
 ## Structure
 
@@ -8,8 +8,10 @@ Static single-page portfolio for a Business System Analyst, styled as a working 
 | --- | --- |
 | `index.html` | Page layout and sections |
 | `assets/data.js` | **All content** (name, services, projects, skills, experience, links). Edit this file to update the site. |
-| `assets/main.js` | Renders content into the page and handles the theme toggle |
+| `assets/main.js` | Renders content, the workflow swimlanes, the draggable ID card, and the nav |
 | `assets/styles.css` | Styling, light and dark themes |
+
+To show your photo on the ID card, add the image to `assets/` and set `photo` in `assets/data.js`.
 
 Entries marked `TODO` in `assets/data.js` are placeholders: email, LinkedIn, CV link, projects, and work history.
 

@@ -4,248 +4,190 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Rayhan Ravandika</title>
-  <meta name="description" content="Rayhan Ravandika, Business System Analyst. User requirements, business process flows, UI design, BRD / FSD / TSD, and testing strategy." />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%23F4F5F1'/><rect x='8' y='30' width='48' height='18' fill='%23F2DA4A'/><text x='32' y='44' text-anchor='middle' font-family='Georgia' font-weight='700' font-size='30' fill='%231C2421'>R</text></svg>" />
+  <meta name="description" content="Rayhan Ravandika, IT PM and Business System Analyst. User requirements, business process flows, UI design, BRD / FSD / TSD, testing strategy, and project delivery." />
+  <meta name="theme-color" content="#0b3a9e" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230d47c9'/><text x='32' y='43' text-anchor='middle' font-family='Arial' font-weight='800' font-size='30' fill='white'>R.</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Caveat:wght@500;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/styles.css" />
-  <script>
-    try { var t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
-  </script>
 </head>
 <body>
-  <header class="bar">
-    <div class="wrap bar__inner">
-      <a href="#top" class="bar__name"><span data-bind="name"></span></a>
-      <nav class="bar__nav" id="nav" aria-label="Sections">
+  <div class="sky" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="wrap nav__inner">
+      <a href="#home" class="nav__logo">Rayhan<span>.</span></a>
+      <nav class="nav__links" id="navLinks" aria-label="Sections">
+        <a href="#home">Home</a>
         <a href="#about">About</a>
-        <a href="#scope">Scope</a>
+        <a href="#services">Services</a>
         <a href="#workflow">Workflow</a>
-        <a href="#work">Work</a>
-        <a href="#history">History</a>
-        <a href="#signoff">Contact</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#clients">Clients</a>
+        <a href="#contact">Contact</a>
       </nav>
-      <button class="bar__theme" id="themeToggle" type="button" aria-label="Switch light or dark theme">
-        <span class="bar__theme-light">Dark</span><span class="bar__theme-dark">Light</span>
+      <a class="nav__cv" data-href="cv" target="_blank" rel="noopener">CV</a>
+      <button class="nav__burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
-  <main id="top">
-    <!-- COVER -->
-    <section class="cover wrap">
-      <div class="doc-meta mono">
-        <span>DOC-RR-001</span><span>Portfolio · Rev. <span id="rev"></span></span><span class="status"><i></i>Available for projects</span>
-      </div>
-
-      <div class="cover__grid">
-        <div class="cover__main">
-          <p class="cover__kicker"><span data-bind="name"></span>, <span data-bind="role"></span></p>
-          <h1>I write the <mark class="hl">requirements</mark> that teams actually build from.</h1>
-          <p class="cover__lede" data-bind="tagline"></p>
-          <div class="cover__actions">
-            <a href="#work" class="btn btn--ink">See case studies</a>
-            <a href="#" class="btn btn--line" data-href="cv" target="_blank" rel="noopener">Download CV</a>
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="wrap hero__inner">
+        <div class="hero__text">
+          <p class="eyebrow">Welcome to my portfolio</p>
+          <h1>Hi, I'm<br /><span class="accent" data-bind="name"></span></h1>
+          <p class="hero__role" data-bind="role"></p>
+          <p class="hero__tags" id="heroTags"></p>
+          <p class="hero__lede" data-bind="tagline"></p>
+          <div class="hero__actions">
+            <a href="#contact" class="btn btn--white">Contact me</a>
+            <a href="#experience" class="btn btn--ghost">See experience</a>
+            <a class="btn btn--ghost" data-href="cv" target="_blank" rel="noopener">Download CV</a>
           </div>
+          <ul class="stats" id="stats"></ul>
         </div>
 
-        <aside class="cover__card" aria-label="Document properties">
-          <table class="props" id="props">
-            <tr><th>Owner</th><td data-bind="name"></td></tr>
-            <tr><th>Role</th><td data-bind="role"></td></tr>
-            <tr><th>Based in</th><td data-bind="location"></td></tr>
-          </table>
-          <p class="note note--card">every project starts with “why?”</p>
-        </aside>
-      </div>
-
-      <figure class="lanes">
-        <figcaption class="mono">Fig. 1 — How a request moves from a business need to sign-off</figcaption>
-        <div class="lanes__scroll">
-          <svg viewBox="0 0 1080 300" role="img" aria-label="Swimlane diagram: business raises a need, analyst elicits, models the to-be flow and writes BRD, FSD and TSD, then sign-off leads to build and UAT, or back to review with users.">
-            <defs>
-              <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-                <path d="M0 0L10 5L0 10z" class="arrowhead" />
-              </marker>
-            </defs>
-            <g class="lane"><rect x="0" y="0" width="1080" height="100" /><text x="18" y="55">Business</text></g>
-            <g class="lane lane--me"><rect x="0" y="100" width="1080" height="100" /><text x="18" y="155">Analyst</text></g>
-            <g class="lane"><rect x="0" y="200" width="1080" height="100" /><text x="18" y="255">Delivery</text></g>
-            <line x1="100" y1="0" x2="100" y2="300" class="lane-div" />
-
-            <circle cx="130" cy="50" r="12" class="ev" />
-            <rect x="160" y="30" width="120" height="40" rx="6" class="task" /><text x="220" y="55" class="tl">Raise a need</text>
-            <rect x="310" y="130" width="130" height="40" rx="6" class="task task--me" /><text x="375" y="155" class="tl">Elicit &amp; analyse</text>
-            <rect x="470" y="130" width="130" height="40" rx="6" class="task task--me" /><text x="535" y="155" class="tl">Model to-be flow</text>
-            <rect x="630" y="130" width="130" height="40" rx="6" class="task task--me" /><text x="695" y="155" class="tl">BRD · FSD · TSD</text>
-            <path d="M820 128L842 150L820 172L798 150Z" class="gw" /><text x="852" y="126" class="tl tl--sm" text-anchor="start">Signed off?</text>
-            <rect x="760" y="30" width="120" height="40" rx="6" class="task" /><text x="820" y="55" class="tl">Review with users</text>
-            <rect x="760" y="230" width="120" height="40" rx="6" class="task" /><text x="820" y="255" class="tl">Build</text>
-            <rect x="910" y="230" width="110" height="40" rx="6" class="task" /><text x="965" y="255" class="tl">SIT / UAT</text>
-            <circle cx="1052" cy="250" r="12" class="ev ev--end" />
-
-            <path d="M142 50H158" class="edge" />
-            <path d="M220 70V150H308" class="edge" />
-            <path d="M440 150H468" class="edge" />
-            <path d="M600 150H628" class="edge" />
-            <path d="M760 150H796" class="edge" />
-            <path d="M820 128V72" class="edge" /><text x="828" y="104" class="tl tl--sm" text-anchor="start">No</text>
-            <path d="M760 50H375V128" class="edge" />
-            <path d="M820 172V228" class="edge" /><text x="828" y="206" class="tl tl--sm" text-anchor="start">Yes</text>
-            <path d="M880 250H908" class="edge" />
-            <path d="M1020 250H1038" class="edge" />
-          </svg>
-        </div>
-        <p class="note note--fig">this middle lane is my job</p>
-      </figure>
-    </section>
-
-    <!-- 1 ABOUT -->
-    <section id="about" class="sec wrap">
-      <div class="sec__side">
-        <span class="sec__no mono">§1</span>
-        <p class="note">short version: I translate</p>
-      </div>
-      <div class="sec__body">
-        <h2>Background</h2>
-        <div class="prose" id="aboutText"></div>
-      </div>
-    </section>
-
-    <!-- 2 SCOPE -->
-    <section id="scope" class="sec wrap">
-      <div class="sec__side">
-        <span class="sec__no mono">§2</span>
-      </div>
-      <div class="sec__body">
-        <h2>Scope of work</h2>
-        <p class="sec__intro">What you can hand me, written the way I'd write it in a requirement list.</p>
-        <div class="table-wrap">
-          <table class="req" id="req"></table>
+        <div class="badge-area">
+          <div class="badge" id="badge">
+            <div class="badge__strap" aria-hidden="true"><span>RAYHAN · RAYHAN · RAYHAN · RAYHAN</span></div>
+            <div class="badge__clip" aria-hidden="true"></div>
+            <div class="badge__card">
+              <div class="badge__photo" id="badgePhoto"></div>
+              <p class="badge__name" data-bind="name"></p>
+              <p class="badge__role" data-bind="role"></p>
+              <p class="badge__org">Fujitsu · onsite at Toyota Indonesia</p>
+              <div class="badge__foot">
+                <span id="badgeExp"></span>
+                <span>2022 — Now</span>
+              </div>
+            </div>
+          </div>
+          <p class="badge-hint">Drag the card</p>
         </div>
       </div>
     </section>
 
-    <!-- 3 DELIVERABLES -->
-    <section class="sec wrap">
-      <div class="sec__side">
-        <span class="sec__no mono">§3</span>
-        <p class="note">each one traces back to the one before it</p>
-      </div>
-      <div class="sec__body">
-        <h2>Documents I produce</h2>
-        <div class="docs" id="docs"></div>
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="wrap">
+        <h2 class="title">About me</h2>
+        <div class="about">
+          <div class="about__text" id="aboutText"></div>
+          <aside class="glass about__facts">
+            <h3>At a glance</h3>
+            <dl id="facts"></dl>
+          </aside>
+        </div>
       </div>
     </section>
 
-    <!-- 4 WORKFLOW -->
-    <section id="workflow" class="sec wrap">
-      <div class="sec__side">
-        <span class="sec__no mono">§4</span>
-        <p class="note">same role, two ways of running a project</p>
+    <!-- SERVICES -->
+    <section class="section" id="services">
+      <div class="wrap">
+        <h2 class="title">What I do</h2>
+        <p class="intro">What you can hand me, from the first workshop to go-live.</p>
+        <div class="grid grid--3" id="services-grid"></div>
+
+        <h3 class="subtitle">Documents I produce</h3>
+        <div class="grid grid--4" id="docs"></div>
       </div>
-      <div class="sec__body">
-        <h2>Project workflow</h2>
-        <p class="sec__intro">How I run a project end to end, in a waterfall or an agile team. The highlighted lane is my part of the work.</p>
+    </section>
+
+    <!-- WORKFLOW -->
+    <section class="section" id="workflow">
+      <div class="wrap">
+        <h2 class="title">Project workflow</h2>
+        <p class="intro">How I run a project end to end, in a waterfall or an agile team. The highlighted lane is my part of the work.</p>
         <div class="wf-tabs" id="wf-tabs" role="tablist" aria-label="Project methodology"></div>
-      </div>
-      <div class="wf-full">
-        <div id="wf-panels" class="is-collapsed"></div>
-        <div class="wf-toggle-row">
-          <button type="button" class="wf-toggle" id="wf-toggle" aria-controls="wf-panels" aria-expanded="false">
-            <span class="wf-toggle__open">Expand full workflow</span><span class="wf-toggle__close">Collapse workflow</span>
-            <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.5l4 4 4-4" /></svg>
-          </button>
+        <div class="wf-card">
+          <div id="wf-panels" class="is-collapsed"></div>
+          <div class="wf-toggle-row">
+            <button type="button" class="wf-toggle" id="wf-toggle" aria-controls="wf-panels" aria-expanded="false">
+              <span class="wf-toggle__open">Expand full workflow</span><span class="wf-toggle__close">Collapse workflow</span>
+              <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.5l4 4 4-4" /></svg>
+            </button>
+          </div>
+          <ul class="wf-legend">
+            <li><i class="lg lg--flow"></i>Next step</li>
+            <li><i class="lg lg--assoc"></i>Runs in parallel / I support</li>
+            <li><i class="lg lg--gw"></i>Decision</li>
+            <li><i class="lg lg--me"></i>My lane</li>
+          </ul>
         </div>
-        <ul class="wf-legend mono">
-          <li><i class="lg lg--flow"></i>Next step</li>
-          <li><i class="lg lg--assoc"></i>Runs in parallel / I support</li>
-          <li><i class="lg lg--gw"></i>Decision</li>
-          <li><i class="lg lg--me"></i>My lane</li>
-        </ul>
       </div>
     </section>
 
-    <!-- 5 WORK -->
-    <section id="work" class="sec wrap">
-      <div class="sec__side">
-        <span class="sec__no mono">§5</span>
-      </div>
-      <div class="sec__body">
-        <h2>Case studies</h2>
-        <div class="cases" id="cases"></div>
-        <h3 class="sub">Domains</h3>
-        <dl class="domains" id="domains"></dl>
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="wrap">
+        <h2 class="title">Case studies</h2>
+        <div class="grid grid--3" id="cases"></div>
+
+        <h3 class="subtitle">Domains</h3>
+        <div class="grid grid--4" id="domains"></div>
       </div>
     </section>
 
-    <!-- 6 TOOLKIT -->
-    <section class="sec wrap">
-      <div class="sec__side">
-        <span class="sec__no mono">§6</span>
-      </div>
-      <div class="sec__body">
-        <h2>Toolkit</h2>
-        <dl class="kit" id="kit"></dl>
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="wrap">
+        <h2 class="title">Skills &amp; tools</h2>
+        <div class="skills" id="kit"></div>
       </div>
     </section>
 
-    <!-- 7 HISTORY -->
-    <section id="history" class="sec wrap">
-      <div class="sec__side">
-        <span class="sec__no mono">§7</span>
-      </div>
-      <div class="sec__body">
-        <h2>Revision history</h2>
-        <div class="table-wrap">
-          <table class="rev" id="revs"></table>
-        </div>
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+      <div class="wrap">
+        <h2 class="title">Work experience</h2>
+        <ol class="timeline" id="timeline"></ol>
       </div>
     </section>
 
     <!-- CLIENTS -->
-    <section class="clients wrap" aria-labelledby="clients-title">
-      <div class="clients__head">
-        <h2 id="clients-title" class="mono clients__title">Worked with</h2>
-        <span class="mono clients__sub">Clients and employers, 2022 – today</span>
+    <section class="section" id="clients">
+      <div class="wrap">
+        <h2 class="title">Worked with</h2>
+        <p class="intro">Clients and employers, 2022 – today.</p>
+        <ul class="clients" id="clientsGrid"></ul>
       </div>
-      <ul class="clients__grid" id="clients"></ul>
     </section>
 
-    <!-- 8 SIGN-OFF -->
-    <section id="signoff" class="sec wrap">
-      <div class="sec__side">
-        <span class="sec__no mono">§8</span>
-      </div>
-      <div class="sec__body">
-        <h2>Sign-off</h2>
-        <p class="sec__intro">If you need a BRD, a process redesign, or someone to take a feature from first workshop to UAT, send me a note.</p>
-        <div class="sign">
-          <div class="sign__line">
-            <span class="sign__hand">let's talk</span>
-            <span class="mono sign__label">Approved by</span>
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="wrap">
+        <div class="glass contact">
+          <div class="contact__text">
+            <h2 class="title">Let's work together</h2>
+            <p class="intro">If you need a BRD, a process redesign, or someone to take a feature from first workshop to UAT, send me a note.</p>
           </div>
-          <div class="sign__contact">
-            <span class="mono sign__label">Email</span>
-            <span class="sign__email" data-bind="email"></span>
-            <span class="mono sign__label">Phone / WhatsApp</span>
-            <span class="sign__email" data-bind="phone"></span>
-            <div class="sign__links">
-              <a class="btn btn--ink" data-href="mailto">Write to me</a>
-              <a class="btn btn--line" data-href="whatsapp" target="_blank" rel="noopener">WhatsApp</a>
-              <a class="btn btn--line" data-href="linkedin" target="_blank" rel="noopener">LinkedIn</a>
-              <a class="btn btn--line" data-href="github" target="_blank" rel="noopener">GitHub</a>
-            </div>
+          <dl class="contact__list">
+            <div><dt>Email</dt><dd data-bind="email"></dd></div>
+            <div><dt>Phone / WhatsApp</dt><dd data-bind="phone"></dd></div>
+            <div><dt>Location</dt><dd data-bind="location"></dd></div>
+          </dl>
+          <div class="contact__actions">
+            <a class="btn btn--white" data-href="mailto">Email me</a>
+            <a class="btn btn--ghost" data-href="whatsapp" target="_blank" rel="noopener">WhatsApp</a>
+            <a class="btn btn--ghost" data-href="linkedin" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn btn--ghost" data-href="github" target="_blank" rel="noopener">GitHub</a>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="foot wrap mono">
-    <span>© <span id="year"></span> <span data-bind="name"></span></span>
-    <span>End of document</span>
+  <footer class="foot">
+    <div class="wrap foot__inner">
+      <span>© <span id="year"></span> <span data-bind="fullName"></span></span>
+      <a href="#home">Back to top ↑</a>
+    </div>
   </footer>
 
   <script src="assets/data.js"></script>

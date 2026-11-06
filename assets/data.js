@@ -16,7 +16,17 @@ window.PORTFOLIO = {
   github: "https://github.com/ivanrayhannn",
   cv: "assets/CV_Muhammad_Rayhan_Ravandika.pdf",
 
-  // Shown in the cover's document-properties table
+  photo: "", // optional: path to your photo for the ID card, e.g. "assets/photo.jpg"
+  badgeTag: "4 YRS EXP",
+  heroTags: ["Business System Analysis", "IT Project Management", "BRD · FSD · TSD", "Testing Strategy"],
+  stats: [
+    { value: "4", label: "IT projects led" },
+    { value: "8", label: "vendor teams managed" },
+    { value: "50+", label: "data integrations" },
+    { value: "$12M+", label: "project budget" },
+  ],
+
+  // Shown in the About section's "At a glance" card
   facts: [
     ["Experience", "4 years · Fujitsu, Jojonomic"],
     ["Track record", "4 projects · 8 vendor teams · 8 systems · 50+ integrations"],

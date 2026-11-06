@@ -8,6 +8,17 @@
   };
   var list = function (arr, fn) { return arr.map(fn).join(""); };
 
+  var ICONS = {
+    users: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/>',
+    activity: '<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>',
+    flow: '<rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="15" width="6" height="6" rx="1"/><path d="M6 9v3a3 3 0 0 0 3 3h6"/><path d="M18 9V3M15 6h6"/>',
+    layout: '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>',
+    file: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/>',
+    check: '<path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>',
+  };
+  var icon = function (n) { return '<svg viewBox="0 0 24 24">' + (ICONS[n] || ICONS.file) + "</svg>"; };
+
+  // ---------- Simple bindings ----------
   document.querySelectorAll("[data-bind]").forEach(function (el) {
     el.textContent = D[el.dataset.bind] || "";
   });
@@ -15,32 +26,63 @@
   document.querySelectorAll("[data-href]").forEach(function (el) {
     el.href = hrefs[el.dataset.href] || "#";
   });
+  $("#year").textContent = new Date().getFullYear();
 
-  var now = new Date();
-  $("#year").textContent = now.getFullYear();
-  $("#rev").textContent = now.getFullYear() + "." + String(now.getMonth() + 1).padStart(2, "0");
+  // ---------- Hero ----------
+  $("#heroTags").innerHTML = list(D.heroTags || [], function (t) { return "<span>" + esc(t) + "</span>"; });
+  $("#stats").innerHTML = list(D.stats || [], function (s) {
+    return "<li><strong>" + esc(s.value) + "</strong><span>" + esc(s.label) + "</span></li>";
+  });
+  $("#badgeExp").textContent = D.badgeTag || "";
+  $("#badgePhoto").innerHTML = D.photo
+    ? '<img src="' + esc(D.photo) + '" alt="' + esc(D.fullName || D.name) + '" draggable="false" />'
+    : '<span class="badge__initials">' + esc((D.name || "").split(" ").map(function (w) { return w[0]; }).join("").slice(0, 2)) + "</span>";
 
-  $("#props").insertAdjacentHTML("beforeend", list(D.facts || [], function (f) {
-    return "<tr><th>" + esc(f[0]) + "</th><td>" + esc(f[1]) + "</td></tr>";
-  }));
+  // Lanyard card: drag to swing, it settles back like a pendulum
+  (function () {
+    var badge = $("#badge"), area = $(".badge-area");
+    if (!badge) return;
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var angle = reduce ? 0 : 6, vel = 0, dragging = false, pivot, raf = null;
+    var render = function () { badge.style.transform = "rotate(" + angle.toFixed(2) + "deg)"; };
+    var tick = function () {
+      if (!dragging) {
+        vel += -angle * 0.012; vel *= 0.965; angle += vel;
+        if (Math.abs(angle) < 0.02 && Math.abs(vel) < 0.02) { angle = 0; vel = 0; render(); raf = null; return; }
+      }
+      render(); raf = requestAnimationFrame(tick);
+    };
+    var start = function () { if (!raf && !reduce) raf = requestAnimationFrame(tick); };
+    badge.addEventListener("pointerdown", function (e) {
+      dragging = true; badge.classList.add("is-dragging"); badge.setPointerCapture(e.pointerId);
+      var r = area.getBoundingClientRect(); pivot = { x: r.left + r.width / 2, y: r.top };
+      start();
+    });
+    badge.addEventListener("pointermove", function (e) {
+      if (!dragging) return;
+      var next = Math.atan2(pivot.x - e.clientX, e.clientY - pivot.y) * -180 / Math.PI;
+      next = Math.max(-55, Math.min(55, next));
+      vel = next - angle; angle = next;
+    });
+    var end = function () { if (!dragging) return; dragging = false; badge.classList.remove("is-dragging"); start(); };
+    badge.addEventListener("pointerup", end);
+    badge.addEventListener("pointercancel", end);
+    render(); start();
+  })();
 
-  $("#clients").innerHTML = list(D.clients || [], function (c) {
-    var mark = c.logo
-      ? '<img src="' + esc(c.logo) + '" alt="' + esc(c.name) + '"' + (c.logoHeight ? ' style="height:' + Number(c.logoHeight) + 'px"' : "") + " />"
-      : '<span class="client__name">' + esc(c.name) + "</span>";
-    return '<li class="client' + (c.logoLight ? " client--light" : "") + '">' + mark + '<span class="client__sector mono">' + esc(c.sector) + "</span></li>";
+  // ---------- About ----------
+  $("#aboutText").innerHTML = list(D.about, function (p) { return "<p>" + esc(p) + "</p>"; });
+  $("#facts").innerHTML = list([["Based in", D.location]].concat(D.facts || []), function (f) {
+    return "<div><dt>" + esc(f[0]) + "</dt><dd>" + esc(f[1]) + "</dd></div>";
   });
 
-  $("#aboutText").innerHTML = list(D.about, function (p) { return "<p>" + esc(p) + "</p>"; });
-
-  $("#req").innerHTML =
-    "<thead><tr><th>ID</th><th>Capability</th><th>What you get</th></tr></thead><tbody>" +
-    list(D.services, function (s, i) {
-      return "<tr><td>REQ-" + String(i + 1).padStart(2, "0") + "</td><td>" + esc(s.title) + "</td><td>" + esc(s.text) + "</td></tr>";
-    }) + "</tbody>";
-
+  // ---------- Services & documents ----------
+  $("#services-grid").innerHTML = list(D.services, function (s, i) {
+    return '<article class="card"><div class="card__top"><div class="card__icon">' + icon(s.icon) + '</div><span class="card__id">REQ-' +
+      String(i + 1).padStart(2, "0") + "</span></div><h3>" + esc(s.title) + "</h3><p>" + esc(s.text) + "</p></article>";
+  });
   $("#docs").innerHTML = list(D.deliverables, function (d) {
-    return '<article class="doc"><div class="doc__code">' + esc(d.code) + '</div><p class="doc__name">' + esc(d.name) +
+    return '<article class="card doc"><div class="doc__code">' + esc(d.code) + '</div><p class="doc__name">' + esc(d.name) +
       "</p><ul>" + list(d.items, function (i) { return "<li>" + esc(i) + "</li>"; }) + "</ul></article>";
   });
 
@@ -153,7 +195,7 @@
   });
   $("#wf-panels").innerHTML = list(wfs, function (w, i) {
     return '<figure class="wf" role="tabpanel" id="panel-' + w.id + '" aria-labelledby="tab-' + w.id + '"' + (i ? " hidden" : "") +
-      '><figcaption class="mono">' + esc(w.caption) + '</figcaption><div class="wf__scroll">' + swimlane(w) + "</div></figure>";
+      "><figcaption>" + esc(w.caption) + '</figcaption><div class="wf__scroll">' + swimlane(w) + "</div></figure>";
   });
   $("#wf-tabs").addEventListener("click", function (ev) {
     var btn = ev.target.closest("button");
@@ -170,39 +212,70 @@
   wfToggle.addEventListener("click", function () {
     var open = wfPanels.classList.toggle("is-collapsed") === false;
     wfToggle.setAttribute("aria-expanded", open);
-    if (!open) {
-      var top = $("#workflow").getBoundingClientRect().top;
-      if (top < 0) $("#workflow").scrollIntoView({ block: "start" });
-    }
+    if (!open && $("#workflow").getBoundingClientRect().top < 0) $("#workflow").scrollIntoView({ block: "start" });
   });
 
+  // ---------- Projects ----------
+  var COVER = '<svg viewBox="0 0 170 170"><path d="M20 140h130M35 140v-30M60 140v-55M85 140v-40M110 140v-80M135 140v-60"/><path d="M30 60l35-25 30 15 40-35"/><circle cx="30" cy="60" r="4"/><circle cx="65" cy="35" r="4"/><circle cx="95" cy="50" r="4"/><circle cx="135" cy="15" r="4"/></svg>';
   $("#cases").innerHTML = list(D.projects, function (p) {
-    return '<article class="case"><div><span class="case__tag">' + esc(p.tag) + "</span><h3>" + esc(p.title) +
-      "</h3></div><p>" + esc(p.summary) + "</p><ul>" +
-      list(p.deliverables, function (d) { return "<li>" + esc(d) + "</li>"; }) + "</ul></article>";
+    return '<article class="card case"><div class="case__cover">' + COVER + '<span class="case__tag">' + esc(p.tag) + '</span></div><div class="case__body"><h3>' +
+      esc(p.title) + "</h3><p>" + esc(p.summary) + '</p><ul class="chips">' +
+      list(p.deliverables, function (d) { return "<li>" + esc(d) + "</li>"; }) + "</ul></div></article>";
   });
-
   $("#domains").innerHTML = list(D.domains, function (d) {
-    return "<div><dt>" + esc(d.title) + "</dt><dd>" + esc(d.text) + "</dd></div>";
+    return '<article class="card domain"><h3>' + esc(d.title) + "</h3><p>" + esc(d.text) + "</p></article>";
   });
 
+  // ---------- Skills ----------
   $("#kit").innerHTML = list(Object.keys(D.skills), function (k) {
-    return "<dt>" + esc(k) + "</dt><dd>" + list(D.skills[k], function (s) { return "<span>" + esc(s) + "</span>"; }) + "</dd>";
+    return '<div class="card"><h3>' + esc(k) + '</h3><ul class="chips">' + list(D.skills[k], function (s) { return "<li>" + esc(s) + "</li>"; }) + "</ul></div>";
   });
 
-  $("#revs").innerHTML =
-    "<thead><tr><th>Period</th><th>Role</th><th>Changes</th></tr></thead><tbody>" +
-    list(D.experience, function (e) {
-      return "<tr><td>" + esc(e.period) + "</td><td>" + esc(e.title) + "<span>" + esc(e.company) + "</span></td><td><ul>" +
-        list(e.points, function (p) { return "<li>" + esc(p) + "</li>"; }) + "</ul></td></tr>";
-    }) + "</tbody>";
-
-  $("#themeToggle").addEventListener("click", function () {
-    var root = document.documentElement;
-    var dark = root.dataset.theme
-      ? root.dataset.theme === "dark"
-      : window.matchMedia("(prefers-color-scheme: dark)").matches;
-    root.dataset.theme = dark ? "light" : "dark";
-    try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
+  // ---------- Experience (first 4 points, rest behind "Show all") ----------
+  var SHOW = 4;
+  $("#timeline").innerHTML = list(D.experience, function (e, n) {
+    var more = e.points.length - SHOW;
+    return '<li class="tl-item"><div class="tl-period">' + esc(e.period) + '</div><div class="card tl-card"><h3>' + esc(e.title) +
+      '</h3><p class="tl-org">' + esc(e.company) + '</p><ul class="tl-points" id="tl-' + n + '">' +
+      list(e.points, function (p, i) { return "<li" + (i >= SHOW ? " hidden" : "") + ">" + esc(p) + "</li>"; }) + "</ul>" +
+      (more > 0 ? '<button type="button" class="tl-more" aria-expanded="false" aria-controls="tl-' + n + '" data-more="' + more + '">Show all ' + e.points.length + " points ↓</button>" : "") +
+      "</div></li>";
   });
+  $("#timeline").addEventListener("click", function (ev) {
+    var b = ev.target.closest(".tl-more");
+    if (!b) return;
+    var open = b.getAttribute("aria-expanded") !== "true";
+    document.querySelectorAll("#" + b.getAttribute("aria-controls") + " li").forEach(function (li, i) { if (i >= SHOW) li.hidden = !open; });
+    b.setAttribute("aria-expanded", open);
+    b.textContent = open ? "Show less ↑" : "Show all " + (SHOW + Number(b.dataset.more)) + " points ↓";
+  });
+
+  // ---------- Clients ----------
+  $("#clientsGrid").innerHTML = list(D.clients || [], function (c) {
+    var mark = c.logo
+      ? '<img src="' + esc(c.logo) + '" alt="' + esc(c.name) + '"' + (c.logoHeight ? ' style="height:' + Number(c.logoHeight) + 'px"' : "") + " />"
+      : '<span class="client__name">' + esc(c.name) + "</span>";
+    return '<li class="client">' + mark + '<span class="client__sector">' + esc(c.sector) + "</span></li>";
+  });
+
+  // ---------- Nav: mobile menu + active section ----------
+  var burger = $("#burger"), links = $("#navLinks");
+  burger.addEventListener("click", function () {
+    var open = links.classList.toggle("open");
+    burger.setAttribute("aria-expanded", open);
+  });
+  links.addEventListener("click", function (e) {
+    if (e.target.tagName === "A") { links.classList.remove("open"); burger.setAttribute("aria-expanded", false); }
+  });
+  if ("IntersectionObserver" in window) {
+    var navA = {};
+    links.querySelectorAll("a").forEach(function (a) { navA[a.getAttribute("href").slice(1)] = a; });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting || !navA[en.target.id]) return;
+        Object.keys(navA).forEach(function (k) { navA[k].classList.toggle("is-active", k === en.target.id); });
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    document.querySelectorAll("main section[id]").forEach(function (s) { io.observe(s); });
+  }
 })();

@@ -1,13 +1,13 @@
 /* Written by the site editor (admin.html). Make changes there instead of by hand. */
 window.PORTFOLIO_EDITS = {
   "version": 1,
-  "rev": 12,
-  "published": "2026-11-08T19:22:09.898Z",
+  "rev": 13,
+  "published": "2026-11-08T19:26:30.106Z",
   "pages": {
     "index.html": {
       "nodes": {
         "#aboutText/p:0": {
-          "html": "I'm an IT Consultant at Fujitsu, dedicated to IT Division of Toyota Indonesia (TMMIN), Logistic Export Department to support its digital transformation. Most of my work happens between the business users and IT, I listen until I understand what they need and expect, then turn it into a solution and help them through the technical side.",
+          "html": "I'm an IT Consultant at Fujitsu, dedicated to IT Division of Toyota Indonesia (TMMIN), Logistic Export Department to support digital transformation. Most of my work happens between the business users and IT management, I listen until I understand what they need and expect, then turn it into a solution and help them through the technical side.",
           "was": "I'm an IT Consultant at Fujitsu, dedicated to Toyota Indonesia's Logistic Export"
         },
         "#aboutText/p:1": {
@@ -42,6 +42,94 @@ window.PORTFOLIO_EDITS = {
           "radius": 25,
           "src": "assets/uploads/4cf8adaf8a5b773b.png",
           "w": "100%"
+        },
+        "#cases/article:0/div:0/img:0": {
+          "w": "100%",
+          "was": "assets/clients/toyota-indonesia.png"
+        },
+        "#cases/article:0/div:1/p:1": {
+          "html": "Led 1 Digital Transformation projects and 4 enchament project for the Logistic Department. I manage vendor team for monitoring progress and ensure project schedule no delay. All the project related involving 3 new application and 10+ improvement existing application and build 50+ data integrations with Talend and API. <br>I work delivered with both waterfall and agile, within a biggest project value $3.7 Million and on schedule.",
+          "was": "Led 4 IT development projects for the Logistic Department: 8 vendor teams, 8 sys"
+        },
+        "#cases/article:0/div:1/ul:0/li:4": {
+          "html": "AI Automation",
+          "was": "API validation"
+        },
+        "#cases/article:0/div:1/ul:0/li:5": {
+          "html": "Power BI Dashboard",
+          "was": "Dashboards"
+        },
+        "#cases/article:1/div:0/img:0": {
+          "w": "100%",
+          "was": "assets/clients/jojonomic.png"
+        },
+        "#cases/article:1/div:1/h3:0": {
+          "html": "HRIS on web and mobile: attendance, leave, overtime and tasks &amp; Integration into No Code Platform",
+          "was": "HRIS on web and mobile: attendance, leave, overtime and tasks"
+        },
+        "#cases/article:1/div:1/p:1": {
+          "html": "Product Owner for 4 HRIS modules on web and mobile based. Designed the screens, defined the API endpoints with the engineers, documented everything from PRD to API spec, and led delivery to release.&nbsp;<br>Product used by companies such as Bank Papua, FWD, Amway Indonesia, and some specific request to align their business objective.&nbsp;I also assisted my product team to develop No Code Platform: Officeless.",
+          "was": "Product Owner for four HRIS modules on web and mobile. Designed the screens, def"
+        },
+        "#cases/article:1/div:1/ul:0/li:5": {
+          "html": "No Code Platform",
+          "was": "UAT"
+        },
+        "#cases/article:2/div:1/p:0": {
+          "html": "CIMB Niaga as Business Interim · 2023",
+          "was": "CIMB Niaga, via Jojonomic · 2022 to 2023"
+        },
+        "#cases/article:2/div:1/ul:0/li:2": {
+          "html": "Communication stakeholder",
+          "was": "Settlement rules"
+        },
+        "#cases/article:2/div:1/ul:0/li:3": {
+          "html": "Documentation",
+          "was": "Month-end accrual"
+        },
+        "#cases/article:2/div:1/ul:0/li:4": {
+          "html": "Testing",
+          "was": "Unit test fixes"
+        },
+        "#cases/article:3/div:0/img:0": {
+          "w": "100%",
+          "was": "assets/clients/fwd.png"
+        },
+        "#cases/article:4/div:1/p:0": {
+          "html": "Marketing tools (Freelance)",
+          "was": "Marketing tools"
+        },
+        "#contact/div:0/div:0/div:1/a:3": {
+          "hidden": true,
+          "was": "GitHub"
+        },
+        "#docs/li:0/p:0": {
+          "html": "Business Requirement Document<br>(Created)",
+          "was": "Business Requirement Document"
+        },
+        "#docs/li:1/p:0": {
+          "html": "Functional Specification Document (Created)",
+          "was": "Functional Specification Document"
+        },
+        "#docs/li:1/ul:0/li:1": {
+          "html": "ERD, Screen specs &amp; field validation",
+          "was": "Screen specs & field validation"
+        },
+        "#docs/li:1/ul:0/li:2": {
+          "html": "Workflow, Data variation &amp; approval logic",
+          "was": "Workflow & approval logic"
+        },
+        "#docs/li:2/p:0": {
+          "html": "Technical Specification Document<br>(Reviewed)",
+          "was": "Technical Specification Document"
+        },
+        "#docs/li:2/ul:0/li:1": {
+          "html": "Sequence Diagram",
+          "was": "Data model / ERD"
+        },
+        "#docs/li:3/p:0": {
+          "html": "Testing Strategy<br>(Prepared with users)",
+          "was": "Testing Strategy"
         },
         "#facts/div:1/dd:0": {
           "html": "Surabaya, Indonesia",
@@ -97,8 +185,12 @@ window.PORTFOLIO_EDITS = {
         },
         "#figures/div:3/dd:0": {
           "html": "$3.7 Mio",
-          "was": "$12M+",
-          "w": "100%"
+          "w": "100%",
+          "was": "$12M+"
+        },
+        "#figures/div:3/dt:0": {
+          "html": "Biggest project value",
+          "was": "project budget"
         },
         "#heroTags": {
           "fs": 12,
@@ -125,137 +217,57 @@ window.PORTFOLIO_EDITS = {
           "hidden": true,
           "was": "Figures from my Fujitsu role at Toyota Indonesia, 2023 to now."
         },
-        "#figures/div:3/dt:0": {
-          "was": "project budget",
-          "html": "Biggest project value"
-        },
-        "#services/div:0/div:0/p:0": {
-          "was": "Each service is listed in the format of a requirement: what the user needs, and ",
-          "html": "Each service is listed in the format of a requirement: <br>what the users needs, and what I deliver."
-        },
         "#reqs/li:0/span:0": {
-          "was": "REQ-01",
-          "html": "01"
+          "html": "01",
+          "was": "REQ-01"
         },
         "#reqs/li:1/span:0": {
-          "was": "REQ-02",
-          "html": "02"
+          "html": "02",
+          "was": "REQ-02"
         },
         "#reqs/li:2/span:0": {
-          "was": "REQ-03",
-          "html": "03"
+          "html": "03",
+          "was": "REQ-03"
         },
-        "#reqs/li:3/span:0": {
-          "was": "REQ-04",
-          "html": "04"
-        },
-        "#reqs/li:4/span:0": {
-          "was": "REQ-05",
-          "html": "05"
-        },
-        "#reqs/li:5/span:0": {
-          "was": "REQ-06",
-          "html": "06"
+        "#reqs/li:3/h3:0": {
+          "html": "UI design &amp; Prototype early (POC)",
+          "was": "UI design"
         },
         "#reqs/li:3/p:0": {
-          "was": "I build the prototype first, with the help of AI tools, before writing any docum",
-          "html": "Before, I design UI for wireframe and high fidelity using Figma tools which is business users can review the UI each screen function.&nbsp;<br><br>Currently, I build the prototype first, with the help of AI tools, before writing any document. Business users click through a real, working prototype and see how it feels, so they can validate the flow before development starts."
+          "html": "Before, I design UI for wireframe and high fidelity using Figma tools which is business users can review the UI each screen function.&nbsp;<br><br>Currently, I build the prototype first, with the help of AI tools, before writing any document. Business users click through a real, working prototype and see how it feels, so they can validate the flow before development starts.",
+          "was": "I build the prototype first, with the help of AI tools, before writing any docum"
+        },
+        "#reqs/li:3/span:0": {
+          "html": "04",
+          "was": "REQ-04"
         },
         "#reqs/li:4/p:0": {
-          "was": "The business case, the functional spec and the technical design, written as sepa",
-          "html": "BRD and FSD prepared by me and vendor will prepare technical design (TSD) , designed as separate documents, and all stakeholder can each sign off."
+          "html": "BRD and FSD prepared by me and vendor will prepare technical design (TSD) , designed as separate documents, and all stakeholder can each sign off.",
+          "was": "The business case, the functional spec and the technical design, written as sepa"
+        },
+        "#reqs/li:4/span:0": {
+          "html": "05",
+          "was": "REQ-05"
         },
         "#reqs/li:5/p:0": {
-          "was": "Test strategy, scenarios and UAT plans, with each test traced back to the requir",
-          "html": "Collaboration with business users to prepare test strategy, scenarios, data preparation and UAT plans, with each test traced back to the requirement it proves.&nbsp;"
+          "html": "Collaboration with business users to prepare test strategy, scenarios, data preparation and UAT plans, with each test traced back to the requirement it proves.&nbsp;",
+          "was": "Test strategy, scenarios and UAT plans, with each test traced back to the requir"
         },
-        "#docs/li:1/ul:0/li:1": {
-          "was": "Screen specs & field validation",
-          "html": "ERD, Screen specs &amp; field validation"
+        "#reqs/li:5/span:0": {
+          "html": "06",
+          "was": "REQ-06"
         },
-        "#docs/li:1/ul:0/li:2": {
-          "was": "Workflow & approval logic",
-          "html": "Workflow, Data variation &amp; approval logic"
-        },
-        "#docs/li:2/ul:0/li:1": {
-          "was": "Data model / ERD",
-          "html": "Sequence Diagram"
+        "#services/div:0/div:0/p:0": {
+          "html": "Each service is listed in the format of a requirement: <br>what the users needs, and what I deliver.",
+          "was": "Each service is listed in the format of a requirement: what the user needs, and "
         },
         "#services/div:1/h3:0": {
-          "was": "Documents I produce",
-          "html": "Documents I produce and I Review"
+          "html": "Documents I produce and I Review",
+          "was": "Documents I produce"
         },
-        "#docs/li:0/p:0": {
-          "was": "Business Requirement Document",
-          "html": "Business Requirement Document<br>(Created)"
-        },
-        "#docs/li:1/p:0": {
-          "was": "Functional Specification Document",
-          "html": "Functional Specification Document (Created)"
-        },
-        "#docs/li:2/p:0": {
-          "was": "Technical Specification Document",
-          "html": "Technical Specification Document<br>(Reviewed)"
-        },
-        "#docs/li:3/p:0": {
-          "was": "Testing Strategy",
-          "html": "Testing Strategy<br>(Prepared with users)"
-        },
-        "#cases/article:0/div:1/p:1": {
-          "was": "Led 4 IT development projects for the Logistic Department: 8 vendor teams, 8 sys",
-          "html": "Led 1 Digital Transformation projects and 4 enchament project for the Logistic Department. I manage vendor team for monitoring progress and ensure project schedule no delay. All the project related involving 3 new application and 10+ improvement existing application and build 50+ data integrations with Talend and API. I work delivered with both waterfall and agile, within a biggest project value $3.7 Million and on schedule."
-        },
-        "#cases/article:0/div:1/ul:0/li:5": {
-          "was": "Dashboards",
-          "html": "Power BI Dashboard"
-        },
-        "#cases/article:0/div:1/ul:0/li:4": {
-          "was": "API validation",
-          "html": "AI Automation"
-        },
-        "#cases/article:0/div:0/img:0": {
-          "was": "assets/clients/toyota-indonesia.png",
-          "w": "100%"
-        },
-        "#cases/article:1/div:0/img:0": {
-          "was": "assets/clients/jojonomic.png",
-          "w": "100%"
-        },
-        "#cases/article:3/div:0/img:0": {
-          "was": "assets/clients/fwd.png",
-          "w": "100%"
-        },
-        "#cases/article:1/div:1/p:1": {
-          "was": "Product Owner for four HRIS modules on web and mobile. Designed the screens, def",
-          "html": "Product Owner for 4 HRIS modules on web and mobile based. Designed the screens, defined the API endpoints with the engineers, documented everything from PRD to API spec, and led delivery to release.&nbsp;<br>Product used by companies such as Bank Papua, FWD, Amway Indonesia, and some specific request to align their business objective.&nbsp;I also assisted my product team to develop No Code Platform: Officeless."
-        },
-        "#cases/article:1/div:1/ul:0/li:5": {
-          "was": "UAT",
-          "html": "No Code Platform"
-        },
-        "#cases/article:1/div:1/h3:0": {
-          "was": "HRIS on web and mobile: attendance, leave, overtime and tasks",
-          "html": "HRIS on web and mobile: attendance, leave, overtime and tasks &amp; Integration into No Code Platform"
-        },
-        "#cases/article:2/div:1/p:0": {
-          "was": "CIMB Niaga, via Jojonomic · 2022 to 2023",
-          "html": "CIMB Niaga as Business Interim · 2023"
-        },
-        "#cases/article:2/div:1/ul:0/li:2": {
-          "was": "Settlement rules",
-          "html": "Communication stakeholder"
-        },
-        "#cases/article:2/div:1/ul:0/li:4": {
-          "was": "Unit test fixes",
-          "html": "Testing"
-        },
-        "#cases/article:2/div:1/ul:0/li:3": {
-          "was": "Month-end accrual",
-          "html": "Documentation"
-        },
-        "#cases/article:4/div:1/p:0": {
-          "was": "Marketing tools",
-          "html": "Marketing tools (Freelance)"
+        "#contact/div:0/div:0/div:0/p:0": {
+          "was": "Need a BRD, a process redesign, or someone to take a feature from the first work",
+          "html": "Let's connect with me on Linkedin and if urgently you can contact on Whatsapp."
         }
       },
       "added": {},

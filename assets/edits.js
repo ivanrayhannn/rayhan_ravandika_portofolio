@@ -1,8 +1,8 @@
 /* Written by the site editor (admin.html). Make changes there instead of by hand. */
 window.PORTFOLIO_EDITS = {
   "version": 1,
-  "rev": 10,
-  "published": "2026-11-08T18:11:01.325Z",
+  "rev": 11,
+  "published": "2026-11-08T19:06:25.972Z",
   "pages": {
     "index.html": {
       "nodes": {
@@ -76,7 +76,7 @@ window.PORTFOLIO_EDITS = {
           "was": "Education"
         },
         "#figures/div:0/dd:0": {
-          "html": "6",
+          "html": "10",
           "was": "4"
         },
         "#figures/div:0/dt:0": {
@@ -200,6 +200,62 @@ window.PORTFOLIO_EDITS = {
         "#docs/li:3/p:0": {
           "was": "Testing Strategy",
           "html": "Testing Strategy<br>(Prepared with users)"
+        },
+        "#cases/article:0/div:1/p:1": {
+          "was": "Led 4 IT development projects for the Logistic Department: 8 vendor teams, 8 sys",
+          "html": "Led 1 Digital Transformation projects and 4 enchament project for the Logistic Department. I manage vendor team for monitoring progress and ensure project schedule no delay. All the project related involving 3 new application and 10+ improvement existing application and build 50+ data integrations with Talend and API. I work delivered with both waterfall and agile, within a biggest project value $3.7 Million and on schedule."
+        },
+        "#cases/article:0/div:1/ul:0/li:5": {
+          "was": "Dashboards",
+          "html": "Power BI Dashboard"
+        },
+        "#cases/article:0/div:1/ul:0/li:4": {
+          "was": "API validation",
+          "html": "AI Automation"
+        },
+        "#cases/article:0/div:0/img:0": {
+          "was": "assets/clients/toyota-indonesia.png",
+          "w": "100%"
+        },
+        "#cases/article:1/div:0/img:0": {
+          "was": "assets/clients/jojonomic.png",
+          "w": "100%"
+        },
+        "#cases/article:3/div:0/img:0": {
+          "was": "assets/clients/fwd.png",
+          "w": "100%"
+        },
+        "#cases/article:1/div:1/p:1": {
+          "was": "Product Owner for four HRIS modules on web and mobile. Designed the screens, def",
+          "html": "Product Owner for 4 HRIS modules on web and mobile based. Designed the screens, defined the API endpoints with the engineers, documented everything from PRD to API spec, and led delivery to release.&nbsp;<br>Product used by companies such as Bank Papua, FWD, Amway Indonesia, and some specific request to align their business objective.&nbsp;I also assisted my product team to develop No Code Platform: Officeless."
+        },
+        "#cases/article:1/div:1/ul:0/li:5": {
+          "was": "UAT",
+          "html": "No Code Platform"
+        },
+        "#cases/article:1/div:1/h3:0": {
+          "was": "HRIS on web and mobile: attendance, leave, overtime and tasks",
+          "html": "HRIS on web and mobile: attendance, leave, overtime and tasks &amp; Integration into No Code Platform"
+        },
+        "#cases/article:2/div:1/p:0": {
+          "was": "CIMB Niaga, via Jojonomic · 2022 to 2023",
+          "html": "CIMB Niaga as Business Interim · 2023"
+        },
+        "#cases/article:2/div:1/ul:0/li:2": {
+          "was": "Settlement rules",
+          "html": "Communication stakeholder"
+        },
+        "#cases/article:2/div:1/ul:0/li:4": {
+          "was": "Unit test fixes",
+          "html": "Testing"
+        },
+        "#cases/article:2/div:1/ul:0/li:3": {
+          "was": "Month-end accrual",
+          "html": "Documentation"
+        },
+        "#cases/article:4/div:1/p:0": {
+          "was": "Marketing tools",
+          "html": "Marketing tools (Freelance)"
         }
       },
       "added": {},

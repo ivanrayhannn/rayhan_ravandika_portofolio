@@ -1,23 +1,39 @@
 /* Written by the site editor (admin.html). Make changes there instead of by hand. */
 window.PORTFOLIO_EDITS = {
   "version": 1,
-  "rev": 4,
-  "published": "2026-11-08T17:00:04.624Z",
+  "rev": 5,
+  "published": "2026-11-08T17:18:32.807Z",
   "pages": {
     "index.html": {
       "nodes": {
+        "#aboutText/p:0": {
+          "html": "I'm an IT Consultant at Fujitsu, dedicated to IT Division of Toyota Indonesia (TMMIN), Logistic Export Department to support its digital transformation. Most of my work happens between the business users and IT, I listen until I understand what they need and expect, then turn it into a solution and help them through the technical side.",
+          "was": "I'm an IT Consultant at Fujitsu, dedicated to Toyota Indonesia's Logistic Export"
+        },
+        "#aboutText/p:1": {
+          "html": "That starts with learning how their operation really runs and checking whether an existing application can be improved before anything new is built. From there I write the technical documentation, design system, and manage the vendor development team through to go-live, keeping every milestone on schedule.",
+          "was": "That starts with learning how their operation really runs and checking whether a"
+        },
         "#badge": {
           "w": "277px",
           "was": "RAYHAN · RAYHAN · RAYHAN · RAYHAN RR Rayhan Ravandika IT PM & Business System An"
+        },
+        "#badge/div:2/div:1/span:0": {
+          "hidden": true,
+          "was": "4 yrs experience"
         },
         "#badge/div:2/div:1/span:1": {
           "html": "2023 - Present",
           "was": "Since 2022"
         },
         "#badge/div:2/p:2": {
+          "fs": 10,
           "html": "Fujitsu IT Consultant at Toyota Indonesia",
-          "was": "Fujitsu, onsite at Toyota Indonesia",
-          "fs": 10
+          "was": "Fujitsu, onsite at Toyota Indonesia"
+        },
+        "#badgeHint": {
+          "html": "Drag MyID to swing it",
+          "was": "Drag the card to swing it"
         },
         "#badgePhoto": {
           "align": "center",
@@ -26,6 +42,30 @@ window.PORTFOLIO_EDITS = {
           "radius": 25,
           "src": "assets/uploads/4cf8adaf8a5b773b.png",
           "w": "100%"
+        },
+        "#facts/div:1/dd:0": {
+          "html": "Surabaya, Indonesia",
+          "was": "4 years · Fujitsu, Jojonomic"
+        },
+        "#facts/div:1/dt:0": {
+          "html": "Born in",
+          "was": "Experience"
+        },
+        "#facts/div:2/dt:0": {
+          "html": "Education",
+          "was": "Track record"
+        },
+        "#facts/div:3/dd:0": {
+          "html": "Waterfall and Agile (Scrum)",
+          "was": "$12M+ digital transformation"
+        },
+        "#facts/div:3/dt:0": {
+          "html": "Way of workings",
+          "was": "Budget"
+        },
+        "#facts/div:4/dd:0": {
+          "html": "Construction, HR, Insurance, Banking, Automotive Manufacturing",
+          "was": "B.Sc. Information Systems, Brawijaya University (2017 to 2021)"
         },
         "#figures/div:0/dd:0": {
           "html": "6",
@@ -72,13 +112,13 @@ window.PORTFOLIO_EDITS = {
           "hidden": true,
           "was": "Figures from my Fujitsu role at Toyota Indonesia, 2023 to now."
         },
-        "#badgeHint": {
-          "was": "Drag the card to swing it",
-          "html": "Drag MyID to swing it"
+        "#facts/div:2/dd:0": {
+          "was": "4 projects · 8 vendor teams · 8 systems · 50+ integrations",
+          "html": "&nbsp;Information System, Brawijaya University&nbsp;"
         },
-        "#badge/div:2/div:1/span:0": {
-          "was": "4 yrs experience",
-          "hidden": true
+        "#facts/div:4/dt:0": {
+          "was": "Education",
+          "html": "Industries"
         }
       },
       "added": {},

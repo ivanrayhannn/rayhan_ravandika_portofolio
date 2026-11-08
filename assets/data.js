@@ -218,7 +218,7 @@ window.PORTFOLIO = {
       client: "CIMB Niaga, via Jojonomic",
       period: "2022 to 2023",
       logos: ["assets/clients/cimb-niaga.png"],
-      summary: "Improved CIMB Niaga's expense modules and the integration between them, so advances, claims, petty cash and month-end accruals end up in one consistent set of numbers for finance. Gathered and prioritised requirements, ran sprint reviews and fixed data and integration issues in unit testing.",
+      summary: "Improved CIMB Niaga's web-based expense modules and the integration between them, so advances, claims, petty cash and month-end accruals end up in one consistent set of numbers for finance. Gathered and prioritised requirements, ran sprint reviews and fixed data and integration issues in unit testing.",
       deliverables: ["Requirement backlog", "Module integration", "Settlement rules", "Month-end accrual", "Unit test fixes"],
       link: "cimb.html",
       linkLabel: "Read the CIMB Niaga case study",

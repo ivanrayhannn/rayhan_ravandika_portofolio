@@ -28,11 +28,11 @@
       <div class="wrap">
         <p class="case-hero__kicker">Case study · CIMB Niaga, via Jojonomic · 2022 to 2023</p>
         <h1 id="caseTitle">Expense management: reimbursement, cash advance, petty cash and accruals</h1>
-        <p class="case-hero__lede">CIMB Niaga ran its employee spending on the Jojonomic expense platform. As Business Analyst I worked on its modules and on the hand-offs between them: how money moves from one module to the next.</p>
+        <p class="case-hero__lede">CIMB Niaga ran its employee spending on the web-based Jojonomic expense platform. As Business Analyst I worked on its modules and on the hand-offs between them: how money moves from one module to the next.</p>
 
         <dl class="case-meta">
           <div><dt>Role</dt><dd>Business Analyst (Interim), Jojonomic</dd></div>
-          <div><dt>Client</dt><dd>CIMB Niaga</dd></div>
+          <div><dt>Platform</dt><dd>Web app for employees, approvers and finance</dd></div>
           <div><dt>Modules</dt><dd>Reimbursement, cash advance, petty cash, accrual</dd></div>
           <div><dt>Focus</dt><dd>Integration between the modules</dd></div>
         </dl>
@@ -129,28 +129,40 @@
               <li>Receipts missing: the settlement can't be sent until each line has one.</li>
             </ul>
           </div>
-          <div class="feature__demo">
+          <div class="feature__demo feature__demo--top">
             <div class="seg" role="group" aria-label="Settlement outcome">
               <button type="button" aria-pressed="true" data-demo="settle" data-state="less">Spent less</button>
               <button type="button" aria-pressed="false" data-demo="settle" data-state="more">Spent more</button>
             </div>
-            <figure class="phone-fig">
-              <div class="phone" id="demo-settle" data-state="less" role="group" aria-label="Cash advance settlement screen" aria-live="polite">
-                <div class="phone__bar"><span>Settle advance</span></div>
-                <div class="phone__body">
-                  <div class="m-row"><span>Advance</span><span>Rp2,000,000</span></div>
-                  <div class="m-row" data-when="less"><span>Spent, 4 receipts</span><span>Rp1,750,000</span></div>
-                  <div class="m-row" data-when="more" hidden><span>Spent, 5 receipts</span><span>Rp2,300,000</span></div>
-                  <div class="m-card m-card--strong" data-when="less"><span class="m-sub">You return</span><span class="m-big">Rp250,000</span></div>
-                  <div class="m-card m-card--strong" data-when="more" hidden><span class="m-sub">Company pays you</span><span class="m-big">Rp300,000</span></div>
-                  <p class="m-msg" data-when="less">Transfer the difference to the finance account, then attach the proof.</p>
-                  <p class="m-msg" data-when="more" hidden>The extra is paid with your next reimbursement run.</p>
-                  <span class="m-btn">Send settlement</span>
+          </div>
+          <figure class="browser-fig feature__web">
+            <div class="browser" id="demo-settle" data-state="less" role="group" aria-label="Web cash advance settlement screen" aria-live="polite">
+              <div class="browser__bar"><i></i><i></i><i></i><span>Expense · Cash advance · Settle</span></div>
+              <div class="w-main settle">
+                <div class="w-head"><strong>Settle advance CA-0318 · Business trip</strong><span class="w-chip">Open</span></div>
+                <div class="settle__grid">
+                  <div class="w-table settle__lines">
+                    <div class="w-tr w-th"><span>Receipt</span><span>Category</span><span>Amount</span></div>
+                    <div class="w-tr"><span>Hotel, 2 nights</span><span>Lodging</span><span>Rp1,100,000</span></div>
+                    <div class="w-tr"><span>Train tickets</span><span>Transport</span><span>Rp450,000</span></div>
+                    <div class="w-tr"><span>Meals</span><span>Meals</span><span>Rp200,000</span></div>
+                    <div class="w-tr" data-when="more" hidden><span>Local taxi</span><span>Transport</span><span>Rp550,000</span></div>
+                  </div>
+                  <div class="settle__sum">
+                    <div class="m-row"><span>Advance paid out</span><span>Rp2,000,000</span></div>
+                    <div class="m-row" data-when="less"><span>Spent, 3 receipts</span><span>Rp1,750,000</span></div>
+                    <div class="m-row" data-when="more" hidden><span>Spent, 4 receipts</span><span>Rp2,300,000</span></div>
+                    <div class="m-card m-card--strong" data-when="less"><span class="m-sub">Employee returns</span><span class="m-big">Rp250,000</span></div>
+                    <div class="m-card m-card--strong" data-when="more" hidden><span class="m-sub">Company pays the employee</span><span class="m-big">Rp300,000</span></div>
+                    <p class="m-msg" data-when="less">Transfer the difference to the finance account, then attach the proof here.</p>
+                    <p class="m-msg" data-when="more" hidden>The extra is created as a reimbursement and paid in the next run.</p>
+                    <span class="m-btn">Send settlement</span>
+                  </div>
                 </div>
               </div>
-              <figcaption>Mobile settlement. Sample amounts.</figcaption>
-            </figure>
-          </div>
+            </div>
+            <figcaption>Web settlement screen. Sample amounts.</figcaption>
+          </figure>
         </article>
 
         <article class="feature" aria-labelledby="accrualTitle">

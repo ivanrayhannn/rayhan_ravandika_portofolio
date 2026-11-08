@@ -1,8 +1,8 @@
 /* Written by the site editor (admin.html). Make changes there instead of by hand. */
 window.PORTFOLIO_EDITS = {
   "version": 1,
-  "rev": 7,
-  "published": "2026-11-08T17:44:27.346Z",
+  "rev": 8,
+  "published": "2026-11-08T17:49:34.391Z",
   "pages": {
     "index.html": {
       "nodes": {
@@ -96,7 +96,7 @@ window.PORTFOLIO_EDITS = {
           "was": "data integrations"
         },
         "#figures/div:3/dd:0": {
-          "html": "$ 3.7 Mio",
+          "html": "$3.7 Mio",
           "was": "$12M+",
           "w": "100%"
         },
@@ -128,6 +128,34 @@ window.PORTFOLIO_EDITS = {
         "#figures/div:3/dt:0": {
           "was": "project budget",
           "html": "Biggest project value"
+        },
+        "#services/div:0/div:0/p:0": {
+          "was": "Each service is listed in the format of a requirement: what you provide, and wha",
+          "html": "Each service is listed in the format of a requirement: <br>what the users needs, and what I deliver."
+        },
+        "#reqs/li:0/span:0": {
+          "was": "REQ-01",
+          "html": "01"
+        },
+        "#reqs/li:1/span:0": {
+          "was": "REQ-02",
+          "html": "02"
+        },
+        "#reqs/li:2/span:0": {
+          "was": "REQ-03",
+          "html": "03"
+        },
+        "#reqs/li:3/span:0": {
+          "was": "REQ-04",
+          "html": "04"
+        },
+        "#reqs/li:4/span:0": {
+          "was": "REQ-05",
+          "html": "05"
+        },
+        "#reqs/li:5/span:0": {
+          "was": "REQ-06",
+          "html": "06"
         }
       },
       "added": {},

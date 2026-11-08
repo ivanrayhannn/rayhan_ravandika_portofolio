@@ -55,9 +55,9 @@ window.PORTFOLIO = {
   ],
 
   about: [
-    "I'm Rayhan, a Business System Analyst who helps companies through digital transformation. I start by listening to stakeholders' problems and needs, turn them into a solution, and see it through delivery, so the result brings real benefit to their business.",
-    "I've taken product work from market research and product-market fit through MVP scope, PRDs and release. On digitalisation projects I also write SQL, design data integrations and define the testing strategy.",
-    "As a project lead I take cross-functional and vendor teams through proposal, planning, budgeting, risk mitigation and daily follow-up. At Fujitsu that kept four projects at 100% schedule compliance.",
+    "I'm an IT Consultant at Fujitsu, dedicated to Toyota Indonesia's Logistic Export Department to support its digital transformation. Most of my work happens between the business users and IT: I listen until I understand what they need and expect, then turn it into a solution and help them through the technical side.",
+    "That starts with learning how their operation really runs and checking whether an existing application can be improved before anything new is built. From there I write the technical documentation, design the system, and manage the vendor development team through to go-live, keeping every milestone on schedule. So far that has meant four projects at 100% schedule compliance.",
+    "Before Fujitsu I worked on the product side at Jojonomic, where I led the development team for its HRIS product: attendance, leave, overtime and task management.",
   ],
 
   services: [

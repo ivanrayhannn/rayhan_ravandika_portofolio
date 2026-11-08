@@ -1,8 +1,8 @@
 /* Written by the site editor (admin.html). Make changes there instead of by hand. */
 window.PORTFOLIO_EDITS = {
   "version": 1,
-  "rev": 11,
-  "published": "2026-11-08T19:06:25.972Z",
+  "rev": 12,
+  "published": "2026-11-08T19:22:09.898Z",
   "pages": {
     "index.html": {
       "nodes": {
@@ -118,7 +118,7 @@ window.PORTFOLIO_EDITS = {
           "was": "IT PM & Business System Analyst"
         },
         "#home/div:0/div:0/p:3": {
-          "html": "I'm Rayhan, a IT Consultant who helps companies through digital transformation. I start by listening to stakeholders' problems and needs, turn them into a solution, and see it through delivery, so the result brings real benefit to their business.",
+          "html": "I'm Rayhan, a IT Consultant who helps companies through digital transformation. <br>I start by listening to stakeholders' problems and needs, turn them into a solution, and see it through delivery, so the result brings real benefit to their business.",
           "was": "I take a stakeholder's problem and turn it into the requirements, system design "
         },
         "#home/div:0/div:0/p:4": {

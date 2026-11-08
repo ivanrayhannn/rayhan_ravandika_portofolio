@@ -117,11 +117,115 @@
     <section class="section tone-tint" id="screens" aria-labelledby="screensTitle">
       <div class="wrap">
         <h2 class="title" id="screensTitle">Screens</h2>
-        <p class="intro">Recreated with sample amounts. Use the buttons to see both outcomes of a settlement.</p>
+        <p class="intro">Recreated with sample amounts. Pick a module to see its web screen and the statuses a record moves through.</p>
+
+        <article class="feature modview" aria-labelledby="modTitle">
+          <div class="modview__head">
+            <h3 class="feature__title" id="modTitle">Each module on the web</h3>
+            <div class="seg seg--wrap" role="group" aria-label="Module">
+              <button type="button" aria-pressed="true" data-demo="mod" data-state="reimb">Reimbursement</button>
+              <button type="button" aria-pressed="false" data-demo="mod" data-state="adv">Cash advance</button>
+              <button type="button" aria-pressed="false" data-demo="mod" data-state="petty">Petty cash</button>
+              <button type="button" aria-pressed="false" data-demo="mod" data-state="accr">Accrual</button>
+            </div>
+          </div>
+
+          <div id="demo-mod" data-state="reimb" class="modview__body" aria-live="polite">
+            <div class="modview__text">
+              <p data-when="reimb">Employees claim back what they paid themselves. Every line needs a receipt and a cost centre before the claim can be sent, so finance doesn't chase missing details later.</p>
+              <p data-when="adv" hidden>Employees ask for money before a trip or purchase, then settle it with receipts. Finance sees which advances are still open and which are past their settlement date.</p>
+              <p data-when="petty" hidden>A custodian holds a small fund for frequent spending and records each spend with its receipt. When the fund runs low, a top-up request goes to finance for the amount spent.</p>
+              <p data-when="accr" hidden>At the month-end cut-off, finance books approved claims that aren't paid yet, so each cost lands in the right month. The accrual is reversed when the claim is paid.</p>
+              <ol class="flowline" aria-label="Statuses">
+                <li data-when="reimb">Draft</li><li data-when="reimb">Waiting approval</li><li data-when="reimb">Approved</li><li data-when="reimb">Paid</li>
+                <li data-when="adv" hidden>Requested</li><li data-when="adv" hidden>Approved</li><li data-when="adv" hidden>Paid out</li><li data-when="adv" hidden>Settled</li><li data-when="adv" hidden>Closed</li>
+                <li data-when="petty" hidden>Spend recorded</li><li data-when="petty" hidden>Fund low</li><li data-when="petty" hidden>Top-up requested</li><li data-when="petty" hidden>Top-up paid</li>
+                <li data-when="accr" hidden>Cut-off</li><li data-when="accr" hidden>Accrued</li><li data-when="accr" hidden>Posted to finance</li><li data-when="accr" hidden>Claim paid</li><li data-when="accr" hidden>Reversed</li>
+              </ol>
+            </div>
+
+            <figure class="browser-fig">
+              <div class="browser">
+                <div class="browser__bar"><i></i><i></i><i></i>
+                  <span data-when="reimb">Expense · Reimbursement</span><span data-when="adv" hidden>Expense · Cash advance</span><span data-when="petty" hidden>Expense · Petty cash</span><span data-when="accr" hidden>Expense · Finance · Month end</span>
+                </div>
+
+                <div class="w-main mod-grid" data-when="reimb">
+                  <div class="mod-form">
+                    <strong>New claim</strong>
+                    <div class="m-field"><span>Category</span><span>Meals</span></div>
+                    <div class="m-field"><span>Date</span><span>14 Mar 2023</span></div>
+                    <div class="m-field"><span>Amount</span><span>Rp850,000</span></div>
+                    <div class="m-field"><span>Cost centre</span><span>Branch sales</span></div>
+                    <div class="m-field"><span>Receipt</span><span>receipt-0314.jpg</span></div>
+                    <span class="m-btn">Submit claim</span>
+                  </div>
+                  <div class="w-table mod-list">
+                    <div class="w-tr w-th"><span>My claims</span><span>Amount</span><span>Status</span></div>
+                    <div class="w-tr"><span>Client meeting meals</span><span>Rp850,000</span><span><span class="st st--wait">Waiting approval</span></span></div>
+                    <div class="w-tr"><span>Training transport</span><span>Rp420,000</span><span><span class="st st--ok">Approved</span></span></div>
+                    <div class="w-tr"><span>Office supplies</span><span>Rp175,000</span><span><span class="st st--done">Paid</span></span></div>
+                  </div>
+                </div>
+
+                <div class="w-main mod-grid" data-when="adv" hidden>
+                  <div class="mod-form">
+                    <strong>Request an advance</strong>
+                    <div class="m-field"><span>Purpose</span><span>Business trip</span></div>
+                    <div class="m-field"><span>Amount</span><span>Rp2,000,000</span></div>
+                    <div class="m-field"><span>Needed by</span><span>20 Mar 2023</span></div>
+                    <div class="m-field"><span>Settle by</span><span>31 Mar 2023</span></div>
+                    <div class="m-field"><span>Cost centre</span><span>Operations</span></div>
+                    <span class="m-btn">Send request</span>
+                  </div>
+                  <div class="w-table mod-list">
+                    <div class="w-tr w-th"><span>My advances</span><span>Amount</span><span>Status</span></div>
+                    <div class="w-tr"><span>CA-0318 · Business trip</span><span>Rp2,000,000</span><span><span class="st st--wait">Open, settle by 31 Mar</span></span></div>
+                    <div class="w-tr"><span>CA-0301 · Event booth</span><span>Rp3,500,000</span><span><span class="st st--late">Past settlement date</span></span></div>
+                    <div class="w-tr"><span>CA-0290 · Training</span><span>Rp1,000,000</span><span><span class="st st--done">Closed</span></span></div>
+                  </div>
+                </div>
+
+                <div class="w-main mod-grid" data-when="petty" hidden>
+                  <div class="mod-form">
+                    <strong>Branch office fund</strong>
+                    <div class="m-row"><span>Fund size</span><span>Rp5,000,000</span></div>
+                    <div class="m-row"><span>Left</span><span>Rp1,200,000</span></div>
+                    <div class="m-meter"><i style="width:24%"></i></div>
+                    <p class="m-msg">Below the top-up level. Request the amount spent to restore the fund.</p>
+                    <span class="m-btn">Request top-up Rp3,800,000</span>
+                  </div>
+                  <div class="w-table mod-list">
+                    <div class="w-tr w-th"><span>Spend this period</span><span>Amount</span><span>Receipt</span></div>
+                    <div class="w-tr"><span>Courier fees</span><span>Rp1,450,000</span><span><span class="st st--ok">Attached</span></span></div>
+                    <div class="w-tr"><span>Pantry supplies</span><span>Rp1,600,000</span><span><span class="st st--ok">Attached</span></span></div>
+                    <div class="w-tr"><span>Parking</span><span>Rp750,000</span><span><span class="st st--late">Missing</span></span></div>
+                  </div>
+                </div>
+
+                <div class="w-main" data-when="accr" hidden>
+                  <div class="w-head"><strong>Approved, not yet paid</strong><span class="w-chip">Cut-off: last working day</span></div>
+                  <div class="w-table">
+                    <div class="w-tr w-th"><span>Claim</span><span>Cost centre</span><span>Amount</span><span>Action</span></div>
+                    <div class="w-tr"><span>Client meeting meals</span><span>Branch sales</span><span>Rp850,000</span><span class="w-act"><b>Accrue</b></span></div>
+                    <div class="w-tr"><span>Training transport</span><span>HR</span><span>Rp420,000</span><span class="w-act"><b>Accrue</b></span></div>
+                    <div class="w-tr"><span>Advance settlement top-up</span><span>Operations</span><span>Rp300,000</span><span class="w-act"><b>Accrue</b></span></div>
+                  </div>
+                  <div class="w-head mod-sub"><strong>Accrued last month, paid this month</strong></div>
+                  <div class="w-table">
+                    <div class="w-tr w-th"><span>Claim</span><span>Cost centre</span><span>Amount</span><span>Status</span></div>
+                    <div class="w-tr"><span>Vendor lunch</span><span>Procurement</span><span>Rp640,000</span><span><span class="st st--done">Reversed</span></span></div>
+                  </div>
+                </div>
+              </div>
+              <figcaption>Web screens per module. Sample amounts.</figcaption>
+            </figure>
+          </div>
+        </article>
 
         <article class="feature" aria-labelledby="settleTitle">
           <div class="feature__text">
-            <h3 class="feature__title" id="settleTitle">Settling a cash advance</h3>
+            <h3 class="feature__title" id="settleTitle">Where two modules meet: settling a cash advance</h3>
             <p>The settlement screen puts the advance and the actual spending side by side, so the employee and finance see the same difference before anyone approves it.</p>
             <ul class="feature__cases" aria-label="Settlement outcomes">
               <li>Spent less than the advance: the employee returns the difference.</li>
@@ -165,32 +269,6 @@
           </figure>
         </article>
 
-        <article class="feature" aria-labelledby="accrualTitle">
-          <div class="feature__text">
-            <h3 class="feature__title" id="accrualTitle">Month-end accrual and petty cash</h3>
-            <p>At the cut-off, finance sees every approved claim that hasn't been paid, so the cost lands in the month it belongs to. The petty cash view shows how much of each fund is left and when it needs topping up.</p>
-          </div>
-          <figure class="browser-fig feature__web">
-            <div class="browser" role="img" aria-label="Web month-end accrual list and petty cash fund balance">
-              <div class="browser__bar"><i></i><i></i><i></i><span>Expense · Finance · Month end</span></div>
-              <div class="w-main">
-                <div class="w-head"><strong>Approved, not yet paid</strong><span class="w-chip">Cut-off: last working day</span></div>
-                <div class="w-table">
-                  <div class="w-tr w-th"><span>Claim</span><span>Cost centre</span><span>Amount</span><span>Action</span></div>
-                  <div class="w-tr"><span>Client meeting meals</span><span>Branch sales</span><span>Rp850,000</span><span class="w-act"><b>Accrue</b></span></div>
-                  <div class="w-tr"><span>Training transport</span><span>HR</span><span>Rp420,000</span><span class="w-act"><b>Accrue</b></span></div>
-                  <div class="w-tr"><span>Advance settlement top-up</span><span>Operations</span><span>Rp300,000</span><span class="w-act"><b>Accrue</b></span></div>
-                </div>
-                <div class="fund">
-                  <div class="m-row"><span>Petty cash fund, branch office</span><span>Rp1,200,000 of Rp5,000,000 left</span></div>
-                  <div class="m-meter"><i style="width:24%"></i></div>
-                  <p class="m-sub">Below the top-up level. A replenishment request goes to finance.</p>
-                </div>
-              </div>
-            </div>
-            <figcaption>Web: month-end view for finance. Sample amounts.</figcaption>
-          </figure>
-        </article>
       </div>
     </section>
 

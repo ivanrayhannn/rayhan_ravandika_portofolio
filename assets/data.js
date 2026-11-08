@@ -203,12 +203,15 @@ window.PORTFOLIO = {
       deliverables: ["Feasibility study", "System architecture", "FSD & specs", "Test strategy", "API validation", "Dashboards"],
     },
     {
-      title: "HRIS product and no-code platform",
+      title: "HRIS on web and mobile: attendance, leave, overtime and tasks",
       client: "Jojonomic",
       period: "2022 to 2023",
       logos: ["assets/clients/jojonomic.png"],
-      summary: "As associate Product Owner for the HRIS, owned the roadmap, PRD and user stories, aligned CTO, VP and product teams on scope and releases, and supported the No-Code Platform product.",
-      deliverables: ["Roadmap", "PRD", "User stories", "JSON API spec", "UI design", "UAT"],
+      summary: "Product Owner for four HRIS modules on web and mobile. Designed the screens, defined the API endpoints with the engineers, documented everything from PRD to API spec, and led delivery to release. Also supported the No-Code Platform product.",
+      deliverables: ["Mobile and web UI", "API endpoints", "PRD", "User stories", "JSON API spec", "UAT"],
+      // Optional detail page for this case.
+      link: "hris.html",
+      linkLabel: "Read the HRIS case study",
     },
     {
       title: "Insurance and banking module improvements",

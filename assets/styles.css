@@ -323,6 +323,9 @@ h1, h2, h3 { letter-spacing: -0.02em; text-wrap: balance; }
 .case p { color: var(--text-2); font-size: 15px; margin-top: 8px; max-width: 70ch; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
 .chips li { font-size: 13px; font-weight: 600; padding: 4px 10px; border-radius: var(--r-sm); background: var(--chip); color: var(--text); }
+.case__link { display: inline-flex; align-items: center; min-height: 44px; margin-top: 12px; padding: 0 16px; border-radius: var(--r-md); background: var(--blue); color: #fff; font-weight: 700; font-size: 14.5px; text-decoration: none; }
+.case__link:hover { background: var(--blue-500); }
+.case__link:active { background: var(--blue-700); }
 .cases__pending { margin-top: 18px; font-size: 15px; color: var(--text-2); }
 .cases__pending:empty { display: none; }
 @media (max-width: 760px) {

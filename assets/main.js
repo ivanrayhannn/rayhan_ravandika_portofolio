@@ -269,7 +269,8 @@
     return '<article class="case"><div class="case__logos">' + list(p.logos || [], function (l) { return logoImg(l); }) +
       '</div><div class="case__body"><p class="case__meta">' + esc(p.client) + " · " + esc(p.period) + "</p><h3>" + esc(p.title) +
       "</h3><p>" + esc(p.summary) + '</p><ul class="chips" aria-label="Deliverables">' +
-      list(p.deliverables, function (d) { return "<li>" + esc(d) + "</li>"; }) + "</ul></div></article>";
+      list(p.deliverables, function (d) { return "<li>" + esc(d) + "</li>"; }) + "</ul>" +
+      (p.link ? '<a class="case__link" href="' + esc(p.link) + '">' + esc(p.linkLabel || "Read the case study") + "</a>" : "") + "</div></article>";
   }, { empty: "No case studies are published yet. The work history below covers the same projects.", error: "Couldn't show the case studies." + REFRESH });
 
   section("#kit", Object.keys(D.skills || {}), function (k) {

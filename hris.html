@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Jojonomic HRIS case study · Rayhan Ravandika</title>
+  <meta name="description" content="Case study: leading the attendance, leave, overtime and task management modules of the Jojonomic HRIS on web and mobile, from UI design to API endpoints and documentation." />
+  <meta name="theme-color" content="#0b3a9e" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230d47c9'/><text x='32' y='43' text-anchor='middle' font-family='Arial' font-weight='800' font-size='30' fill='white'>R.</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/case.css" />
+</head>
+<body>
+  <a class="skip" href="#role">Skip to content</a>
+
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Rayhan Ravandika, portfolio home">Rayhan<span aria-hidden="true">.</span></a>
+      <a href="index.html#projects" class="nav__back">Back to portfolio</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="case-hero tone-blue" aria-labelledby="caseTitle">
+      <div class="wrap">
+        <p class="case-hero__kicker">Case study · Jojonomic · 2022 to 2023</p>
+        <h1 id="caseTitle">HRIS on web and mobile: attendance, leave, overtime and tasks</h1>
+        <p class="case-hero__lede">I was the Product Owner for four HRIS modules. I designed the mobile and web screens, defined the API endpoints with the engineers, wrote it all into the product documents, and led the team from sprint planning to release.</p>
+
+        <dl class="case-meta">
+          <div><dt>Role</dt><dd>Associate Product Owner, HRIS</dd></div>
+          <div><dt>Platforms</dt><dd>Mobile app for employees, web app for HR and approvers</dd></div>
+          <div><dt>Modules</dt><dd>Attendance, leave, overtime, task management</dd></div>
+          <div><dt>Worked with</dt><dd>CTO, VP, product and engineering</dd></div>
+        </dl>
+
+        <nav class="toc" aria-label="On this page">
+          <a href="#role">My role</a>
+          <a href="#modules">Modules</a>
+          <a href="#design">UI design</a>
+          <a href="#api">API endpoints</a>
+          <a href="#docs">Documentation</a>
+          <a href="#revenue">Revenue feature</a>
+        </nav>
+      </div>
+    </section>
+
+    <p class="wrap case-note" role="note">The screens and API examples on this page are recreated for the portfolio with sample data. Production screens and endpoints belong to Jojonomic.</p>
+
+    <section class="section" id="role" aria-labelledby="roleTitle">
+      <div class="wrap split">
+        <div>
+          <h2 class="title" id="roleTitle">What I owned</h2>
+          <p class="intro">Four modules on two platforms. My job was to decide what we built, describe it precisely enough to build, and make sure it shipped working.</p>
+        </div>
+        <ol class="owned">
+          <li><h3>Scope and backlog</h3><p>Roadmap, PRD and prioritised user stories for each module, agreed with the CTO, VP and product team.</p></li>
+          <li><h3>UI design</h3><p>Mobile screens for employees and web screens for HR admins and approvers, designed in Figma.</p></li>
+          <li><h3>API endpoints</h3><p>Endpoint list, request and response bodies, and error cases, written as a JSON API spec with the backend engineers.</p></li>
+          <li><h3>Documentation</h3><p>Every decision went into the PRD, user stories with acceptance criteria, screen specs and the API spec, so engineering and QA worked from one source.</p></li>
+          <li><h3>Delivery</h3><p>Sprint planning, reviews and requirement clarification, then QA, UAT and defect prioritisation before each release.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section tone-tint" id="modules" aria-labelledby="modulesTitle">
+      <div class="wrap">
+        <h2 class="title" id="modulesTitle">The four modules</h2>
+        <p class="intro">Each module has two sides: what the employee does on the phone, and what HR or the approver does on the web.</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Modules by platform, scrollable">
+          <table class="modules">
+            <thead>
+              <tr><th scope="col">Module</th><th scope="col">Employee, mobile</th><th scope="col">HR and approvers, web</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Attendance</th><td>Clock in and out, see today's status and the monthly log</td><td>Review attendance by team, fix missing clock-outs, export for payroll</td></tr>
+              <tr><th scope="row">Leave</th><td>Check balance, request leave, follow approval status</td><td>Approve or reject, set leave types and balances, see who is out</td></tr>
+              <tr><th scope="row">Overtime</th><td>Request overtime before working it, see approved hours</td><td>Approve requests, see overtime by department and month</td></tr>
+              <tr><th scope="row">Task management</th><td>See assigned tasks, update status, add notes</td><td>Assign tasks, track progress by person and due date</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="design" aria-labelledby="designTitle">
+      <div class="wrap">
+        <h2 class="title" id="designTitle">UI design: mobile and web</h2>
+        <p class="intro">Mobile screens are built for one-handed use during the workday: the main action sits at the bottom, status sits at the top. Web screens are built for HR clearing a queue: filters first, one row per decision.</p>
+
+        <h3 class="subtitle">Mobile app, employee</h3>
+        <div class="phones">
+          <figure class="phone-fig">
+            <div class="phone" role="img" aria-label="Attendance screen: today's shift, clock-in status and a large Clock out button">
+              <div class="phone__bar"><span>Attendance</span></div>
+              <div class="phone__body">
+                <p class="m-label">Today, shift 08:00 to 17:00</p>
+                <div class="m-card m-card--strong"><span class="m-big">08:02</span><span class="m-sub">Clocked in · location matched</span></div>
+                <div class="m-row"><span>Break</span><span>12:00 to 13:00</span></div>
+                <div class="m-row"><span>This month</span><span>18 of 21 days</span></div>
+                <span class="m-btn">Clock out</span>
+              </div>
+            </div>
+            <figcaption>Attendance: one main action, status on top.</figcaption>
+          </figure>
+
+          <figure class="phone-fig">
+            <div class="phone" role="img" aria-label="Leave request screen: leave balance, a request form and the status of the last request">
+              <div class="phone__bar"><span>Leave</span></div>
+              <div class="phone__body">
+                <div class="m-card"><span class="m-sub">Annual leave left</span><span class="m-big">9 days</span></div>
+                <div class="m-field"><span>Type</span><span>Annual leave</span></div>
+                <div class="m-field"><span>Dates</span><span>2 days</span></div>
+                <div class="m-field"><span>Reason</span><span class="m-muted">Optional</span></div>
+                <div class="m-row"><span>Last request</span><span class="m-pill m-pill--wait">Waiting</span></div>
+                <span class="m-btn">Send request</span>
+              </div>
+            </div>
+            <figcaption>Leave: balance shown before the form, so nobody asks for days they don't have.</figcaption>
+          </figure>
+
+          <figure class="phone-fig">
+            <div class="phone" role="img" aria-label="Overtime request screen: date, planned hours, reason and approver">
+              <div class="phone__bar"><span>Overtime</span></div>
+              <div class="phone__body">
+                <p class="m-label">Request before you work it</p>
+                <div class="m-field"><span>Date</span><span>Today</span></div>
+                <div class="m-field"><span>Planned</span><span>17:00 to 19:00</span></div>
+                <div class="m-field"><span>Reason</span><span>Month-end closing</span></div>
+                <div class="m-field"><span>Approver</span><span>Your manager</span></div>
+                <span class="m-btn">Send for approval</span>
+              </div>
+            </div>
+            <figcaption>Overtime: approval happens before the hours are worked.</figcaption>
+          </figure>
+
+          <figure class="phone-fig">
+            <div class="phone" role="img" aria-label="Task list screen: tasks grouped by status with due dates">
+              <div class="phone__bar"><span>My tasks</span></div>
+              <div class="phone__body">
+                <div class="m-tabs"><span class="is-on">To do</span><span>Doing</span><span>Done</span></div>
+                <div class="m-task"><span>Update vendor contract list</span><span class="m-sub">Due today</span></div>
+                <div class="m-task"><span>Prepare training material</span><span class="m-sub">Due Fri</span></div>
+                <div class="m-task"><span>Check new hire documents</span><span class="m-sub">Due next week</span></div>
+              </div>
+            </div>
+            <figcaption>Tasks: grouped by status, due date on every row.</figcaption>
+          </figure>
+        </div>
+
+        <h3 class="subtitle">Web app, HR and approvers</h3>
+        <figure class="browser-fig">
+          <div class="browser" role="img" aria-label="Web approval inbox: filters for leave and overtime, and a table of pending requests with approve and reject actions">
+            <div class="browser__bar"><i></i><i></i><i></i><span>HRIS · Approvals</span></div>
+            <div class="browser__body">
+              <aside class="w-side">
+                <span class="is-on">Approvals</span><span>Attendance</span><span>Leave</span><span>Overtime</span><span>Tasks</span><span>Settings</span>
+              </aside>
+              <div class="w-main">
+                <div class="w-head"><strong>Pending approvals</strong><span class="w-filters"><span class="is-on">All</span><span>Leave</span><span>Overtime</span></span></div>
+                <div class="w-table">
+                  <div class="w-tr w-th"><span>Request</span><span>Employee</span><span>When</span><span>Action</span></div>
+                  <div class="w-tr"><span>Annual leave, 2 days</span><span>Employee 014</span><span>Next Mon to Tue</span><span class="w-act"><b>Approve</b><em>Reject</em></span></div>
+                  <div class="w-tr"><span>Overtime, 2 hours</span><span>Employee 027</span><span>Today 17:00</span><span class="w-act"><b>Approve</b><em>Reject</em></span></div>
+                  <div class="w-tr"><span>Sick leave, 1 day</span><span>Employee 003</span><span>Yesterday</span><span class="w-act"><b>Approve</b><em>Reject</em></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <figcaption>Approval inbox: leave and overtime in one queue, so approvers clear everything in one place.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section tone-tint" id="api" aria-labelledby="apiTitle">
+      <div class="wrap">
+        <h2 class="title" id="apiTitle">API endpoints</h2>
+        <p class="intro">I defined the endpoints with the backend engineers, so the mobile and web teams built against the same contract.</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Endpoint list, scrollable">
+          <table class="endpoints">
+            <thead><tr><th scope="col">Module</th><th scope="col">Method</th><th scope="col">Endpoint</th><th scope="col">Used for</th></tr></thead>
+            <tbody>
+              <tr><th scope="row" rowspan="3">Attendance</th><td><span class="verb verb--post">POST</span></td><td><code>/v1/attendance/clock-in</code></td><td>Record clock-in with time and location</td></tr>
+              <tr><td><span class="verb verb--post">POST</span></td><td><code>/v1/attendance/clock-out</code></td><td>Record clock-out</td></tr>
+              <tr><td><span class="verb verb--get">GET</span></td><td><code>/v1/attendance?employee_id=&amp;month=</code></td><td>Monthly log for one employee</td></tr>
+              <tr><th scope="row" rowspan="3">Leave</th><td><span class="verb verb--get">GET</span></td><td><code>/v1/leave/balances/{employee_id}</code></td><td>Remaining days per leave type</td></tr>
+              <tr><td><span class="verb verb--post">POST</span></td><td><code>/v1/leave/requests</code></td><td>Create a leave request</td></tr>
+              <tr><td><span class="verb verb--patch">PATCH</span></td><td><code>/v1/leave/requests/{id}/approval</code></td><td>Approve or reject</td></tr>
+              <tr><th scope="row" rowspan="3">Overtime</th><td><span class="verb verb--post">POST</span></td><td><code>/v1/overtime/requests</code></td><td>Create an overtime request</td></tr>
+              <tr><td><span class="verb verb--patch">PATCH</span></td><td><code>/v1/overtime/requests/{id}/approval</code></td><td>Approve or reject</td></tr>
+              <tr><td><span class="verb verb--get">GET</span></td><td><code>/v1/overtime/summary?department_id=&amp;month=</code></td><td>Hours by department for reports</td></tr>
+              <tr><th scope="row" rowspan="3">Tasks</th><td><span class="verb verb--post">POST</span></td><td><code>/v1/tasks</code></td><td>Create and assign a task</td></tr>
+              <tr><td><span class="verb verb--patch">PATCH</span></td><td><code>/v1/tasks/{id}/status</code></td><td>Move a task between statuses</td></tr>
+              <tr><td><span class="verb verb--get">GET</span></td><td><code>/v1/tasks?assignee_id=&amp;status=</code></td><td>Task list for one person</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="subtitle">Example from the API spec: create a leave request</h3>
+        <p class="intro intro--tight">Each endpoint in the spec had a request, a success response and the error cases the mobile app had to handle.</p>
+        <div class="code-grid">
+          <figure class="code">
+            <figcaption>Request · <code>POST /v1/leave/requests</code></figcaption>
+<pre tabindex="0"><code>{
+  "employee_id": "EMP-014",
+  "leave_type": "ANNUAL",
+  "start_date": "2023-03-13",
+  "end_date": "2023-03-14",
+  "reason": "Family event"
+}</code></pre>
+          </figure>
+          <figure class="code">
+            <figcaption>Response · <code>201 Created</code></figcaption>
+<pre tabindex="0"><code>{
+  "id": "LV-20230310-0042",
+  "status": "WAITING_APPROVAL",
+  "days": 2,
+  "approver_id": "EMP-002",
+  "balance_after": 7
+}</code></pre>
+          </figure>
+          <figure class="code">
+            <figcaption>Error · <code>422 Unprocessable Entity</code></figcaption>
+<pre tabindex="0"><code>{
+  "error": "INSUFFICIENT_BALANCE",
+  "message": "Only 1 day of annual leave left.",
+  "field": "end_date"
+}</code></pre>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="docs" aria-labelledby="docsTitle">
+      <div class="wrap">
+        <h2 class="title" id="docsTitle">From decision to document</h2>
+        <p class="intro">Each feature moved through the same documents, and each document pointed back to the one before it, so engineering and QA worked from one source.</p>
+        <ol class="trail">
+          <li><span class="trail__code">PRD</span><span>Problem, goal and scope per module</span></li>
+          <li><span class="trail__code">Stories</span><span>User stories with acceptance criteria</span></li>
+          <li><span class="trail__code">Screens</span><span>Figma screens and field rules</span></li>
+          <li><span class="trail__code">API spec</span><span>Endpoints, JSON bodies, errors</span></li>
+          <li><span class="trail__code">UAT</span><span>Test scenarios from the criteria</span></li>
+        </ol>
+
+        <div class="story panel">
+          <p class="story__label">Example user story, overtime module</p>
+          <p class="story__text">As an employee, I want to request overtime from my phone before I work it, so my manager approves it in time and the hours count in payroll.</p>
+          <ol class="ac">
+            <li><b>Given</b> I open Overtime, <b>when</b> I send a request with date, planned hours and reason, <b>then</b> my manager gets it in the approval inbox and I see "Waiting".</li>
+            <li><b>Given</b> my manager approves, <b>when</b> I open the request, <b>then</b> I see "Approved" and the hours appear in my monthly summary.</li>
+            <li><b>Given</b> the planned end time is earlier than the start time, <b>when</b> I tap Send, <b>then</b> the form shows "End time must be after start time" and nothing is sent.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section band tone-blue" id="revenue" aria-labelledby="revenueTitle">
+      <div class="wrap">
+        <p class="concept-tag">Concept · an example of how I shape a revenue feature, not a shipped Jojonomic feature</p>
+        <h2 class="title" id="revenueTitle">Feature idea: Overtime Budget Guard</h2>
+        <p class="intro">HR teams usually find out what overtime cost after payroll closes. This add-on puts a monthly overtime budget in front of the people who request and approve it.</p>
+
+        <div class="rev-grid">
+          <div class="rev-card">
+            <h3>Problem</h3>
+            <p>Overtime is approved one request at a time. Nobody sees the department total until month end, so budgets overrun and HR has to chase approvals made outside the system.</p>
+          </div>
+          <div class="rev-card">
+            <h3>How it works</h3>
+            <ol class="rev-steps">
+              <li>HR sets a monthly overtime budget per department on the web.</li>
+              <li>The employee and the approver see how much is left when a request is made.</li>
+              <li>A request that goes over budget routes to a second approver.</li>
+              <li>At month end, HR exports approved hours straight to payroll.</li>
+            </ol>
+          </div>
+          <div class="rev-card">
+            <h3>Why it earns revenue</h3>
+            <p>It is packaged as a paid add-on to the Overtime module, priced per active employee, so it grows with each client. HR admins on the base plan see an upgrade prompt in the overtime report, where the overrun is visible.</p>
+          </div>
+        </div>
+
+        <div class="rev-screens">
+          <figure class="phone-fig phone-fig--dark">
+            <div class="phone" role="img" aria-label="Mobile overtime request showing the department budget bar at 62 percent used, with sample data">
+              <div class="phone__bar"><span>Overtime</span></div>
+              <div class="phone__body">
+                <div class="m-budget">
+                  <div class="m-row"><span>Finance dept. budget</span><span>62% used</span></div>
+                  <div class="m-meter"><i style="width:62%"></i></div>
+                  <p class="m-sub">38 of 100 hours left this month</p>
+                </div>
+                <div class="m-field"><span>Planned</span><span>2 hours</span></div>
+                <div class="m-field"><span>Approver</span><span>Your manager</span></div>
+                <span class="m-btn">Send for approval</span>
+              </div>
+            </div>
+            <figcaption>Mobile: remaining budget sits above the form. Sample data.</figcaption>
+          </figure>
+          <div class="rev-measure">
+            <h3>How I would measure it</h3>
+            <p>No results are shown because this is a concept. These are the numbers I would track from the pilot onward:</p>
+            <ul>
+              <li>Add-on attach rate among clients that use the Overtime module</li>
+              <li>Trial-to-paid conversion after the upgrade prompt</li>
+              <li>Share of overtime approved inside the app instead of in chat</li>
+              <li>Retention of clients with the add-on compared with those without it</li>
+            </ul>
+            <h3>Rollout</h3>
+            <p>Interview HR admins, test a clickable prototype, run a pilot with a small group of clients, test the price, then release to everyone.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap case-end">
+        <p>Want the full story behind these modules, or a walk-through of the documents?</p>
+        <div class="case-end__actions">
+          <a class="btn btn--primary" href="index.html#contact">Contact Rayhan</a>
+          <a class="btn btn--ghost-dark" href="index.html#projects">Back to all case studies</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__inner">
+      <span>© <span id="year">2026</span> Muhammad Rayhan Ravandika</span>
+      <a href="#caseTitle">Back to top</a>
+    </div>
+  </footer>
+</body>
+</html>

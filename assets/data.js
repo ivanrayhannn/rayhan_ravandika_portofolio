@@ -64,7 +64,7 @@ window.PORTFOLIO = {
     { icon: "users", title: "User requirements", text: "I run stakeholder interviews, workshops and observation, then turn what I hear into prioritised user stories with acceptance criteria." },
     { icon: "activity", title: "Business operation analysis", text: "I map how the operation runs today, find the gaps and bottlenecks, and size their impact before anyone picks a solution." },
     { icon: "flow", title: "Business process flows", text: "As-is and to-be processes drawn as BPMN swimlanes, with every role, decision point and business rule on the page." },
-    { icon: "layout", title: "UI design", text: "Wireframes and clickable prototypes in Figma, tested with users before development starts." },
+    { icon: "layout", title: "UI design", text: "I build the prototype first, with the help of AI tools, before writing any document. Business users click through a real, working prototype and see how it feels, so they can validate the flow before development starts." },
     { icon: "file", title: "BRD · FSD · TSD", text: "The business case, the functional spec and the technical design, written as separate documents that business and IT can each sign off." },
     { icon: "check", title: "Testing strategy", text: "Test strategy, scenarios and UAT plans, with each test traced back to the requirement it proves." },
   ],

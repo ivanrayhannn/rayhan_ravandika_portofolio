@@ -1,8 +1,8 @@
 /* Written by the site editor (admin.html). Make changes there instead of by hand. */
 window.PORTFOLIO_EDITS = {
   "version": 1,
-  "rev": 3,
-  "published": "2026-11-08T16:59:26.141Z",
+  "rev": 4,
+  "published": "2026-11-08T17:00:04.624Z",
   "pages": {
     "index.html": {
       "nodes": {
@@ -75,6 +75,10 @@ window.PORTFOLIO_EDITS = {
         "#badgeHint": {
           "was": "Drag the card to swing it",
           "html": "Drag MyID to swing it"
+        },
+        "#badge/div:2/div:1/span:0": {
+          "was": "4 yrs experience",
+          "hidden": true
         }
       },
       "added": {},

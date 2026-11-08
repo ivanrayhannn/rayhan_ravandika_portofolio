@@ -1,8 +1,8 @@
 /* Written by the site editor (admin.html). Make changes there instead of by hand. */
 window.PORTFOLIO_EDITS = {
   "version": 1,
-  "rev": 9,
-  "published": "2026-11-08T17:54:39.824Z",
+  "rev": 10,
+  "published": "2026-11-08T18:11:01.325Z",
   "pages": {
     "index.html": {
       "nodes": {
@@ -156,6 +156,50 @@ window.PORTFOLIO_EDITS = {
         "#reqs/li:5/span:0": {
           "was": "REQ-06",
           "html": "06"
+        },
+        "#reqs/li:3/p:0": {
+          "was": "I build the prototype first, with the help of AI tools, before writing any docum",
+          "html": "Before, I design UI for wireframe and high fidelity using Figma tools which is business users can review the UI each screen function.&nbsp;<br><br>Currently, I build the prototype first, with the help of AI tools, before writing any document. Business users click through a real, working prototype and see how it feels, so they can validate the flow before development starts."
+        },
+        "#reqs/li:4/p:0": {
+          "was": "The business case, the functional spec and the technical design, written as sepa",
+          "html": "BRD and FSD prepared by me and vendor will prepare technical design (TSD) , designed as separate documents, and all stakeholder can each sign off."
+        },
+        "#reqs/li:5/p:0": {
+          "was": "Test strategy, scenarios and UAT plans, with each test traced back to the requir",
+          "html": "Collaboration with business users to prepare test strategy, scenarios, data preparation and UAT plans, with each test traced back to the requirement it proves.&nbsp;"
+        },
+        "#docs/li:1/ul:0/li:1": {
+          "was": "Screen specs & field validation",
+          "html": "ERD, Screen specs &amp; field validation"
+        },
+        "#docs/li:1/ul:0/li:2": {
+          "was": "Workflow & approval logic",
+          "html": "Workflow, Data variation &amp; approval logic"
+        },
+        "#docs/li:2/ul:0/li:1": {
+          "was": "Data model / ERD",
+          "html": "Sequence Diagram"
+        },
+        "#services/div:1/h3:0": {
+          "was": "Documents I produce",
+          "html": "Documents I produce and I Review"
+        },
+        "#docs/li:0/p:0": {
+          "was": "Business Requirement Document",
+          "html": "Business Requirement Document<br>(Created)"
+        },
+        "#docs/li:1/p:0": {
+          "was": "Functional Specification Document",
+          "html": "Functional Specification Document (Created)"
+        },
+        "#docs/li:2/p:0": {
+          "was": "Technical Specification Document",
+          "html": "Technical Specification Document<br>(Reviewed)"
+        },
+        "#docs/li:3/p:0": {
+          "was": "Testing Strategy",
+          "html": "Testing Strategy<br>(Prepared with users)"
         }
       },
       "added": {},

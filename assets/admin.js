@@ -583,9 +583,51 @@
     loadTimer = setTimeout(function () {
       if (!S.ready) stage("The page is taking too long to load. Check your connection, then try again.", true, true);
     }, 20000);
-    frame.src = name + "?cms=edit";
+    var go = function () { if (S.page === name) frame.src = name + "?cms=edit"; };
+    // Revalidate the page and its scripts first, so the canvas shows what the website serves now.
+    siteSignature(name).then(function (sig) { siteSig = sig; staleSite = false; go(); }, go);
     try { history.replaceState(null, "", "#" + name); } catch (e) { /* not important */ }
   }
+
+  /* ---------- Site updates (code pushed while you edit) ---------- */
+  var siteSig = null, staleSite = false, checking = false;
+  function textHash(t) {
+    var h = 2166136261;
+    for (var i = 0; i < t.length; i++) { h ^= t.charCodeAt(i); h = Math.imul(h, 16777619) >>> 0; }
+    return h.toString(16) + ":" + t.length;
+  }
+  // Fingerprint of a page plus its local scripts and styles. edits.js is left out: publishing from here changes it.
+  function siteSignature(name) {
+    var get = function (u) { return fetch(u, { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); }); };
+    return get(name).then(function (html) {
+      var urls = [], re = /(?:src|href)="(assets\/[^"?#]+\.(?:js|css))"/g, m;
+      while ((m = re.exec(html))) if (!/edits\.js$/.test(m[1]) && urls.indexOf(m[1]) < 0) urls.push(m[1]);
+      return Promise.all(urls.map(get)).then(function (texts) { return textHash(html + "\u0000" + texts.join("\u0000")); });
+    });
+  }
+  function checkSite() {
+    if (checking || staleSite || !S.ready || !siteSig || document.hidden) return;
+    checking = true;
+    var page = S.page;
+    siteSignature(page).then(function (sig) {
+      checking = false;
+      if (page !== S.page || sig === siteSig || staleSite) return;
+      staleSite = true;
+      notice("The site was updated since this page loaded. Refresh to see the latest version; your draft stays.", [["Refresh now", refreshSite], ["Later", function () { notice(null); }]], true);
+      $("#notice").dataset.kind = "update";
+    }, function () { checking = false; });
+  }
+  function refreshSite() {
+    endEdit();
+    if ($("#notice").dataset.kind === "update") notice(null);
+    saveNow();
+    toast("Loading the latest version of the page…");
+    loadPage(S.page);
+  }
+  $("#refreshBtn").addEventListener("click", refreshSite);
+  window.addEventListener("focus", checkSite);
+  document.addEventListener("visibilitychange", function () { if (!document.hidden) checkSite(); });
+  setInterval(checkSite, 60000);
   frame.addEventListener("load", function () {
     if (!frame.getAttribute("src")) return;
     var w = null, d = null, search = "";

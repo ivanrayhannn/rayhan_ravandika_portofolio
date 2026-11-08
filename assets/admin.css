@@ -96,6 +96,15 @@ svg { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; s
 .save { color: var(--ink-2); font-size: 12.5px; white-space: nowrap; max-width: 220px; overflow: hidden; text-overflow: ellipsis; }
 .save.is-error { color: var(--danger); font-weight: 700; }
 
+/* Narrower laptops: the draft status stays for screen readers, toolbar buttons keep their icon and tooltip. */
+@media (max-width: 1439px) {
+  .save { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}
+@media (max-width: 1279px) {
+  .tlabel { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .bar__title { display: none; }
+}
+
 /* Three panes */
 .app { display: grid; grid-template-columns: 264px minmax(0, 1fr) 304px; height: calc(100vh - 52px); }
 .side { background: var(--panel); display: flex; flex-direction: column; min-height: 0; }

@@ -32,6 +32,7 @@ Open `admin.html` on the live site (https://ivanrayhannn.github.io/rayhan_ravand
 - Add tab: heading, text, small label, button, image, shape and columns. Columns put blocks side by side and stack on phones.
 - The ID card photo: click it, then Upload. Focus picks the part of the photo that stays visible.
 - Built-in content can be hidden but not deleted; Layers lists hidden items with a Show button. Added blocks can be deleted. Everything can be undone (Ctrl+Z).
+- Refresh (top bar) reloads the page from the website and keeps the draft. The editor also checks for site updates when you come back to its tab and every minute, and offers Refresh when the code changed, for example after Claude pushed a change.
 - The draft saves in that browser as you go. Preview opens the page with the draft; visitors only see changes after you publish.
 - Publish commits `assets/edits.js` and any new images to this repository, and the Pages workflow redeploys in about a minute. It needs a fine-grained GitHub token with access to this repository only and the permission "Contents: Read and write". The token stays in the browser (only for the tab, unless you tick "Remember"). Without a token, "Download edits.js instead" gives a file to upload into `assets/` by hand.
 

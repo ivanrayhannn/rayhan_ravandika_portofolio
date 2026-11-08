@@ -1,8 +1,8 @@
 /* Written by the site editor (admin.html). Make changes there instead of by hand. */
 window.PORTFOLIO_EDITS = {
   "version": 1,
-  "rev": 2,
-  "published": "2026-11-08T16:57:44.405Z",
+  "rev": 3,
+  "published": "2026-11-08T16:59:26.141Z",
   "pages": {
     "index.html": {
       "nodes": {
@@ -16,7 +16,8 @@ window.PORTFOLIO_EDITS = {
         },
         "#badge/div:2/p:2": {
           "html": "Fujitsu IT Consultant at Toyota Indonesia",
-          "was": "Fujitsu, onsite at Toyota Indonesia"
+          "was": "Fujitsu, onsite at Toyota Indonesia",
+          "fs": 10
         },
         "#badgePhoto": {
           "align": "center",

@@ -289,7 +289,8 @@ button.m-btn.m-btn--off:disabled { background: #c4cddd; color: #33415e; cursor: 
 .phone--tall .phone__body { height: auto; min-height: 560px; overflow: visible; }
 .mkt__body { gap: 12px; }
 .wheel { position: relative; width: 100%; max-width: 250px; margin: 6px auto 4px; }
-.wheel svg { display: block; width: 100%; height: auto; transform-origin: 50% 50%; }
+/* A turned square SVG reaches past its box; it is decoration, so clicks pass through to the Spin button. */
+.wheel svg { display: block; width: 100%; height: auto; transform-origin: 50% 50%; pointer-events: none; }
 .wheel__pointer { position: absolute; top: -6px; left: 50%; z-index: 1; width: 0; height: 0; margin-left: -11px; border-left: 11px solid transparent; border-right: 11px solid transparent; border-top: 20px solid #16294f; }
 .wheel__hub { position: absolute; top: 50%; left: 50%; width: 40px; height: 40px; margin: -20px 0 0 -20px; border-radius: 50%; background: #fff; border: 3px solid #0a2a78; }
 .mkt__result { display: grid; gap: 8px; min-height: 120px; }

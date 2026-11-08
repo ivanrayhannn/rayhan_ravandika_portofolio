@@ -7,7 +7,7 @@ window.PORTFOLIO = {
   fullName: "Muhammad Rayhan Ravandika",
   role: "IT PM & Business System Analyst",
   tagline:
-    "Four years of turning stakeholder pain points into requirements, system designs, and delivery plans that cross-functional teams ship on time and on budget.",
+    "I take a stakeholder's problem and turn it into the requirements, system design and delivery plan a vendor team builds from.",
   location: "South Jakarta, Indonesia",
   email: "ivanrayhanravan@gmail.com",
   phone: "+62 822 5795 8517",
@@ -55,18 +55,18 @@ window.PORTFOLIO = {
   ],
 
   about: [
-    "I'm an IT Project Manager and Business System Analyst with four years of experience bridging business and technology. I start from the stakeholder's pain point, analyse how the operation actually runs, and turn it into a solution that fits the business goal: requirements, system architecture, ERD, and FSD documentation that engineering teams can build from.",
-    "I've led product work end to end, from market research and product-market fit to MVP definition, PRDs, and release. On digitalisation projects I also write SQL, design data integrations, and define the testing strategy.",
-    "As a project lead I run cross-functional and vendor teams through proposal, planning, budgeting, risk mitigation, and daily execution, so delivery stays on time and on budget and everyone stays accountable.",
+    "I'm an IT Project Manager and Business System Analyst with four years of experience, most of it spent between business users and the engineers building for them. I start from the stakeholder's problem and how the operation runs today, then write it down so engineering can build it: requirements, system architecture, ERD and FSD.",
+    "I've taken product work from market research and product-market fit through MVP scope, PRDs and release. On digitalisation projects I also write SQL, design data integrations and define the testing strategy.",
+    "As a project lead I take cross-functional and vendor teams through proposal, planning, budgeting, risk mitigation and daily follow-up. At Fujitsu that kept four projects at 100% schedule compliance.",
   ],
 
   services: [
-    { icon: "users", title: "User Requirements", text: "Stakeholder interviews, workshops, and observation turned into prioritised user stories with clear acceptance criteria." },
-    { icon: "activity", title: "Business Operation Analysis", text: "Assess current operations, spot gaps and bottlenecks, and quantify the impact to shape the right solution." },
-    { icon: "flow", title: "Business Flow Process", text: "Model as-is and to-be processes in BPMN / swimlanes with roles, decision points, and business rules." },
-    { icon: "layout", title: "UI Design", text: "Wireframes and clickable prototypes that validate flows with users before a single line of code is written." },
-    { icon: "file", title: "BRD · FSD · TSD", text: "Structured documentation from business objectives down to functional specs and technical/system design." },
-    { icon: "check", title: "Testing Strategy", text: "Test strategy, scenarios, and UAT plans with traceability back to every requirement." },
+    { icon: "users", title: "User requirements", text: "I run stakeholder interviews, workshops and observation, then turn what I hear into prioritised user stories with acceptance criteria." },
+    { icon: "activity", title: "Business operation analysis", text: "I map how the operation runs today, find the gaps and bottlenecks, and size their impact before anyone picks a solution." },
+    { icon: "flow", title: "Business process flows", text: "As-is and to-be processes drawn as BPMN swimlanes, with every role, decision point and business rule on the page." },
+    { icon: "layout", title: "UI design", text: "Wireframes and clickable prototypes in Figma, tested with users before development starts." },
+    { icon: "file", title: "BRD · FSD · TSD", text: "The business case, the functional spec and the technical design, written as separate documents that business and IT can each sign off." },
+    { icon: "check", title: "Testing strategy", text: "Test strategy, scenarios and UAT plans, with each test traced back to the requirement it proves." },
   ],
 
   deliverables: [
@@ -247,11 +247,11 @@ window.PORTFOLIO = {
   projectsPending: "Write-ups for Adhi Persada Beton, Amway and Bank Papua are in progress.",
 
   skills: {
-    "Analysis & Modelling": ["Requirement Gathering", "Feasibility Study", "Business Process (BPMN)", "Use Case", "User Story", "ERD", "Impact & Risk Analysis"],
-    "Documentation": ["BRD", "FSD", "TSD", "PRD", "JSON API Spec", "Test Strategy", "UAT Scenario"],
-    "Data & Integration": ["SQL Query", "SQL Server", "Oracle", "DBeaver", "Power BI (DAX)", "Postman"],
-    "Design & Delivery": ["Figma (UI Design)", "Jira", "Trello", "CI/CD GitHub", "Microsoft 365", "Hermes Agent", "AI Prompting"],
-    "Methodology": ["Waterfall", "Agile / Scrum", "Project Planning & Budgeting", "Stakeholder Management"],
+    "Analysis & modelling": ["Requirement gathering", "Feasibility studies", "Business process (BPMN)", "Use cases", "User stories", "ERD", "Impact & risk analysis"],
+    "Documentation": ["BRD", "FSD", "TSD", "PRD", "JSON API spec", "Test strategy", "UAT scenarios"],
+    "Data & integration": ["SQL queries", "SQL Server", "Oracle", "DBeaver", "Power BI (DAX)", "Postman"],
+    "Design & delivery": ["Figma (UI design)", "Jira", "Trello", "GitHub CI/CD", "Microsoft 365", "Hermes Agent", "AI prompting"],
+    "Methodology": ["Waterfall", "Agile / Scrum", "Project planning & budgeting", "Stakeholder management"],
   },
 
   experience: [
@@ -261,14 +261,14 @@ window.PORTFOLIO = {
       company: "Fujitsu · onsite at Toyota, Logistic Department",
       points: [
         "Led 4 IT development projects over 3 years, managing 8 cross-functional vendor teams across 8 systems and 50+ data integrations, using Waterfall and Agile methodologies.",
-        "Facilitated cross-country meetings, user requirement clarification, and system process flow.",
-        "Gathered user requirements and ran feasibility studies to identify business pain points, define project scope, and align technology solutions with business objectives.",
-        "Designed technology solutions and system architectures that addressed business requirements and supported strategic initiatives across departments.",
+        "Ran cross-country meetings to clarify user requirements and system process flows.",
+        "Gathered user requirements and ran feasibility studies to find business pain points and set the project scope.",
+        "Designed solutions and system architectures for business requirements across departments.",
         "Managed relationships between IT, business units, and external vendors; resolved conflicting requirements and removed blockers to keep the schedule.",
-        "Managed digital transformation project budgets totalling $12M+ and optimised resource allocation across concurrent projects.",
+        "Managed digital transformation budgets totalling $12M+ and allocated resources across concurrent projects.",
         "Identified project risks through impact analysis and ran mitigation throughout the lifecycle, keeping 100% schedule compliance.",
-        "Defined testing strategies including test scenarios, validated API endpoints, and ensured security compliance and readiness for penetration testing.",
-        "Built data analytics dashboards and visualisations that give leadership and stakeholders actionable insight.",
+        "Defined testing strategies and scenarios, validated API endpoints, and prepared systems for security compliance checks and penetration testing.",
+        "Built analytics dashboards for leadership and stakeholders.",
         "Documented system specifications, process flows, and technical requirements for development and implementation teams.",
       ],
     },
@@ -284,8 +284,8 @@ window.PORTFOLIO = {
         "Facilitated sprint planning, sprint meetings, product reviews, requirement clarification, and decision-making sessions.",
         "Managed the product lifecycle from discovery to release and continuous improvement.",
         "Wrote technical documents: JSON API, database relations, system integration flow, and UI design.",
-        "Ensured release readiness through QA, UAT, defect prioritisation, and operational planning.",
-        "Promoted structured documentation and standardised product management practices.",
+        "Prepared each release through QA, UAT, defect prioritisation and operational planning.",
+        "Pushed for structured documentation and a standard way of running product management.",
       ],
     },
     {
@@ -293,7 +293,7 @@ window.PORTFOLIO = {
       title: "Business Analyst (Interim)",
       company: "Jojonomic · FWD Insurance and CIMB Niaga projects",
       points: [
-        "Managed improvement features on several modules to align them with customer needs.",
+        "Managed improvements to several modules so they matched customer needs.",
         "Gathered requirements from business users, prioritised them for development, and monitored daily progress.",
         "Facilitated stakeholder meetings, sprint planning, requirement reviews, and requirement clarification.",
         "Helped resolve data and integration job issues during the unit test phase.",

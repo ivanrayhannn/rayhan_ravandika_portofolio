@@ -1378,7 +1378,7 @@
         : hidden ? '<button type="button" class="tbtn" data-act="show"><svg><use href="#i-eye"/></svg>Show</button>'
           : '<button type="button" class="tbtn" data-act="hide"><svg><use href="#i-eye-off"/></svg>Hide</button>') +
       (touchedNode ? '<button type="button" class="tbtn" data-act="reset"><svg><use href="#i-reset"/></svg>Undo all changes</button>' : "") +
-      (away ? '<button type="button" class="tbtn" data-act="home"><svg><use href="#i-reset"/></svg>Original place</button>' : "") +
+      (away ? '<button type="button" class="tbtn" data-act="home"><svg><use href="#i-reset"/></svg>Move it back</button>' : "") +
       "</div></section>");
     var top = props.scrollTop;
     props.innerHTML = h.join("");

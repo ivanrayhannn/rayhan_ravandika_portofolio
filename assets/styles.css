@@ -57,6 +57,8 @@ body {
 a { color: var(--link); }
 ul, ol { list-style: none; }
 img { max-width: 100%; height: auto; }
+/* Components set display: flex or grid; [hidden] must still win. */
+[hidden] { display: none !important; }
 
 a[href], button, summary, [role="tab"] { cursor: pointer; }
 button:disabled, [aria-disabled="true"] { cursor: not-allowed; }

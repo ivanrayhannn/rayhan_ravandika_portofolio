@@ -40,6 +40,7 @@
         <nav class="toc" aria-label="On this page">
           <a href="#role">My role</a>
           <a href="#modules">Modules</a>
+          <a href="#released">Released features</a>
           <a href="#design">UI design</a>
           <a href="#api">API endpoints</a>
           <a href="#docs">Documentation</a>
@@ -76,13 +77,139 @@
               <tr><th scope="col">Module</th><th scope="col">Employee, mobile</th><th scope="col">HR and approvers, web</th></tr>
             </thead>
             <tbody>
-              <tr><th scope="row">Attendance</th><td>Clock in and out, see today's status and the monthly log</td><td>Review attendance by team, fix missing clock-outs, export for payroll</td></tr>
+              <tr><th scope="row">Attendance</th><td>Clock in and out inside the work area, with a face check, and see the monthly log</td><td>Set work locations, review face-check flags, fix missing clock-outs, export for payroll</td></tr>
               <tr><th scope="row">Leave</th><td>Check balance, request leave, follow approval status</td><td>Approve or reject, set leave types and balances, see who is out</td></tr>
               <tr><th scope="row">Overtime</th><td>Request overtime before working it, see approved hours</td><td>Approve requests, see overtime by department and month</td></tr>
               <tr><th scope="row">Task management</th><td>See assigned tasks, update status, add notes</td><td>Assign tasks, track progress by person and due date</td></tr>
             </tbody>
           </table>
         </div>
+      </div>
+    </section>
+
+    <section class="section" id="released" aria-labelledby="releasedTitle">
+      <div class="wrap">
+        <h2 class="title" id="releasedTitle">Released features: attendance you can trust</h2>
+        <p class="intro">Two features shipped to stop the most common attendance problems: clocking in from somewhere else, and clocking in for someone else. Use the buttons to see each screen state.</p>
+
+        <article class="feature" aria-labelledby="geoTitle">
+          <div class="feature__text">
+            <p class="feature__tag">Released · Attendance module</p>
+            <h3 class="feature__title" id="geoTitle">Geofenced attendance</h3>
+            <p><b>Problem.</b> Employees could clock in from home or on the way to the office, and HR had no way to tell from the log.</p>
+            <p><b>How it works.</b> HR sets each work location on a map with a radius. When an employee taps Clock in, the app reads the phone's location. Inside the radius, the clock-in is saved with the location. Outside it, the app explains how far away they are and what to do next.</p>
+            <ul class="feature__cases" aria-label="Cases the flow handles">
+              <li>Location turned off: the app asks to turn it on before clocking in.</li>
+              <li>Weak GPS signal: the app asks to wait a moment and try again.</li>
+              <li>More than one office or site: the employee is checked against every location assigned to them.</li>
+            </ul>
+          </div>
+
+          <div class="feature__demo">
+            <div class="seg" role="group" aria-label="Geofence screen state">
+              <button type="button" aria-pressed="true" data-demo="geo" data-state="inside">Inside the area</button>
+              <button type="button" aria-pressed="false" data-demo="geo" data-state="outside">Outside the area</button>
+            </div>
+            <figure class="phone-fig">
+              <div class="phone" id="demo-geo" data-state="inside" role="group" aria-label="Clock-in screen with a map of the work area" aria-live="polite">
+                <div class="phone__bar"><span>Clock in</span></div>
+                <div class="phone__body">
+                  <div class="map" aria-hidden="true">
+                    <svg viewBox="0 0 220 130" preserveAspectRatio="xMidYMid slice">
+                      <rect width="220" height="130" fill="#e8eef7" />
+                      <path d="M0 40h220M0 95h220M60 0v130M150 0v130" stroke="#fff" stroke-width="9" />
+                      <path d="M0 40h220M0 95h220M60 0v130M150 0v130" stroke="#d3dceb" stroke-width="1" />
+                      <circle cx="105" cy="66" r="38" fill="rgba(13,71,201,0.14)" stroke="#0d47c9" stroke-width="1.5" stroke-dasharray="4 3" />
+                      <rect x="96" y="57" width="18" height="18" rx="3" fill="#0d47c9" />
+                      <g class="map__me"><circle r="6" fill="#16294f" stroke="#fff" stroke-width="2.5" /></g>
+                    </svg>
+                  </div>
+                  <div class="m-card state-inside"><span class="m-sub">Head Office · inside the area</span><span class="m-big m-ok">35 m away</span></div>
+                  <div class="m-card m-card--warn state-outside"><span class="m-sub">Head Office · outside the area</span><span class="m-big m-warn">1.2 km away</span></div>
+                  <p class="m-msg state-outside">Move inside the area to clock in, or ask your manager to approve a field visit.</p>
+                  <div class="m-row state-inside"><span>Shift</span><span>08:00 to 17:00</span></div>
+                  <span class="m-btn state-inside">Clock in</span>
+                  <span class="m-btn m-btn--off state-outside">Clock in unavailable</span>
+                </div>
+              </div>
+              <figcaption>Mobile clock-in. Sample data.</figcaption>
+            </figure>
+          </div>
+
+          <figure class="browser-fig feature__web">
+            <div class="browser" role="img" aria-label="Web settings: list of work locations with address and radius">
+              <div class="browser__bar"><i></i><i></i><i></i><span>HRIS · Settings · Work locations</span></div>
+              <div class="w-main">
+                <div class="w-head"><strong>Work locations</strong><span class="w-chip">Add location</span></div>
+                <div class="w-table w-table--3">
+                  <div class="w-tr w-th"><span>Location</span><span>Radius</span><span>Assigned to</span></div>
+                  <div class="w-tr"><span>Head Office</span><span>100 m</span><span>All office staff</span></div>
+                  <div class="w-tr"><span>Warehouse</span><span>200 m</span><span>Operations team</span></div>
+                  <div class="w-tr"><span>Branch office</span><span>100 m</span><span>Sales team</span></div>
+                </div>
+              </div>
+            </div>
+            <figcaption>Web: HR sets each location and its radius. Sample data.</figcaption>
+          </figure>
+        </article>
+
+        <article class="feature" aria-labelledby="faceTitle">
+          <div class="feature__text">
+            <p class="feature__tag">Released · Attendance module</p>
+            <h3 class="feature__title" id="faceTitle">Face match at clock-in</h3>
+            <p><b>Problem.</b> Colleagues clocked in for each other (titip absen), so the log showed people at work who weren't there.</p>
+            <p><b>How it works.</b> Each employee has a registered photo approved by HR. At clock-in the app takes a selfie and compares it with that photo. A match saves the clock-in. A face that doesn't match is rejected with a clear reason, and repeated failures go to HR for review.</p>
+            <ul class="feature__cases" aria-label="Cases the flow handles">
+              <li>No face in frame or the room is too dark: the app asks for a new photo before comparing.</li>
+              <li>Face doesn't match: the employee can try again; repeated failures create a review item for HR.</li>
+              <li>Appearance changed, for example glasses or a new haircut: HR can approve a new registered photo.</li>
+            </ul>
+          </div>
+
+          <div class="feature__demo">
+            <div class="seg" role="group" aria-label="Face check screen state">
+              <button type="button" aria-pressed="true" data-demo="face" data-state="match">Face matched</button>
+              <button type="button" aria-pressed="false" data-demo="face" data-state="nomatch">Doesn't match</button>
+            </div>
+            <figure class="phone-fig">
+              <div class="phone" id="demo-face" data-state="match" role="group" aria-label="Face check screen at clock-in" aria-live="polite">
+                <div class="phone__bar"><span>Face check</span></div>
+                <div class="phone__body">
+                  <div class="cam" aria-hidden="true">
+                    <svg viewBox="0 0 120 120"><ellipse cx="60" cy="58" rx="34" ry="44" fill="none" stroke-width="3" class="cam__ring" stroke-dasharray="6 4" /><circle cx="60" cy="48" r="16" fill="#9fb1cf" /><path d="M30 104c4-20 18-30 30-30s26 10 30 30" fill="#9fb1cf" /></svg>
+                  </div>
+                  <div class="m-card state-match"><span class="m-sub">Face matches your registered photo</span><span class="m-big m-ok">Clocked in 08:02</span></div>
+                  <div class="m-card m-card--warn state-nomatch"><span class="m-sub">Face doesn't match your registered photo</span><span class="m-big m-warn">Not clocked in</span></div>
+                  <p class="m-msg state-nomatch">Try again facing the camera in good light. If it keeps failing, HR will review it.</p>
+                  <span class="m-btn state-match">Done</span>
+                  <span class="m-btn state-nomatch">Try again</span>
+                </div>
+              </div>
+              <figcaption>Mobile face check. Placeholder face, sample data.</figcaption>
+            </figure>
+          </div>
+
+          <figure class="browser-fig feature__web">
+            <div class="browser" role="img" aria-label="Web review queue: registered photo next to the clock-in photo, with approve and reject actions">
+              <div class="browser__bar"><i></i><i></i><i></i><span>HRIS · Attendance · Face check review</span></div>
+              <div class="w-main">
+                <div class="w-head"><strong>Needs review</strong><span class="w-chip">3 open</span></div>
+                <div class="review">
+                  <div class="review__pair">
+                    <div class="review__photo"><svg viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="24" r="10" fill="#9fb1cf" /><path d="M12 56c2-12 10-18 18-18s16 6 18 18" fill="#9fb1cf" /></svg><span>Registered photo</span></div>
+                    <div class="review__photo"><svg viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="24" r="10" fill="#9fb1cf" /><path d="M12 56c2-12 10-18 18-18s16 6 18 18" fill="#9fb1cf" /></svg><span>Clock-in photo</span></div>
+                  </div>
+                  <div class="review__info">
+                    <p><b>Employee 027</b> · Head Office · Today 08:04</p>
+                    <p class="m-sub">Failed face check 3 times</p>
+                    <span class="w-act"><b>Accept clock-in</b><em>Reject</em></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <figcaption>Web: HR compares both photos and decides. Placeholder faces, sample data.</figcaption>
+          </figure>
+        </article>
       </div>
     </section>
 
@@ -183,9 +310,13 @@
           <table class="endpoints">
             <thead><tr><th scope="col">Module</th><th scope="col">Method</th><th scope="col">Endpoint</th><th scope="col">Used for</th></tr></thead>
             <tbody>
-              <tr><th scope="row" rowspan="3">Attendance</th><td><span class="verb verb--post">POST</span></td><td><code>/v1/attendance/clock-in</code></td><td>Record clock-in with time and location</td></tr>
+              <tr><th scope="row" rowspan="7">Attendance</th><td><span class="verb verb--post">POST</span></td><td><code>/v1/attendance/clock-in</code></td><td>Clock in with location and selfie; checks geofence and face match</td></tr>
               <tr><td><span class="verb verb--post">POST</span></td><td><code>/v1/attendance/clock-out</code></td><td>Record clock-out</td></tr>
               <tr><td><span class="verb verb--get">GET</span></td><td><code>/v1/attendance?employee_id=&amp;month=</code></td><td>Monthly log for one employee</td></tr>
+              <tr><td><span class="verb verb--post">POST</span></td><td><code>/v1/attendance/locations</code></td><td>HR adds a work location with a radius</td></tr>
+              <tr><td><span class="verb verb--post">POST</span></td><td><code>/v1/attendance/face-profiles</code></td><td>Register or replace an employee's reference photo</td></tr>
+              <tr><td><span class="verb verb--get">GET</span></td><td><code>/v1/attendance/face-reviews?status=open</code></td><td>HR review queue of failed face checks</td></tr>
+              <tr><td><span class="verb verb--patch">PATCH</span></td><td><code>/v1/attendance/face-reviews/{id}</code></td><td>Accept or reject a flagged clock-in</td></tr>
               <tr><th scope="row" rowspan="3">Leave</th><td><span class="verb verb--get">GET</span></td><td><code>/v1/leave/balances/{employee_id}</code></td><td>Remaining days per leave type</td></tr>
               <tr><td><span class="verb verb--post">POST</span></td><td><code>/v1/leave/requests</code></td><td>Create a leave request</td></tr>
               <tr><td><span class="verb verb--patch">PATCH</span></td><td><code>/v1/leave/requests/{id}/approval</code></td><td>Approve or reject</td></tr>
@@ -197,6 +328,45 @@
               <tr><td><span class="verb verb--get">GET</span></td><td><code>/v1/tasks?assignee_id=&amp;status=</code></td><td>Task list for one person</td></tr>
             </tbody>
           </table>
+        </div>
+
+        <h3 class="subtitle">Example from the API spec: clock in with location and face check</h3>
+        <p class="intro intro--tight">One call carries both checks, so the app gets a single answer and a single reason to show.</p>
+        <div class="code-grid">
+          <figure class="code">
+            <figcaption>Request · <code>POST /v1/attendance/clock-in</code></figcaption>
+<pre tabindex="0"><code>{
+  "employee_id": "EMP-014",
+  "latitude": -6.2241,
+  "longitude": 106.8093,
+  "accuracy_m": 12,
+  "selfie": "&lt;image upload&gt;"
+}</code></pre>
+          </figure>
+          <figure class="code">
+            <figcaption>Response · <code>201 Created</code></figcaption>
+<pre tabindex="0"><code>{
+  "id": "ATT-20230310-0811",
+  "clock_in_at": "2023-03-10T08:02:00+07:00",
+  "location": "Head Office",
+  "location_status": "INSIDE",
+  "face_status": "MATCHED"
+}</code></pre>
+          </figure>
+          <figure class="code">
+            <figcaption>Errors · <code>422 Unprocessable Entity</code></figcaption>
+<pre tabindex="0"><code>{
+  "error": "OUTSIDE_GEOFENCE",
+  "message": "You are 1.2 km from Head Office.",
+  "distance_m": 1200
+}
+
+{
+  "error": "FACE_NOT_MATCHED",
+  "message": "Face doesn't match the registered photo.",
+  "attempts_left": 2
+}</code></pre>
+          </figure>
         </div>
 
         <h3 class="subtitle">Example from the API spec: create a leave request</h3>
@@ -334,5 +504,7 @@
       <a href="#caseTitle">Back to top</a>
     </div>
   </footer>
+
+  <script src="assets/hris.js" defer></script>
 </body>
 </html>

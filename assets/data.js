@@ -207,8 +207,8 @@ window.PORTFOLIO = {
       client: "Jojonomic",
       period: "2022 to 2023",
       logos: ["assets/clients/jojonomic.png"],
-      summary: "Product Owner for four HRIS modules on web and mobile. Designed the screens, defined the API endpoints with the engineers, documented everything from PRD to API spec, and led delivery to release. Also supported the No-Code Platform product.",
-      deliverables: ["Mobile and web UI", "API endpoints", "PRD", "User stories", "JSON API spec", "UAT"],
+      summary: "Product Owner for four HRIS modules on web and mobile. Designed the screens, defined the API endpoints with the engineers, documented everything from PRD to API spec, and led delivery to release, including geofenced attendance and face match at clock-in. Also supported the No-Code Platform product.",
+      deliverables: ["Geofenced attendance", "Face match", "Mobile and web UI", "API endpoints", "PRD and user stories", "UAT"],
       // Optional detail page for this case.
       link: "hris.html",
       linkLabel: "Read the HRIS case study",

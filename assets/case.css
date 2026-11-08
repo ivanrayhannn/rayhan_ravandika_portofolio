@@ -162,3 +162,55 @@
 .case-end p { font-size: 17px; font-weight: 600; max-width: 46ch; }
 .case-end__actions { display: flex; flex-wrap: wrap; gap: 12px; }
 @media (max-width: 600px) { .case-end__actions .btn { flex: 1 1 100%; } }
+
+/* Released features: text and states on the left, the switchable phone on the right, web screen below. */
+.feature { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); gap: 20px 48px; margin-top: 40px; padding: 32px; border: 1px solid var(--line); border-radius: var(--r-xl); background: var(--surface); }
+.feature__tag { display: inline-block; font-size: 13.5px; font-weight: 700; color: #165c34; background: #dcefe3; padding: 4px 10px; border-radius: var(--r-sm); }
+.feature__title { font-size: 24px; font-weight: 800; margin: 10px 0 12px; }
+.feature__text > p { color: var(--text-2); font-size: 15.5px; margin-top: 10px; max-width: 62ch; }
+.feature__text b { color: var(--text); }
+.feature__cases { margin-top: 16px; display: grid; gap: 8px; border-top: 1px solid var(--line); padding-top: 14px; }
+.feature__cases li { position: relative; padding-left: 18px; font-size: 15px; color: var(--text-2); }
+.feature__cases li::before { content: ""; position: absolute; left: 2px; top: 10px; width: 6px; height: 6px; border-radius: 1px; background: var(--blue); }
+.feature__demo { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.feature__web { grid-column: 1 / -1; }
+@media (max-width: 900px) { .feature { grid-template-columns: minmax(0, 1fr); padding: 22px; } }
+@media (max-width: 600px) { .feature { padding: 16px; margin-inline: -4px; } }
+
+/* Segmented switch for the demo state; aria-pressed carries the state, not colour alone. */
+.seg { display: inline-flex; gap: 4px; padding: 4px; border-radius: var(--r-md); background: #fff; border: 1px solid var(--line); }
+.seg button { min-height: 44px; padding: 0 14px; border: 0; border-radius: 7px; background: transparent; font: 700 13.5px var(--font); color: var(--text-2); }
+.seg button:hover { background: var(--chip); color: var(--text); }
+.seg button:active { background: var(--mist-2); }
+.seg button[aria-pressed="true"] { background: var(--blue); color: #fff; }
+
+/* Only the elements for the current data-state are shown. */
+#demo-geo[data-state="inside"] .state-outside,
+#demo-geo[data-state="outside"] .state-inside,
+#demo-face[data-state="match"] .state-nomatch,
+#demo-face[data-state="nomatch"] .state-match { display: none; }
+
+.map { border-radius: 12px; overflow: hidden; border: 1px solid #d6dfec; height: 120px; }
+.map svg { display: block; width: 100%; height: 100%; }
+.map__me { transform: translate(122px, 74px); transition: transform 400ms ease; }
+#demo-geo[data-state="outside"] .map__me { transform: translate(198px, 18px); }
+.m-ok { color: #165c34; }
+.m-warn { color: #8a2a12; }
+.m-card--warn { background: #fdeee8; border-color: #f2c4b3; }
+.m-msg { font-size: 12px; color: #4a5b7c; line-height: 1.45; }
+.m-btn--off { background: #c4cddd; color: #33415e; }
+.cam { height: 150px; border-radius: 12px; background: #24375f; display: grid; place-items: center; }
+.cam svg { width: 120px; height: 120px; }
+.cam__ring { stroke: #7ee3f0; }
+#demo-face[data-state="nomatch"] .cam__ring { stroke: #f2a58a; }
+
+.w-chip { font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 7px; background: var(--chip); color: var(--text); }
+.feature__web .w-main { overflow-x: auto; }
+.w-table--3 .w-tr { grid-template-columns: 1.2fr 0.6fr 1.2fr; }
+.w-table--3 { min-width: 420px; }
+.review { display: flex; flex-wrap: wrap; gap: 16px 24px; align-items: center; margin-top: 14px; }
+.review__pair { display: flex; gap: 10px; }
+.review__photo { display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 12.5px; color: var(--text-2); }
+.review__photo svg { width: 86px; height: 86px; border-radius: 10px; background: #e2e9f4; }
+.review__info { display: grid; gap: 6px; font-size: 14px; color: var(--text); }
+@media (prefers-reduced-motion: reduce) { .map__me { transition: none; } }

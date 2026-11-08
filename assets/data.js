@@ -56,7 +56,7 @@ window.PORTFOLIO = {
 
   about: [
     "I'm an IT Consultant at Fujitsu, dedicated to Toyota Indonesia's Logistic Export Department to support its digital transformation. Most of my work happens between the business users and IT: I listen until I understand what they need and expect, then turn it into a solution and help them through the technical side.",
-    "That starts with learning how their operation really runs and checking whether an existing application can be improved before anything new is built. From there I write the technical documentation, design the system, and manage the vendor development team through to go-live, keeping every milestone on schedule. So far that has meant four projects at 100% schedule compliance.",
+    "That starts with learning how their operation really runs and checking whether an existing application can be improved before anything new is built. From there I write the technical documentation, design the system, and manage the vendor development team through to go-live, keeping every milestone on schedule.",
     "Before Fujitsu I worked on the product side at Jojonomic, where I led the development team for its HRIS product: attendance, leave, overtime and task management.",
   ],
 
@@ -284,6 +284,18 @@ window.PORTFOLIO = {
         "Ran agile ceremonies as acting Scrum Master: sprint planning, daily stand-ups and sprint reviews.",
         "Worked with the QA team to define test scenarios, catch potential issues early and prepare action plans, protecting product quality and integration performance.",
         "Troubleshot system issues, analysed their cause and coordinated the team on the fixes.",
+        "Fitted the HRIS to FWD Insurance's HR rules: a rule-by-rule gap analysis decided what to configure and what to build as a custom module, such as overtime under the company's own policy.",
+      ],
+    },
+    {
+      period: "2022 to 2023",
+      title: "Business Analyst (Interim)",
+      company: "Jojonomic Indonesia · CIMB Niaga project",
+      points: [
+        "Improved CIMB Niaga's web-based expense modules (reimbursement, cash advance, petty cash and accruals) and the integration between them.",
+        "Gathered requirements from business users, prioritised them for development and monitored daily progress.",
+        "Facilitated stakeholder meetings, sprint planning, requirement reviews and clarification sessions.",
+        "Helped resolve data and integration job issues during the unit test phase.",
       ],
     },
   ],

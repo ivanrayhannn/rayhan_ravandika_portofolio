@@ -417,9 +417,22 @@
     });
     return;
   }
-  var pub = window.PORTFOLIO_EDITS;
-  if (pub && pub.pages && pub.pages[PAGE]) {
-    try { apply(pub.pages[PAGE]); }
+  function applyPublished(d) {
+    if (!d || !d.pages || !d.pages[PAGE]) return;
+    try { apply(d.pages[PAGE]); }
     catch (e) { console.error("Couldn't apply the published edits; showing the page without them.", e); reset(); }
+  }
+  var pub = window.PORTFOLIO_EDITS;
+  applyPublished(pub);
+  // GitHub Pages lets browsers reuse edits.js for up to 10 minutes, so check for a newer publish and switch to it.
+  if (window.fetch && /^https?:$/.test(location.protocol)) {
+    fetch("assets/edits.js", { cache: "no-cache" }).then(function (r) { return r.ok ? r.text() : null; }).then(function (t) {
+      if (!t) return;
+      var d = JSON.parse(t.slice(t.indexOf("{"), t.lastIndexOf("}") + 1));
+      if (pub && d.rev === pub.rev && d.published === pub.published) return;
+      window.PORTFOLIO_EDITS = d;
+      reset();
+      applyPublished(d);
+    }).catch(function () { /* the copy already applied stays */ });
   }
 })();

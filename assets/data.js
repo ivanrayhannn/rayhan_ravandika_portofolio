@@ -240,7 +240,8 @@ window.PORTFOLIO = {
     "Analysis & modelling": ["Requirement gathering", "Feasibility studies", "Business process (BPMN)", "Use cases", "User stories", "ERD", "Impact & risk analysis"],
     "Documentation": ["BRD", "FSD", "TSD", "PRD", "JSON API spec", "Test strategy", "UAT scenarios"],
     "Data & integration": ["SQL queries", "SQL Server", "Oracle", "DBeaver", "Power BI (DAX)", "Postman"],
-    "Design & delivery": ["Figma (UI design)", "Jira", "Trello", "GitHub CI/CD", "Microsoft 365", "Hermes Agent", "AI prompting"],
+    "Design & delivery": ["Figma (UI design)", "Jira", "Trello", "GitHub CI/CD", "Microsoft 365"],
+    "AI": ["AI engineering", "AI prompting", "Hermes Agent", "AI-assisted prototyping"],
     "Methodology": ["Waterfall", "Agile / Scrum", "Project planning & budgeting", "Stakeholder management"],
   },
 

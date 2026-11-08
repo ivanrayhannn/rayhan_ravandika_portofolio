@@ -32,6 +32,10 @@ Reading this as: a personal portfolio for recruiters and hiring managers in Indo
 | Glass blur on the nav only | It floats over blue and mist; everywhere else uses solid surfaces. |
 | Shadows on nav and ID card only | The only two elements that sit above the page. |
 | Fixed light theme, no dark toggle | The owner chose this blue and mist identity; it is a single-look brand page. |
+| Editor drags blocks within the page flow, not to free x/y positions | Free positioning breaks the layout on phones. Flow moves, widths and Columns keep every page responsive. |
+| Editor colors limited to the site palette, with a live contrast check | Keeps edits on brand and warns before text drops under WCAG AA. |
+| Editor publishes through a GitHub token kept in the browser | The site is static on GitHub Pages; committing `edits.js` is the only way to change it, and the repository is the access control. |
+| Built-in content is hidden, never deleted | Hiding is reversible from Layers and keeps the page structure the changes are keyed to. |
 
 ## States and copy
 
@@ -43,6 +47,10 @@ Reading this as: a personal portfolio for recruiters and hiring managers in Indo
 | CV | n/a | Button reads "CV coming soon" and is disabled | n/a |
 | Copy email | n/a | n/a | "Couldn't copy automatically. The address is selected: press Ctrl+C (or Cmd+C) to copy it." |
 | No JavaScript | n/a | n/a | "This portfolio needs JavaScript to show its content. You can still download the CV (PDF)." |
+| Editor canvas | "Loading the page…" | "Nothing selected. Click anything on the page to change it." | "The page is taking too long to load…" with Try again; opened as a file: "Open admin.html from the website address or a local web server" |
+| Editor draft | "Saving draft…" | "No unpublished changes" | "Couldn't save the draft on this browser. Publish or download your changes before you close the tab." |
+| Editor publish | Steps: checking, uploading images, saving, updating | Publish is disabled: "Nothing new to publish" | Token refused, no access, branch not found, network, or a newer version published elsewhere ("Replace it with my version") |
+| Editor content checks | n/a | Empty text or image blocks are listed before publishing | Changes whose content has changed are switched off, with "Apply them anyway" and "Remove them" |
 
 ## Placeholders still open
 

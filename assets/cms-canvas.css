@@ -1,0 +1,52 @@
+/* Loaded into the page only while it is open in the site editor (admin.html). */
+html[data-cms-mode="edit"] { scroll-behavior: auto; }
+html[data-cms-mode="edit"].is-editing-mode body * { cursor: default; }
+html[data-cms-mode="edit"].is-editing-mode[data-cms-hover="grab"] body * { cursor: grab; }
+html[data-cms-mode="edit"].is-dragging, html[data-cms-mode="edit"].is-dragging * { cursor: grabbing !important; user-select: none; }
+html[data-cms-mode="edit"] [contenteditable], html[data-cms-mode="edit"] [contenteditable] * { cursor: text !important; outline: none; }
+html[data-cms-mode="edit"] .cms-dragged { opacity: 0.35; }
+
+/* Empty blocks stay visible here so you can find and fill them; on the live site they don't show. */
+html[data-cms-mode="edit"] .cms-text:empty { display: block; min-height: 1.4em; }
+html[data-cms-mode="edit"] .cms-text:empty::before { content: "Type here"; color: var(--text-3); opacity: 0.8; }
+html[data-cms-mode="edit"] .cms-img[data-cms-empty] {
+  display: grid; place-items: center; min-height: 140px; border: 1.5px dashed var(--line); border-radius: var(--r-md);
+  background: repeating-linear-gradient(45deg, transparent 0 10px, rgba(26, 99, 227, 0.05) 10px 20px);
+}
+html[data-cms-mode="edit"] .cms-img[data-cms-empty]::before { content: "No image yet. Choose one in the panel on the right."; font-size: 14px; font-weight: 600; color: var(--text-2); padding: 12px; text-align: center; }
+html[data-cms-mode="edit"] .cms-col { min-height: 72px; border-radius: var(--r-md); outline: 1px dashed rgba(26, 99, 227, 0.35); outline-offset: 4px; }
+html[data-cms-mode="edit"] .cms-col:empty { display: grid; place-items: center; }
+html[data-cms-mode="edit"] .cms-col:empty::before { content: "Drop blocks here"; font-size: 13px; font-weight: 600; color: var(--text-3); }
+
+#cms-ui { position: fixed; inset: 0; pointer-events: none; z-index: 2147483000; font: 600 11px/1 "Plus Jakarta Sans", Arial, sans-serif; }
+#cms-ui > div { position: absolute; left: 0; top: 0; display: none; }
+.cms-hover { outline: 1px solid #1a63e3; outline-offset: 0; }
+.cms-sel { outline: 2px solid #1a63e3; outline-offset: 0; }
+#cms-ui.is-editing .cms-sel { outline-style: dashed; }
+.cms-tag {
+  position: absolute; left: -2px; bottom: 100%; margin-bottom: 4px; padding: 4px 6px; border-radius: 4px; white-space: nowrap;
+  background: #1a63e3; color: #fff; letter-spacing: 0.01em;
+}
+.cms-hover .cms-tag { background: rgba(26, 99, 227, 0.85); }
+.cms-sel.is-low .cms-tag, .cms-hover.is-low .cms-tag { bottom: auto; top: 100%; margin: 4px 0 0; }
+.cms-h {
+  position: absolute; width: 10px; height: 10px; margin: -5px 0 0 -5px; background: #fff; border: 1.5px solid #1a63e3; border-radius: 2px;
+  pointer-events: auto; display: none;
+}
+.cms-sel[data-handles="xy"] .cms-h, .cms-sel[data-handles="x"] .cms-h--e, .cms-sel[data-handles="x"] .cms-h--w { display: block; }
+#cms-ui.is-editing .cms-h { display: none !important; }
+.cms-h--n { left: 50%; top: 0; cursor: ns-resize; }
+.cms-h--s { left: 50%; top: 100%; cursor: ns-resize; }
+.cms-h--e { left: 100%; top: 50%; cursor: ew-resize; }
+.cms-h--w { left: 0; top: 50%; cursor: ew-resize; }
+.cms-h--ne { left: 100%; top: 0; cursor: nesw-resize; }
+.cms-h--sw { left: 0; top: 100%; cursor: nesw-resize; }
+.cms-h--nw { left: 0; top: 0; cursor: nwse-resize; }
+.cms-h--se { left: 100%; top: 100%; cursor: nwse-resize; }
+.cms-drop { background: #1a63e3; border-radius: 2px; box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.9); }
+.cms-drop::before, .cms-drop::after { content: ""; position: absolute; width: 8px; height: 8px; border-radius: 50%; background: #1a63e3; border: 2px solid #fff; }
+.cms-drop.is-h::before { left: -5px; top: -4px; }
+.cms-drop.is-h::after { right: -5px; top: -4px; }
+.cms-drop.is-v::before { top: -5px; left: -4px; }
+.cms-drop.is-v::after { bottom: -5px; left: -4px; }
+.cms-zone { outline: 2px dashed rgba(26, 99, 227, 0.6); outline-offset: 2px; border-radius: 4px; }

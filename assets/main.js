@@ -268,7 +268,7 @@
   section("#cases", D.projects, function (p) {
     var logos = p.logos && p.logos.length ? list(p.logos, function (l) { return logoImg(l); }) : '<span class="case__badge">' + esc(p.badge || "") + "</span>";
     return '<article class="case"><div class="case__logos">' + logos +
-      '</div><div class="case__body"><p class="case__meta">' + esc(p.client) + " · " + esc(p.period) + "</p><h3>" + esc(p.title) +
+      '</div><div class="case__body"><p class="case__meta">' + esc(p.client) + (p.period ? " · " + esc(p.period) : "") + "</p><h3>" + esc(p.title) +
       "</h3><p>" + esc(p.summary) + '</p><ul class="chips" aria-label="Deliverables">' +
       list(p.deliverables, function (d) { return "<li>" + esc(d) + "</li>"; }) + "</ul>" +
       (p.link ? '<a class="case__link" href="' + esc(p.link) + '">' + esc(p.linkLabel || "Read the case study") + "</a>" : "") + "</div></article>";

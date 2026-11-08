@@ -1,8 +1,8 @@
 /* Written by the site editor (admin.html). Make changes there instead of by hand. */
 window.PORTFOLIO_EDITS = {
   "version": 1,
-  "rev": 5,
-  "published": "2026-11-08T17:18:32.807Z",
+  "rev": 6,
+  "published": "2026-11-08T17:40:24.331Z",
   "pages": {
     "index.html": {
       "nodes": {
@@ -51,6 +51,10 @@ window.PORTFOLIO_EDITS = {
           "html": "Born in",
           "was": "Experience"
         },
+        "#facts/div:2/dd:0": {
+          "html": "&nbsp;Information System, Brawijaya University&nbsp;",
+          "was": "4 projects · 8 vendor teams · 8 systems · 50+ integrations"
+        },
         "#facts/div:2/dt:0": {
           "html": "Education",
           "was": "Track record"
@@ -67,9 +71,17 @@ window.PORTFOLIO_EDITS = {
           "html": "Construction, HR, Insurance, Banking, Automotive Manufacturing",
           "was": "B.Sc. Information Systems, Brawijaya University (2017 to 2021)"
         },
+        "#facts/div:4/dt:0": {
+          "html": "Industries",
+          "was": "Education"
+        },
         "#figures/div:0/dd:0": {
           "html": "6",
           "was": "4"
+        },
+        "#figures/div:0/dt:0": {
+          "html": "IT projects&nbsp;",
+          "was": "IT projects led"
         },
         "#figures/div:1/dt:0": {
           "html": "Client companies",
@@ -111,14 +123,6 @@ window.PORTFOLIO_EDITS = {
         "#home/div:0/div:0/p:4": {
           "hidden": true,
           "was": "Figures from my Fujitsu role at Toyota Indonesia, 2023 to now."
-        },
-        "#facts/div:2/dd:0": {
-          "was": "4 projects · 8 vendor teams · 8 systems · 50+ integrations",
-          "html": "&nbsp;Information System, Brawijaya University&nbsp;"
-        },
-        "#facts/div:4/dt:0": {
-          "was": "Education",
-          "html": "Industries"
         }
       },
       "added": {},

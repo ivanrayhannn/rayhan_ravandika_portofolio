@@ -233,6 +233,15 @@ window.PORTFOLIO = {
       link: "fwd.html",
       linkLabel: "Read the FWD case study",
     },
+    {
+      title: "Marketing tool: spin the wheel",
+      client: "Marketing tools",
+      badge: "Clickable prototype",
+      summary: "A promo game marketing runs without a developer: customers spin for a voucher, while marketing sets the prizes, odds, stock and spins per day. Designed the flow, rules and screens, and built a prototype you can try.",
+      deliverables: ["Business rules", "Customer flow", "Admin settings", "Validation", "Prototype"],
+      link: "marketing.html",
+      linkLabel: "Try the spin-the-wheel prototype",
+    },
   ],
   // Shown under the case studies until their write-ups exist.
   projectsPending: "Write-ups for Adhi Persada Beton, Amway and Bank Papua are in progress.",

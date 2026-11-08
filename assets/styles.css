@@ -59,6 +59,7 @@ ul, ol { list-style: none; }
 img { max-width: 100%; height: auto; }
 /* Components set display: flex or grid; [hidden] must still win. */
 [hidden] { display: none !important; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
 a[href], button, summary, [role="tab"] { cursor: pointer; }
 button:disabled, [aria-disabled="true"] { cursor: not-allowed; }
@@ -319,6 +320,7 @@ h1, h2, h3 { letter-spacing: -0.02em; text-wrap: balance; }
 .case { display: grid; grid-template-columns: 220px minmax(0, 1fr); border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--surface); overflow: hidden; }
 .case__logos { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 16px; padding: 24px; background: #fff; border-right: 1px solid var(--line); }
 .case__logos img { width: auto; max-width: 170px; object-fit: contain; }
+.case__badge { font-size: 15px; font-weight: 800; color: var(--blue); }
 .case__body { padding: 24px 26px; }
 .case__meta { font-size: 14px; font-weight: 600; color: var(--text-2); }
 .case h3 { font-size: 20px; font-weight: 700; margin-top: 4px; }

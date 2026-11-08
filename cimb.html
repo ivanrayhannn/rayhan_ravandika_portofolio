@@ -117,7 +117,7 @@
     <section class="section tone-tint" id="screens" aria-labelledby="screensTitle">
       <div class="wrap">
         <h2 class="title" id="screensTitle">Screens</h2>
-        <p class="intro">Recreated with sample amounts. Pick a module to see its web screen and the statuses a record moves through.</p>
+        <p class="intro">Recreated with sample amounts. Pick a module to see its web screen and the statuses a record moves through. The buttons work: try them.</p>
 
         <article class="feature modview" aria-labelledby="modTitle">
           <div class="modview__head">
@@ -158,10 +158,11 @@
                     <div class="m-field"><span>Amount</span><span>Rp850,000</span></div>
                     <div class="m-field"><span>Cost centre</span><span>Branch sales</span></div>
                     <div class="m-field"><span>Receipt</span><span>receipt-0314.jpg</span></div>
-                    <span class="m-btn">Submit claim</span>
+                    <button type="button" class="m-btn" data-done="Claim submitted" data-reveal="#new-claim">Submit claim</button>
                   </div>
                   <div class="w-table mod-list">
                     <div class="w-tr w-th"><span>My claims</span><span>Amount</span><span>Status</span></div>
+                    <div class="w-tr w-tr--new" id="new-claim" hidden><span>Meals, 14 Mar</span><span>Rp850,000</span><span><span class="st st--wait">Waiting approval</span></span></div>
                     <div class="w-tr"><span>Client meeting meals</span><span>Rp850,000</span><span><span class="st st--wait">Waiting approval</span></span></div>
                     <div class="w-tr"><span>Training transport</span><span>Rp420,000</span><span><span class="st st--ok">Approved</span></span></div>
                     <div class="w-tr"><span>Office supplies</span><span>Rp175,000</span><span><span class="st st--done">Paid</span></span></div>
@@ -176,10 +177,11 @@
                     <div class="m-field"><span>Needed by</span><span>20 Mar 2023</span></div>
                     <div class="m-field"><span>Settle by</span><span>31 Mar 2023</span></div>
                     <div class="m-field"><span>Cost centre</span><span>Operations</span></div>
-                    <span class="m-btn">Send request</span>
+                    <button type="button" class="m-btn" data-done="Request sent" data-reveal="#new-advance">Send request</button>
                   </div>
                   <div class="w-table mod-list">
                     <div class="w-tr w-th"><span>My advances</span><span>Amount</span><span>Status</span></div>
+                    <div class="w-tr w-tr--new" id="new-advance" hidden><span>CA-0325 · Business trip</span><span>Rp2,000,000</span><span><span class="st st--wait">Waiting approval</span></span></div>
                     <div class="w-tr"><span>CA-0318 · Business trip</span><span>Rp2,000,000</span><span><span class="st st--wait">Open, settle by 31 Mar</span></span></div>
                     <div class="w-tr"><span>CA-0301 · Event booth</span><span>Rp3,500,000</span><span><span class="st st--late">Past settlement date</span></span></div>
                     <div class="w-tr"><span>CA-0290 · Training</span><span>Rp1,000,000</span><span><span class="st st--done">Closed</span></span></div>
@@ -193,7 +195,8 @@
                     <div class="m-row"><span>Left</span><span>Rp1,200,000</span></div>
                     <div class="m-meter"><i style="width:24%"></i></div>
                     <p class="m-msg">Below the top-up level. Request the amount spent to restore the fund.</p>
-                    <span class="m-btn">Request top-up Rp3,800,000</span>
+                    <button type="button" class="m-btn" data-done="Top-up requested" data-reveal="#topup-note">Request top-up Rp3,800,000</button>
+                    <p class="m-msg" id="topup-note" hidden>Sent to finance. The parking receipt is still missing and is flagged on the request.</p>
                   </div>
                   <div class="w-table mod-list">
                     <div class="w-tr w-th"><span>Spend this period</span><span>Amount</span><span>Receipt</span></div>
@@ -207,9 +210,9 @@
                   <div class="w-head"><strong>Approved, not yet paid</strong><span class="w-chip">Cut-off: last working day</span></div>
                   <div class="w-table">
                     <div class="w-tr w-th"><span>Claim</span><span>Cost centre</span><span>Amount</span><span>Action</span></div>
-                    <div class="w-tr"><span>Client meeting meals</span><span>Branch sales</span><span>Rp850,000</span><span class="w-act"><b>Accrue</b></span></div>
-                    <div class="w-tr"><span>Training transport</span><span>HR</span><span>Rp420,000</span><span class="w-act"><b>Accrue</b></span></div>
-                    <div class="w-tr"><span>Advance settlement top-up</span><span>Operations</span><span>Rp300,000</span><span class="w-act"><b>Accrue</b></span></div>
+                    <div class="w-tr"><span>Client meeting meals</span><span>Branch sales</span><span>Rp850,000</span><span class="w-act"><button type="button" class="w-btn w-btn--primary" data-resolve="Accrued">Accrue</button></span></div>
+                    <div class="w-tr"><span>Training transport</span><span>HR</span><span>Rp420,000</span><span class="w-act"><button type="button" class="w-btn w-btn--primary" data-resolve="Accrued">Accrue</button></span></div>
+                    <div class="w-tr"><span>Advance settlement top-up</span><span>Operations</span><span>Rp300,000</span><span class="w-act"><button type="button" class="w-btn w-btn--primary" data-resolve="Accrued">Accrue</button></span></div>
                   </div>
                   <div class="w-head mod-sub"><strong>Accrued last month, paid this month</strong></div>
                   <div class="w-table">
@@ -260,7 +263,8 @@
                     <div class="m-card m-card--strong" data-when="more" hidden><span class="m-sub">Company pays the employee</span><span class="m-big">Rp300,000</span></div>
                     <p class="m-msg" data-when="less">Transfer the difference to the finance account, then attach the proof here.</p>
                     <p class="m-msg" data-when="more" hidden>The extra is created as a reimbursement and paid in the next run.</p>
-                    <span class="m-btn">Send settlement</span>
+                    <button type="button" class="m-btn" data-when="less" data-done="Settlement sent. Waiting for your transfer proof">Send settlement</button>
+                    <button type="button" class="m-btn" data-when="more" hidden data-done="Settlement sent. Rp300,000 added to your next reimbursement">Send settlement</button>
                   </div>
                 </div>
               </div>

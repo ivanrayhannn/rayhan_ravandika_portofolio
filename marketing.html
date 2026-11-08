@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Spin the wheel prototype · Rayhan Ravandika</title>
+  <meta name="description" content="Clickable prototype of a marketing tool: a spin-the-wheel promo game with prizes, odds and stock that marketing sets without a developer." />
+  <meta name="theme-color" content="#0b3a9e" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230d47c9'/><text x='32' y='43' text-anchor='middle' font-family='Arial' font-weight='800' font-size='30' fill='white'>R.</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/case.css" />
+</head>
+<body>
+  <a class="skip" href="#prototype">Skip to the prototype</a>
+
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Rayhan Ravandika, portfolio home">Rayhan<span aria-hidden="true">.</span></a>
+      <a href="index.html#projects" class="nav__back">Back to portfolio</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="case-hero tone-blue" aria-labelledby="caseTitle">
+      <div class="wrap">
+        <p class="case-hero__kicker">Prototype · Marketing tools</p>
+        <h1 id="caseTitle">Spin the wheel: a promo game marketing runs without a developer</h1>
+        <p class="case-hero__lede">One of the marketing tools I designed. Customers spin a wheel and win a voucher. Marketing sets the prizes, the odds and the stock, so every campaign stays inside its budget.</p>
+
+        <dl class="case-meta">
+          <div><dt>What I did</dt><dd>Flow, business rules, screens and prototype</dd></div>
+          <div><dt>Users</dt><dd>Customers who spin, marketing who set it up</dd></div>
+          <div><dt>Platform</dt><dd>Web, works on phones</dd></div>
+          <div><dt>Status</dt><dd>Clickable prototype on this page</dd></div>
+        </dl>
+
+        <nav class="toc" aria-label="On this page">
+          <a href="#prototype">Try the prototype</a>
+          <a href="#rules">Rules</a>
+          <a href="#flow">Campaign flow</a>
+          <a href="#measure">What to measure</a>
+        </nav>
+      </div>
+    </section>
+
+    <p class="wrap case-note" role="note">Prizes, odds and stock are sample values. Change them in the marketing panel and the game follows.</p>
+
+    <section class="section" id="prototype" aria-labelledby="protoTitle">
+      <div class="wrap">
+        <h2 class="title" id="protoTitle">Try the prototype</h2>
+        <p class="intro">Spin as a customer on the left. Change the odds or stock as marketing on the right, then spin again.</p>
+
+        <div class="mkt" id="mkt">
+          <figure class="phone-fig mkt__customer">
+            <div class="phone phone--tall" role="group" aria-labelledby="custTitle">
+              <div class="phone__bar"><span id="custTitle">Spin and win</span></div>
+              <div class="phone__body mkt__body">
+                <p class="m-row"><span>Spins left today</span><span id="spinsLeft">3</span></p>
+                <div class="wheel" aria-hidden="true">
+                  <span class="wheel__pointer"></span>
+                  <svg viewBox="0 0 300 300" id="wheel"></svg>
+                  <span class="wheel__hub"></span>
+                </div>
+                <button type="button" class="m-btn" id="spinBtn">Spin the wheel</button>
+                <div class="mkt__result" id="result" role="status" aria-live="polite">
+                  <p class="m-msg" id="resultIdle">Each spin wins a voucher or a free retry. Good luck.</p>
+                </div>
+              </div>
+            </div>
+            <figcaption>Customer view. Sample prizes.</figcaption>
+          </figure>
+
+          <section class="mkt__admin" aria-labelledby="adminTitle">
+            <div class="browser">
+              <div class="browser__bar"><i></i><i></i><i></i><span>Marketing · Spin campaign · Prizes</span></div>
+              <div class="w-main">
+                <div class="w-head"><h3 class="mkt__h" id="adminTitle">Prizes and odds</h3><span class="w-chip">Live preview</span></div>
+                <p class="mkt__hint">The wheel shows six equal slices. The odds come from the weights below, not from slice size.</p>
+                <div class="table-scroll mkt__scroll" tabindex="0" role="region" aria-label="Prize settings, scrollable">
+                  <table class="mkt__table">
+                    <thead><tr><th scope="col">Prize</th><th scope="col">Weight %</th><th scope="col">Stock left</th></tr></thead>
+                    <tbody id="prizeRows"></tbody>
+                  </table>
+                </div>
+                <p class="mkt__total" id="weightStatus" role="status" aria-live="polite"></p>
+                <div class="mkt__settings">
+                  <label for="spinsPer">Spins per customer per day</label>
+                  <input type="number" id="spinsPer" min="1" max="10" value="3" inputmode="numeric" />
+                  <p class="mkt__hint">Set to 3 here so you can try it; a live campaign would usually allow 1.</p>
+                </div>
+                <button type="button" class="btn btn--ghost-dark mkt__reset" id="resetBtn">Reset the demo</button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tone-tint" id="rules" aria-labelledby="rulesTitle">
+      <div class="wrap split">
+        <div>
+          <h2 class="title" id="rulesTitle">Business rules</h2>
+          <p class="intro">The rules that keep the game fair for customers and inside budget for marketing. Each one is built into the prototype above.</p>
+        </div>
+        <ol class="owned">
+          <li><h3>Weights must total 100%</h3><p>If they don't, the game pauses and customers see a short message instead of a broken wheel.</p></li>
+          <li><h3>Stock caps the budget</h3><p>A prize with no stock left can't be won. Its share of the odds goes to "Try again".</p></li>
+          <li><h3>Spins per customer</h3><p>Each customer gets a set number of spins per day. When they run out, the button says so and tells them when to come back.</p></li>
+          <li><h3>One code per win</h3><p>Every voucher gets its own code, valid for 7 days, so finance can trace each redemption to one spin.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="flow" aria-labelledby="flowTitle">
+      <div class="wrap">
+        <h2 class="title" id="flowTitle">Campaign flow</h2>
+        <ol class="trail">
+          <li><span class="trail__code">Set up</span><span>Marketing picks prizes, weights, stock and dates</span></li>
+          <li><span class="trail__code">Spin</span><span>Customer spins within their daily limit</span></li>
+          <li><span class="trail__code">Issue</span><span>A unique voucher code is created</span></li>
+          <li><span class="trail__code">Redeem</span><span>Code is used at checkout before it expires</span></li>
+          <li><span class="trail__code">Report</span><span>Spins, wins and redemptions per prize</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section tone-tint" id="measure" aria-labelledby="measureTitle">
+      <div class="wrap split">
+        <div>
+          <h2 class="title" id="measureTitle">What to measure</h2>
+          <p class="intro">No results are shown because this page is a prototype. These are the numbers a campaign report would track.</p>
+        </div>
+        <ul class="owned">
+          <li><h3>Participation</h3><p>Customers who spun at least once, out of those who saw the game.</p></li>
+          <li><h3>Redemption rate</h3><p>Vouchers used at checkout, out of vouchers issued, per prize.</p></li>
+          <li><h3>Cost per redemption</h3><p>Prize value spent for each voucher actually used.</p></li>
+          <li><h3>Repeat visits</h3><p>Customers who came back on another day to spin again.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap case-end">
+        <p>Need a promo tool your marketing team can run on its own? I can design the rules and the flow.</p>
+        <div class="case-end__actions">
+          <a class="btn btn--primary" href="index.html#contact">Contact Rayhan</a>
+          <a class="btn btn--ghost-dark" href="index.html#projects">Back to all case studies</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__inner">
+      <span>© 2026 Muhammad Rayhan Ravandika</span>
+      <a href="#caseTitle">Back to top</a>
+    </div>
+  </footer>
+
+  <script src="assets/marketing.js" defer></script>
+</body>
+</html>

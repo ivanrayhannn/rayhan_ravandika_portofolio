@@ -131,7 +131,8 @@
                   <div class="m-card m-card--warn" data-when="over" hidden><span class="m-sub">Over the 3-hour daily cap</span><span class="m-warn m-strong">Approvers: manager, then department head</span></div>
                   <p class="m-msg" data-when="within">Meal allowance doesn't apply under 3 hours.</p>
                   <p class="m-msg" data-when="over" hidden>Meal allowance will be added to payroll.</p>
-                  <span class="m-btn">Send for approval</span>
+                  <button type="button" class="m-btn" data-when="within" data-done="Sent to your manager">Send for approval</button>
+                  <button type="button" class="m-btn" data-when="over" hidden data-done="Sent to your manager, then department head">Send for approval</button>
                 </div>
               </div>
               <figcaption>Mobile request with the policy check. Example values.</figcaption>

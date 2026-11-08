@@ -90,7 +90,7 @@
     <section class="section" id="released" aria-labelledby="releasedTitle">
       <div class="wrap">
         <h2 class="title" id="releasedTitle">Released features: attendance you can trust</h2>
-        <p class="intro">Two features shipped to stop the most common attendance problems: clocking in from somewhere else, and clocking in for someone else. Use the buttons to see each screen state.</p>
+        <p class="intro">Two features shipped to stop the most common attendance problems: clocking in from somewhere else, and clocking in for someone else. Every button on these screens works: try them.</p>
 
         <article class="feature" aria-labelledby="geoTitle">
           <div class="feature__text">
@@ -128,8 +128,8 @@
                   <div class="m-card m-card--warn state-outside"><span class="m-sub">Head Office · outside the area</span><span class="m-big m-warn">1.2 km away</span></div>
                   <p class="m-msg state-outside">Move inside the area to clock in, or ask your manager to approve a field visit.</p>
                   <div class="m-row state-inside"><span>Shift</span><span>08:00 to 17:00</span></div>
-                  <span class="m-btn state-inside">Clock in</span>
-                  <span class="m-btn m-btn--off state-outside">Clock in unavailable</span>
+                  <button type="button" class="m-btn state-inside" data-done="Clocked in at 08:02">Clock in</button>
+                  <button type="button" class="m-btn m-btn--off state-outside" disabled>Clock in unavailable</button>
                 </div>
               </div>
               <figcaption>Mobile clock-in. Sample data.</figcaption>
@@ -181,8 +181,8 @@
                   <div class="m-card state-match"><span class="m-sub">Face matches your registered photo</span><span class="m-big m-ok">Clocked in 08:02</span></div>
                   <div class="m-card m-card--warn state-nomatch"><span class="m-sub">Face doesn't match your registered photo</span><span class="m-big m-warn">Not clocked in</span></div>
                   <p class="m-msg state-nomatch">Try again facing the camera in good light. If it keeps failing, HR will review it.</p>
-                  <span class="m-btn state-match">Done</span>
-                  <span class="m-btn state-nomatch">Try again</span>
+                  <button type="button" class="m-btn state-match" data-done="Saved to your log">Done</button>
+                  <button type="button" class="m-btn state-nomatch" data-demo="face" data-state="match">Try again</button>
                 </div>
               </div>
               <figcaption>Mobile face check. Placeholder face, sample data.</figcaption>
@@ -190,7 +190,7 @@
           </div>
 
           <figure class="browser-fig feature__web">
-            <div class="browser" role="img" aria-label="Web review queue: registered photo next to the clock-in photo, with approve and reject actions">
+            <div class="browser" role="group" aria-label="Web review queue: registered photo next to the clock-in photo, with accept and reject actions">
               <div class="browser__bar"><i></i><i></i><i></i><span>HRIS · Attendance · Face check review</span></div>
               <div class="w-main">
                 <div class="w-head"><strong>Needs review</strong><span class="w-chip">3 open</span></div>
@@ -202,7 +202,7 @@
                   <div class="review__info">
                     <p><b>Employee 027</b> · Head Office · Today 08:04</p>
                     <p class="m-sub">Failed face check 3 times</p>
-                    <span class="w-act"><b>Accept clock-in</b><em>Reject</em></span>
+                    <span class="w-act"><button type="button" class="w-btn w-btn--primary" data-resolve="Clock-in accepted">Accept clock-in</button><button type="button" class="w-btn" data-resolve="Rejected" data-tone="late">Reject</button></span>
                   </div>
                 </div>
               </div>
@@ -221,21 +221,21 @@
         <h3 class="subtitle">Mobile app, employee</h3>
         <div class="phones">
           <figure class="phone-fig">
-            <div class="phone" role="img" aria-label="Attendance screen: today's shift, clock-in status and a large Clock out button">
+            <div class="phone" role="group" aria-label="Attendance screen">
               <div class="phone__bar"><span>Attendance</span></div>
               <div class="phone__body">
                 <p class="m-label">Today, shift 08:00 to 17:00</p>
                 <div class="m-card m-card--strong"><span class="m-big">08:02</span><span class="m-sub">Clocked in · location matched</span></div>
                 <div class="m-row"><span>Break</span><span>12:00 to 13:00</span></div>
                 <div class="m-row"><span>This month</span><span>18 of 21 days</span></div>
-                <span class="m-btn">Clock out</span>
+                <button type="button" class="m-btn" data-done="Clocked out at 17:05">Clock out</button>
               </div>
             </div>
             <figcaption>Attendance: one main action, status on top.</figcaption>
           </figure>
 
           <figure class="phone-fig">
-            <div class="phone" role="img" aria-label="Leave request screen: leave balance, a request form and the status of the last request">
+            <div class="phone" role="group" aria-label="Leave request screen">
               <div class="phone__bar"><span>Leave</span></div>
               <div class="phone__body">
                 <div class="m-card"><span class="m-sub">Annual leave left</span><span class="m-big">9 days</span></div>
@@ -243,14 +243,15 @@
                 <div class="m-field"><span>Dates</span><span>2 days</span></div>
                 <div class="m-field"><span>Reason</span><span class="m-muted">Optional</span></div>
                 <div class="m-row"><span>Last request</span><span class="m-pill m-pill--wait">Waiting</span></div>
-                <span class="m-btn">Send request</span>
+                <p class="m-msg" id="leave-sent" hidden>Sent. Your manager has it in the approval inbox.</p>
+                <button type="button" class="m-btn" data-done="Request sent" data-reveal="#leave-sent">Send request</button>
               </div>
             </div>
             <figcaption>Leave: balance shown before the form, so nobody asks for days they don't have.</figcaption>
           </figure>
 
           <figure class="phone-fig">
-            <div class="phone" role="img" aria-label="Overtime request screen: date, planned hours, reason and approver">
+            <div class="phone" role="group" aria-label="Overtime request screen">
               <div class="phone__bar"><span>Overtime</span></div>
               <div class="phone__body">
                 <p class="m-label">Request before you work it</p>
@@ -258,20 +259,24 @@
                 <div class="m-field"><span>Planned</span><span>17:00 to 19:00</span></div>
                 <div class="m-field"><span>Reason</span><span>Month-end closing</span></div>
                 <div class="m-field"><span>Approver</span><span>Your manager</span></div>
-                <span class="m-btn">Send for approval</span>
+                <button type="button" class="m-btn" data-done="Sent to your manager">Send for approval</button>
               </div>
             </div>
             <figcaption>Overtime: approval happens before the hours are worked.</figcaption>
           </figure>
 
           <figure class="phone-fig">
-            <div class="phone" role="img" aria-label="Task list screen: tasks grouped by status with due dates">
+            <div class="phone" id="demo-task" data-state="todo" role="group" aria-label="Task list screen">
               <div class="phone__bar"><span>My tasks</span></div>
               <div class="phone__body">
-                <div class="m-tabs"><span class="is-on">To do</span><span>Doing</span><span>Done</span></div>
-                <div class="m-task"><span>Update vendor contract list</span><span class="m-sub">Due today</span></div>
-                <div class="m-task"><span>Prepare training material</span><span class="m-sub">Due Fri</span></div>
-                <div class="m-task"><span>Check new hire documents</span><span class="m-sub">Due next week</span></div>
+                <div class="m-tabs" role="group" aria-label="Task status">
+                  <button type="button" aria-pressed="true" data-demo="task" data-state="todo">To do</button><button type="button" aria-pressed="false" data-demo="task" data-state="doing">Doing</button><button type="button" aria-pressed="false" data-demo="task" data-state="done">Done</button>
+                </div>
+                <div class="m-task" data-when="todo"><span>Update vendor contract list</span><span class="m-sub">Due today</span></div>
+                <div class="m-task" data-when="todo"><span>Check new hire documents</span><span class="m-sub">Due next week</span></div>
+                <div class="m-task" data-when="doing" hidden><span>Prepare training material</span><span class="m-sub">Due Fri · 60% done</span></div>
+                <div class="m-task" data-when="done" hidden><span>Submit monthly report</span><span class="m-sub">Done yesterday</span></div>
+                <div class="m-task" data-when="done" hidden><span>Book meeting room</span><span class="m-sub">Done Mon</span></div>
               </div>
             </div>
             <figcaption>Tasks: grouped by status, due date on every row.</figcaption>
@@ -280,19 +285,19 @@
 
         <h3 class="subtitle">Web app, HR and approvers</h3>
         <figure class="browser-fig">
-          <div class="browser" role="img" aria-label="Web approval inbox: filters for leave and overtime, and a table of pending requests with approve and reject actions">
+          <div class="browser" role="group" aria-label="Web approval inbox">
             <div class="browser__bar"><i></i><i></i><i></i><span>HRIS · Approvals</span></div>
             <div class="browser__body">
               <aside class="w-side">
                 <span class="is-on">Approvals</span><span>Attendance</span><span>Leave</span><span>Overtime</span><span>Tasks</span><span>Settings</span>
               </aside>
               <div class="w-main">
-                <div class="w-head"><strong>Pending approvals</strong><span class="w-filters"><span class="is-on">All</span><span>Leave</span><span>Overtime</span></span></div>
-                <div class="w-table">
+                <div class="w-head"><strong>Pending approvals</strong><span class="w-filters" role="group" aria-label="Filter requests"><button type="button" aria-pressed="true" data-filter="all" data-target="#inbox">All</button><button type="button" aria-pressed="false" data-filter="leave" data-target="#inbox">Leave</button><button type="button" aria-pressed="false" data-filter="overtime" data-target="#inbox">Overtime</button></span></div>
+                <div class="w-table" id="inbox">
                   <div class="w-tr w-th"><span>Request</span><span>Employee</span><span>When</span><span>Action</span></div>
-                  <div class="w-tr"><span>Annual leave, 2 days</span><span>Employee 014</span><span>Next Mon to Tue</span><span class="w-act"><b>Approve</b><em>Reject</em></span></div>
-                  <div class="w-tr"><span>Overtime, 2 hours</span><span>Employee 027</span><span>Today 17:00</span><span class="w-act"><b>Approve</b><em>Reject</em></span></div>
-                  <div class="w-tr"><span>Sick leave, 1 day</span><span>Employee 003</span><span>Yesterday</span><span class="w-act"><b>Approve</b><em>Reject</em></span></div>
+                  <div class="w-tr" data-type="leave"><span>Annual leave, 2 days</span><span>Employee 014</span><span>Next Mon to Tue</span><span class="w-act"><button type="button" class="w-btn w-btn--primary" data-resolve="Approved">Approve</button><button type="button" class="w-btn" data-resolve="Rejected" data-tone="late">Reject</button></span></div>
+                  <div class="w-tr" data-type="overtime"><span>Overtime, 2 hours</span><span>Employee 027</span><span>Today 17:00</span><span class="w-act"><button type="button" class="w-btn w-btn--primary" data-resolve="Approved">Approve</button><button type="button" class="w-btn" data-resolve="Rejected" data-tone="late">Reject</button></span></div>
+                  <div class="w-tr" data-type="leave"><span>Sick leave, 1 day</span><span>Employee 003</span><span>Yesterday</span><span class="w-act"><button type="button" class="w-btn w-btn--primary" data-resolve="Approved">Approve</button><button type="button" class="w-btn" data-resolve="Rejected" data-tone="late">Reject</button></span></div>
                 </div>
               </div>
             </div>
@@ -456,7 +461,7 @@
 
         <div class="rev-screens">
           <figure class="phone-fig phone-fig--dark">
-            <div class="phone" role="img" aria-label="Mobile overtime request showing the department budget bar at 62 percent used, with sample data">
+            <div class="phone" role="group" aria-label="Mobile overtime request showing the department budget bar at 62 percent used, with sample data">
               <div class="phone__bar"><span>Overtime</span></div>
               <div class="phone__body">
                 <div class="m-budget">
@@ -466,7 +471,7 @@
                 </div>
                 <div class="m-field"><span>Planned</span><span>2 hours</span></div>
                 <div class="m-field"><span>Approver</span><span>Your manager</span></div>
-                <span class="m-btn">Send for approval</span>
+                <button type="button" class="m-btn" data-done="Sent. 36 hours left after approval">Send for approval</button>
               </div>
             </div>
             <figcaption>Mobile: remaining budget sits above the form. Sample data.</figcaption>

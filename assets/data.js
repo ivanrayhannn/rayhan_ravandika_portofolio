@@ -55,7 +55,7 @@ window.PORTFOLIO = {
   ],
 
   about: [
-    "I'm an IT Project Manager and Business System Analyst with four years of experience, most of it spent between business users and the engineers building for them. I start from the stakeholder's problem and how the operation runs today, then write it down so engineering can build it: requirements, system architecture, ERD and FSD.",
+    "I'm Rayhan, a Business System Analyst who helps companies through digital transformation. I start by listening to stakeholders' problems and needs, turn them into a solution, and see it through delivery, so the result brings real benefit to their business.",
     "I've taken product work from market research and product-market fit through MVP scope, PRDs and release. On digitalisation projects I also write SQL, design data integrations and define the testing strategy.",
     "As a project lead I take cross-functional and vendor teams through proposal, planning, budgeting, risk mitigation and daily follow-up. At Fujitsu that kept four projects at 100% schedule compliance.",
   ],

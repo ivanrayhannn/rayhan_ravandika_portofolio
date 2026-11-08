@@ -1,8 +1,8 @@
 /* Written by the site editor (admin.html). Make changes there instead of by hand. */
 window.PORTFOLIO_EDITS = {
   "version": 1,
-  "rev": 8,
-  "published": "2026-11-08T17:49:34.391Z",
+  "rev": 9,
+  "published": "2026-11-08T17:54:39.824Z",
   "pages": {
     "index.html": {
       "nodes": {
@@ -130,7 +130,7 @@ window.PORTFOLIO_EDITS = {
           "html": "Biggest project value"
         },
         "#services/div:0/div:0/p:0": {
-          "was": "Each service is listed in the format of a requirement: what you provide, and wha",
+          "was": "Each service is listed in the format of a requirement: what the user needs, and ",
           "html": "Each service is listed in the format of a requirement: <br>what the users needs, and what I deliver."
         },
         "#reqs/li:0/span:0": {

@@ -11,7 +11,6 @@
     ["index.html", "Home"],
     ["hris.html", "HRIS case study"],
     ["cimb.html", "CIMB Niaga case study"],
-    ["fwd.html", "FWD case study"],
     ["marketing.html", "Spin the wheel prototype"]
   ];
   var DEFAULT_GH = { repo: "ivanrayhannn/rayhan_ravandika_portofolio", branch: "claude/optimistic-faraday-6kxzio" };

@@ -1,8 +1,8 @@
 /* Written by the site editor (admin.html). Make changes there instead of by hand. */
 window.PORTFOLIO_EDITS = {
   "version": 1,
-  "rev": 13,
-  "published": "2026-11-08T19:26:30.106Z",
+  "rev": 14,
+  "published": "2026-11-08T19:27:37.000Z",
   "pages": {
     "index.html": {
       "nodes": {
@@ -91,11 +91,7 @@ window.PORTFOLIO_EDITS = {
           "html": "Testing",
           "was": "Unit test fixes"
         },
-        "#cases/article:3/div:0/img:0": {
-          "w": "100%",
-          "was": "assets/clients/fwd.png"
-        },
-        "#cases/article:4/div:1/p:0": {
+        "#cases/article:3/div:1/p:0": {
           "html": "Marketing tools (Freelance)",
           "was": "Marketing tools"
         },

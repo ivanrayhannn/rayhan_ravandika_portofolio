@@ -224,16 +224,6 @@ window.PORTFOLIO = {
       linkLabel: "Read the CIMB Niaga case study",
     },
     {
-      title: "Custom HRIS modules for company policy",
-      client: "FWD Insurance, via Jojonomic",
-      period: "2022 to 2023",
-      logos: ["assets/clients/fwd.png"],
-      summary: "Fitted the Jojonomic HRIS to FWD Insurance's HR rules: a rule-by-rule gap analysis decided what to configure and what to build as a custom module, for example overtime under a company-specific policy.",
-      deliverables: ["Gap analysis", "Custom overtime policy", "Rules spec", "Sprint reviews", "Unit test fixes"],
-      link: "fwd.html",
-      linkLabel: "Read the FWD case study",
-    },
-    {
       title: "Marketing tool: spin the wheel",
       client: "Marketing tools",
       badge: "Clickable prototype",

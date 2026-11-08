@@ -12,7 +12,7 @@ Live: https://ivanrayhannn.github.io/rayhan_ravandika_portofolio/
 | `assets/data.js` | All content: profile, services, workflows, case studies, skills, work history, clients, links |
 | `assets/main.js` | Renders the content, the workflow swimlanes, the ID card, the tabs, the copy button and the nav |
 | `assets/styles.css` | Styles for desktop, tablet and phone |
-| `hris.html`, `cimb.html`, `fwd.html` | Case studies with clickable screens |
+| `hris.html`, `cimb.html` | Case studies with clickable screens |
 | `marketing.html` | Spin-the-wheel marketing tool prototype |
 | `assets/case.css`, `assets/demo.js` | Styles and click behaviour shared by the case-study pages |
 | `assets/marketing.js` | Spinner logic: weighted draw, stock, spins per day, voucher codes |

@@ -1,8 +1,8 @@
 /* Written by the site editor (admin.html). Make changes there instead of by hand. */
 window.PORTFOLIO_EDITS = {
   "version": 1,
-  "rev": 6,
-  "published": "2026-11-08T17:40:24.331Z",
+  "rev": 7,
+  "published": "2026-11-08T17:44:27.346Z",
   "pages": {
     "index.html": {
       "nodes": {
@@ -96,8 +96,9 @@ window.PORTFOLIO_EDITS = {
           "was": "data integrations"
         },
         "#figures/div:3/dd:0": {
-          "html": "$60 Bio",
-          "was": "$12M+"
+          "html": "$ 3.7 Mio",
+          "was": "$12M+",
+          "w": "100%"
         },
         "#heroTags": {
           "fs": 12,
@@ -123,6 +124,10 @@ window.PORTFOLIO_EDITS = {
         "#home/div:0/div:0/p:4": {
           "hidden": true,
           "was": "Figures from my Fujitsu role at Toyota Indonesia, 2023 to now."
+        },
+        "#figures/div:3/dt:0": {
+          "was": "project budget",
+          "html": "Biggest project value"
         }
       },
       "added": {},

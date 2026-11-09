@@ -1,8 +1,8 @@
 /* Written by the site editor (admin.html). Make changes there instead of by hand. */
 window.PORTFOLIO_EDITS = {
   "version": 1,
-  "rev": 14,
-  "published": "2026-11-08T19:27:37.000Z",
+  "rev": 15,
+  "published": "2026-11-09T04:50:40.168Z",
   "pages": {
     "index.html": {
       "nodes": {
@@ -284,6 +284,24 @@ window.PORTFOLIO_EDITS = {
           "#panel-waterfall/figure:0/p:0"
         ]
       }
+    },
+    "hris.html": {
+      "nodes": {
+        "#revenue/div:0/p:0": {
+          "was": "Concept · an example of how I shape a revenue feature, not a shipped Jojonomic f",
+          "hidden": true
+        },
+        "#released/div:0/article:1/div:0/p:0": {
+          "was": "Released · Attendance module",
+          "html": "Attendance module"
+        },
+        "#released/div:0/article:0/div:0/p:0": {
+          "was": "Released · Attendance module",
+          "html": "Attendance module"
+        }
+      },
+      "added": {},
+      "order": {}
     }
   }
 };

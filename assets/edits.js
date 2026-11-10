@@ -1,8 +1,8 @@
 /* Written by the site editor (admin.html). Make changes there instead of by hand. */
 window.PORTFOLIO_EDITS = {
   "version": 1,
-  "rev": 18,
-  "published": "2026-11-10T04:37:11.403Z",
+  "rev": 19,
+  "published": "2026-11-10T04:58:27.000Z",
   "pages": {
     "index.html": {
       "nodes": {
@@ -295,10 +295,6 @@ window.PORTFOLIO_EDITS = {
     },
     "hris.html": {
       "nodes": {
-        "#revenue/div:0/p:0": {
-          "was": "Concept · an example of how I shape a revenue feature, not a shipped Jojonomic f",
-          "hidden": true
-        },
         "#released/div:0/article:1/div:0/p:0": {
           "was": "Released · Attendance module",
           "html": "Attendance module"

@@ -87,8 +87,6 @@
 .m-btn { margin-top: auto; display: block; text-align: center; background: var(--blue); color: #fff; font-weight: 700; padding: 11px; border-radius: 10px; }
 .m-tabs { display: flex; gap: 4px; background: #e2e9f4; padding: 3px; border-radius: 9px; font-size: 11.5px; font-weight: 600; }
 .m-task { display: flex; flex-direction: column; gap: 2px; padding: 10px; background: #fff; border: 1px solid #d6dfec; border-radius: 10px; font-weight: 600; }
-.m-budget { background: #fff; border: 1px solid #d6dfec; border-radius: 12px; padding: 10px; display: grid; gap: 6px; }
-.m-budget .m-row { padding: 0; border: 0; }
 .m-meter { height: 8px; border-radius: 4px; background: #e2e9f4; overflow: hidden; }
 .m-meter i { display: block; height: 100%; background: var(--blue); }
 
@@ -132,24 +130,6 @@
 .ac li { position: relative; padding-left: 34px; font-size: 15px; color: var(--text-2); counter-increment: ac; }
 .ac li::before { content: "AC" counter(ac); position: absolute; left: 0; top: 1px; font-size: 12px; font-weight: 800; color: var(--blue); }
 .ac b { color: var(--text); }
-
-/* Revenue concept, on the blue band. */
-.concept-tag { display: inline-block; font-size: 14px; font-weight: 700; color: #16294f; background: var(--cyan); padding: 6px 12px; border-radius: var(--r-sm); margin-bottom: 18px; }
-.rev-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 30px; }
-@media (max-width: 960px) { .rev-grid { grid-template-columns: minmax(0, 1fr); } }
-.rev-card { padding: 22px; border-radius: var(--r-lg); background: rgba(255, 255, 255, 0.07); border: 1px solid var(--line); }
-.rev-card h3, .rev-measure h3 { font-size: 17px; font-weight: 700; }
-.rev-card p, .rev-measure p { color: var(--text-2); font-size: 15px; margin-top: 8px; }
-.rev-steps { margin-top: 10px; display: grid; gap: 8px; counter-reset: s; }
-.rev-steps li { position: relative; padding-left: 26px; font-size: 15px; color: var(--text-2); counter-increment: s; }
-.rev-steps li::before { content: counter(s); position: absolute; left: 0; top: 1px; width: 18px; height: 18px; border-radius: 5px; background: var(--cyan); color: #16294f; font-size: 11.5px; font-weight: 800; display: grid; place-items: center; }
-.rev-screens { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 40px; margin-top: 36px; align-items: start; }
-.rev-measure ul { margin-top: 10px; display: grid; gap: 8px; }
-.rev-measure ul li { position: relative; padding-left: 18px; font-size: 15px; color: var(--text-2); }
-.rev-measure ul li::before { content: ""; position: absolute; left: 2px; top: 10px; width: 6px; height: 6px; border-radius: 1px; background: var(--cyan); }
-.rev-measure h3 + p, .rev-measure ul + h3 { margin-top: 18px; }
-.phone-fig--dark figcaption { color: var(--text-2); }
-@media (max-width: 760px) { .rev-screens { grid-template-columns: minmax(0, 1fr); gap: 28px; } }
 
 .case-end { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 18px; padding: 28px; border: 1px solid var(--line); border-radius: var(--r-xl); background: var(--surface); }
 .case-end p { font-size: 17px; font-weight: 600; max-width: 46ch; }
@@ -325,3 +305,12 @@ button.m-btn.m-btn--off:disabled { background: #c4cddd; color: #33415e; cursor: 
 .envs { margin-top: 18px; font-size: 14.5px; color: var(--text-2); }
 .envs span { font-weight: 700; color: var(--text); margin-right: 6px; }
 .envs b { color: var(--blue); }
+
+/* Policy master: overtime and leave side by side, one column on phones. */
+.policy-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 28px; }
+.policy-card { background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg); padding: 22px; }
+.policy-card h3 { font-size: 19px; font-weight: 800; }
+.policy-card > p { margin-top: 8px; color: var(--text-2); }
+.policy-card .table-scroll { margin-top: 16px; }
+.policy-note { margin-top: 10px; font-size: 13.5px; color: var(--text-2); }
+@media (max-width: 760px) { .policy-grid { grid-template-columns: minmax(0, 1fr); } }

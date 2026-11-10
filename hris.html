@@ -47,7 +47,7 @@
           <a href="#api">API endpoints</a>
           <a href="#sprint">Sprint workflow</a>
           <a href="#docs">Documentation</a>
-          <a href="#revenue">Revenue feature</a>
+          <a href="#policy">Policy master</a>
         </nav>
       </div>
     </section>
@@ -481,60 +481,38 @@
       </div>
     </section>
 
-    <section class="section band tone-blue" id="revenue" aria-labelledby="revenueTitle">
+    <section class="section tone-tint" id="policy" aria-labelledby="policyTitle">
       <div class="wrap">
-        <p class="concept-tag">Concept · an example of how I shape a revenue feature, not a shipped Jojonomic feature</p>
-        <h2 class="title" id="revenueTitle">Feature idea: Overtime Budget Guard</h2>
-        <p class="intro">HR teams usually find out what overtime cost after payroll closes. This add-on puts a monthly overtime budget in front of the people who request and approve it.</p>
-
-        <div class="rev-grid">
-          <div class="rev-card">
-            <h3>Problem</h3>
-            <p>Overtime is approved one request at a time. Nobody sees the department total until month end, so budgets overrun and HR has to chase approvals made outside the system.</p>
-          </div>
-          <div class="rev-card">
-            <h3>How it works</h3>
-            <ol class="rev-steps">
-              <li>HR sets a monthly overtime budget per department on the web.</li>
-              <li>The employee and the approver see how much is left when a request is made.</li>
-              <li>A request that goes over budget routes to a second approver.</li>
-              <li>At month end, HR exports approved hours straight to payroll.</li>
-            </ol>
-          </div>
-          <div class="rev-card">
-            <h3>Why it earns revenue</h3>
-            <p>It is packaged as a paid add-on to the Overtime module, priced per active employee, so it grows with each client. HR admins on the base plan see an upgrade prompt in the overtime report, where the overrun is visible.</p>
-          </div>
-        </div>
-
-        <div class="rev-screens">
-          <figure class="phone-fig phone-fig--dark">
-            <div class="phone" role="group" aria-label="Mobile overtime request showing the department budget bar at 62 percent used, with sample data">
-              <div class="phone__bar"><span>Overtime</span></div>
-              <div class="phone__body">
-                <div class="m-budget">
-                  <div class="m-row"><span>Finance dept. budget</span><span>62% used</span></div>
-                  <div class="m-meter"><i style="width:62%"></i></div>
-                  <p class="m-sub">38 of 100 hours left this month</p>
-                </div>
-                <div class="m-field"><span>Planned</span><span>2 hours</span></div>
-                <div class="m-field"><span>Approver</span><span>Your manager</span></div>
-                <button type="button" class="m-btn" data-done="Sent. 36 hours left after approval">Send for approval</button>
-              </div>
+        <h2 class="title" id="policyTitle">Policy master: each company sets its own rules</h2>
+        <p class="intro">Overtime and leave rules differ from one company to the next, so neither module hard-codes them. Each company builds its own policy master on the web, and the mobile app applies it to every request.</p>
+        <div class="policy-grid">
+          <div class="policy-card">
+            <h3>Overtime</h3>
+            <p>HR sets an overtime rate for each position. A request is paid at the rate of the employee's position, so payroll gets the right amount without manual checks.</p>
+            <div class="table-scroll" tabindex="0" role="region" aria-label="Sample overtime rates by position, scrollable">
+              <table class="modules">
+                <thead><tr><th scope="col">Position</th><th scope="col">Rate per hour</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Office boy</th><td>Rp10,000</td></tr>
+                  <tr><th scope="row">Manager</th><td>Rp200,000</td></tr>
+                </tbody>
+              </table>
             </div>
-            <figcaption>Mobile: remaining budget sits above the form. Sample data.</figcaption>
-          </figure>
-          <div class="rev-measure">
-            <h3>How I would measure it</h3>
-            <p>No results are shown because this is a concept. These are the numbers I would track from the pilot onward:</p>
-            <ul>
-              <li>Add-on attach rate among clients that use the Overtime module</li>
-              <li>Trial-to-paid conversion after the upgrade prompt</li>
-              <li>Share of overtime approved inside the app instead of in chat</li>
-              <li>Retention of clients with the add-on compared with those without it</li>
-            </ul>
-            <h3>Rollout</h3>
-            <p>Interview HR admins, test a clickable prototype, run a pilot with a small group of clients, test the price, then release to everyone.</p>
+            <p class="policy-note">Sample rates. Each company enters its own positions and rates.</p>
+          </div>
+          <div class="policy-card">
+            <h3>Leave</h3>
+            <p>HR creates the company's own leave types and sets the quota for each. Employees see their balance per type before they send a request.</p>
+            <div class="table-scroll" tabindex="0" role="region" aria-label="Sample leave types and quotas, scrollable">
+              <table class="modules">
+                <thead><tr><th scope="col">Leave type</th><th scope="col">Quota</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Annual leave</th><td>12 days a year</td></tr>
+                  <tr><th scope="row">Marriage leave</th><td>3 days</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="policy-note">Sample types and quotas. Each company defines its own.</p>
           </div>
         </div>
       </div>

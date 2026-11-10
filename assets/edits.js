@@ -1,8 +1,8 @@
 /* Written by the site editor (admin.html). Make changes there instead of by hand. */
 window.PORTFOLIO_EDITS = {
   "version": 1,
-  "rev": 23,
-  "published": "2026-11-10T08:10:28.996Z",
+  "rev": 24,
+  "published": "2026-11-10T08:14:33.311Z",
   "pages": {
     "index.html": {
       "nodes": {
@@ -513,6 +513,26 @@ window.PORTFOLIO_EDITS = {
         "#crossdock/div:0/ol:0/li:3": {
           "was": "POAssign the supplier PO to the orders first in, first out.",
           "html": "<span class=\"trail__code\">PO</span><span>PO Supplier released with mapping customer export order. Then, supplier pack case instruction based on result mapping.</span>"
+        },
+        "#systems/div:0/p:0": {
+          "was": "Milkrun and crossdock are separate flows, but both depend on parts arriving on t",
+          "w": "1112px"
+        },
+        "#systems/div:0/div:0/table:0/tbody:0/tr:1/td:0": {
+          "was": "Pay for as few truck resources as possible",
+          "html": "Need system to implementation truck with cost by resource"
+        },
+        "#systems/div:0/div:0/table:0/tbody:0/tr:1/td:1": {
+          "was": "Route plans that show the trucks and trips each zone needs",
+          "html": "Build system can provide payment with concept truck cost by resource"
+        },
+        "#systems/div:0/div:0/table:0/tbody:0/tr:2/td:0": {
+          "was": "Know exactly what to collect on each cycle",
+          "html": "Only supplier with availability items, ignore supplier not ready, which is can reduce distance cost&nbsp;"
+        },
+        "#systems/div:0/div:0/table:0/tbody:0/tr:2/td:1": {
+          "was": "A pickup list per supplier per cycle",
+          "html": "System can compare plan vs actual pickup supplier, then system will display actual cost need payment according actual pickup"
         }
       },
       "added": {},

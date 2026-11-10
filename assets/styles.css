@@ -343,7 +343,9 @@ h1, h2, h3 { letter-spacing: -0.02em; text-wrap: balance; }
 .kit dt, .kit dd { padding: 16px 0; border-bottom: 1px solid var(--line); }
 .kit dt { font-weight: 700; font-size: 15px; }
 .kit dd { color: var(--text-2); font-size: 15px; }
-.kit dd span + span::before { content: " · "; color: var(--text-3); }
+/* Each item wraps as a whole, so a name like "GitHub CI/CD" never splits across lines. */
+.kit dd span { display: inline-block; max-width: 100%; }
+.kit dd span + span::before { content: "·"; color: var(--text-3); margin: 0 6px; }
 @media (max-width: 640px) { .kit { grid-template-columns: minmax(0, 1fr); } .kit dt { border-bottom: 0; padding-bottom: 2px; } .kit dd { padding-top: 0; } }
 
 /* Work history band: fades in and out inside its own padding, so text stays on solid blue. */

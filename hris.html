@@ -471,12 +471,12 @@
         </ol>
 
         <div class="story panel">
-          <p class="story__label">Example user story, overtime module</p>
-          <p class="story__text">As an employee, I want to request overtime from my phone before I work it, so my manager approves it in time and the hours count in payroll.</p>
+          <p class="story__label">Example user story, overtime policy master</p>
+          <p class="story__text">As HR, I want to set an overtime rate for each position, so every overtime request is paid at the rate of the employee's level.</p>
           <ol class="ac">
-            <li><b>Given</b> I open Overtime, <b>when</b> I send a request with date, planned hours and reason, <b>then</b> my manager gets it in the approval inbox and I see "Waiting".</li>
-            <li><b>Given</b> my manager approves, <b>when</b> I open the request, <b>then</b> I see "Approved" and the hours appear in my monthly summary.</li>
-            <li><b>Given</b> the planned end time is earlier than the start time, <b>when</b> I tap Send, <b>then</b> the form shows "End time must be after start time" and nothing is sent.</li>
+            <li><b>Given</b> the Manager rate is Rp200,000 per hour, <b>when</b> a manager's 2-hour overtime request is approved, <b>then</b> Rp400,000 goes to payroll for that request.</li>
+            <li><b>Given</b> an employee's account is mapped to the Office boy level, <b>when</b> they open an overtime request, <b>then</b> it shows the Office boy rate.</li>
+            <li><b>Given</b> HR leaves the rate empty, <b>when</b> they tap Save, <b>then</b> the form shows "Enter a rate for this position" and nothing is saved.</li>
           </ol>
         </div>
       </div>

@@ -1,8 +1,8 @@
 /* Written by the site editor (admin.html). Make changes there instead of by hand. */
 window.PORTFOLIO_EDITS = {
   "version": 1,
-  "rev": 22,
-  "published": "2026-11-10T06:07:05.000Z",
+  "rev": 23,
+  "published": "2026-11-10T08:10:28.996Z",
   "pages": {
     "index.html": {
       "nodes": {
@@ -405,6 +405,118 @@ window.PORTFOLIO_EDITS = {
           "/main:0/section:0/div:0/nav:0"
         ]
       }
+    },
+    "tmmin.html": {
+      "nodes": {
+        "#crossdock/div:0/p:0": {
+          "w": "1118px",
+          "was": "Crossdock is a separate flow from the milkrun route. Orders for several destinat",
+          "html": "In this project, improvement Cross dock process with current condition warehouse Toyota needs re-pack case (box) from supplier, make case with 1 Destination, takes time before shipping export. The improvement is supplier before delivery to Toyota Warehouse, supplier gets instruction and supplier pack case already 1 case = 1 destination, then warehouse no need repack again, and after supplier delivery that case, directly push to container to shipping export. Order function need also improve it to make instruction for supplier."
+        },
+        "#crossdockTitle": {
+          "html": "Crossdock Project: one case, one destination",
+          "was": "Crossdock: one case, one destination"
+        },
+        "#milkrun/div:0/ol:0/li:1": {
+          "html": "<span class=\"trail__code\">Daily Order</span><span>User create order to daily instruction logistic truck to pickup item on supplier</span>",
+          "was": "OrderPR, then PO to each supplier, then the parts to collect on each cycle."
+        },
+        "#milkrun/div:0/ol:0/li:3": {
+          "html": "<span class=\"trail__code\">Arrive</span><span>Users can monitor daily actual delivery and compare detail with PR Monthly</span>",
+          "was": "ArriveAt TMMIN, inside its time window."
+        },
+        "#milkrunTitle": {
+          "html": "Optimzation Route Milkrun and Payment System",
+          "was": "Milkrun Route"
+        },
+        "#milkrun/div:0/ol:0/li:0": {
+          "was": "PlanGroup suppliers by zone, one route per zone, and a time window for each supp",
+          "html": "<span class=\"trail__code\">Plan</span><span>User calculate route with group suppliers by zone. User create PR/PO monthly based on result calculation</span>"
+        },
+        "#milkrun/div:0/ol:0/li:2": {
+          "was": "Pick upThe truck visits the suppliers in a set order.",
+          "html": "<span class=\"trail__code\">Pick up</span><span>The truck milkrun visits the suppliers in a set order.</span>"
+        },
+        "#milkrun/div:0/ol:0/li:4": {
+          "was": "ReturnEmpty packaging goes back to the suppliers on the next loop.",
+          "html": "<span class=\"trail__code\">Service Acceptance</span><span>User execute service acceptance for Truck Service already comply to delivered.</span>"
+        },
+        "#milkrun/div:0/p:0": {
+          "was": "Transport is paid per resource: every truck and trip costs money. So suppliers i",
+          "w": "100%",
+          "html": "Milkrun Truck has component cost by resource: truck cost, driver cost, overtime cost, toll cost, distance cost.&nbsp; In every month, system will calculate route to optimization grouping route based on supplier area/zone. PR/PO Monthly implementation for monthly planning cost, it will compare with actual delivery cost. If any trip outside monthly plan cost, that trip as extra delivery.&nbsp;"
+        },
+        "/main:0/section:0/div:0/nav:0/a:0": {
+          "was": "My role",
+          "hidden": true
+        },
+        "/main:0/section:0/div:0/nav:0/a:1": {
+          "was": "Milkrun Route",
+          "hidden": true
+        },
+        "/main:0/section:0/div:0/nav:0/a:2": {
+          "was": "Crossdock",
+          "hidden": true
+        },
+        "/main:0/section:0/div:0/nav:0/a:3": {
+          "was": "Where systems help",
+          "hidden": true
+        },
+        "/main:0/section:0/div:0/nav:0/a:4": {
+          "was": "Project workflow",
+          "hidden": true
+        },
+        "/main:0/p:0": {
+          "was": "Milkrun and crossdock are explained here in general terms. Nothing on this page ",
+          "hidden": true
+        },
+        "/main:0/section:0/div:0/p:1": {
+          "was": "As a Fujitsu consultant dedicated to Toyota Indonesia's logistics, I work on the",
+          "html": "As a Fujitsu consultant dedicated to Toyota Indonesia's logistics, I work as business analyst to gather user requirement, coordination with Toyota Stakeholder, manage project management including vendor resource and inhouse and design technical system."
+        },
+        "#caseTitle": {
+          "was": "Logistics at Toyota Indonesia: milkrun and crossdock",
+          "html": "Logistics at Toyota Indonesia:&nbsp;"
+        },
+        "#role/div:0/div:0/p:0": {
+          "was": "I sit between the logistics business users, IT management and the vendor teams w",
+          "html": "I sit between the logistics business users, IT management and the vendor teams who build the systems, which can make real benefit tangible and intagible."
+        },
+        "#role/div:0/ol:0/li:1/p:0": {
+          "was": "As-is and to-be process flows, with improvements aligned with company rules and ",
+          "html": "As-is and to-be process flows, with improvements aligned with company rules and IT standards. Analyze actual current condition to find actual problem, then define the solution and technolgy used."
+        },
+        "#role/div:0/ol:0/li:3/p:0": {
+          "was": "ERP module design with Toyota Japan and Toyota Thailand: procurement, supplier m",
+          "html": "Support implementation Global System on Toyota Indonesia: Service Part. ERP module design with Toyota Japan and Toyota Thailand: procurement, supplier management, customer order, invoicing, warehouse and trucking delivery."
+        },
+        "#role/div:0/ol:0/li:4/h3:0": {
+          "was": "Delivery and testing",
+          "html": "Project Management"
+        },
+        "#role/div:0/ol:0/li:4/p:0": {
+          "was": "Schedule, budget, daily progress and risks, then the test strategy and SIT and U",
+          "html": "Schedule, budget, monitor daily progress and risks. Collaboration with business user to prepare the test strategy for SIT, UAT, and UT."
+        },
+        "#role/div:0/ol:0/li:5/h3:0": {
+          "was": "Reporting",
+          "html": "Dashboard Visualization"
+        },
+        "#role/div:0/ol:0/li:5/p:0": {
+          "was": "Logistics cost and compliance dashboards in Power BI, on a Cloudera data warehou",
+          "html": "Besides System Development, design and development for Dashboard Visualization such as Logistics cost and compliance dashboards in Power BI, on a Cloudera data warehouse fed by Talend."
+        },
+        "#crossdock/div:0/ol:0/li:1": {
+          "was": "OrdersCollect the orders for each destination.",
+          "html": "<span class=\"trail__code\">Orders</span><span>Get customer export order and order not minimum shipbox will pending order in regional system.</span>"
+        },
+        "#crossdock/div:0/ol:0/li:3": {
+          "was": "POAssign the supplier PO to the orders first in, first out.",
+          "html": "<span class=\"trail__code\">PO</span><span>PO Supplier released with mapping customer export order. Then, supplier pack case instruction based on result mapping.</span>"
+        }
+      },
+      "added": {},
+      "order": {}
     }
   }
 };

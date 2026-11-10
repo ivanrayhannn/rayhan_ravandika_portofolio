@@ -1,8 +1,8 @@
 /* Written by the site editor (admin.html). Make changes there instead of by hand. */
 window.PORTFOLIO_EDITS = {
   "version": 1,
-  "rev": 16,
-  "published": "2026-11-10T01:32:18.419Z",
+  "rev": 17,
+  "published": "2026-11-10T02:47:36.668Z",
   "pages": {
     "index.html": {
       "nodes": {
@@ -268,6 +268,10 @@ window.PORTFOLIO_EDITS = {
         "#docs/li:3/ul:0/li:3": {
           "was": "Entry / exit criteria",
           "html": "Mitigation Plan"
+        },
+        "#reqs/li:1/p:0": {
+          "was": "I map how the operation runs today, find the gaps and bottlenecks, and size thei",
+          "html": "I map how the operation runs today, find the gaps and bottlenecks, and size their impact before deicide picks a solution."
         }
       },
       "added": {},

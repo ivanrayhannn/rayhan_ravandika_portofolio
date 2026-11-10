@@ -339,14 +339,14 @@ h1, h2, h3 { letter-spacing: -0.02em; text-wrap: balance; }
 }
 
 /* Skills: a definition list, since these are labels and values rather than features. */
-.kit { display: grid; grid-template-columns: 220px minmax(0, 1fr); margin-top: 30px; border-top: 1.5px solid var(--text); }
-.kit dt, .kit dd { padding: 16px 0; border-bottom: 1px solid var(--line); }
-.kit dt { font-weight: 700; font-size: 15px; }
-.kit dd { color: var(--text-2); font-size: 15px; }
-/* Each item wraps as a whole, so a name like "GitHub CI/CD" never splits across lines. */
-.kit dd span { display: inline-block; max-width: 100%; }
-.kit dd span + span::before { content: "·"; color: var(--text-3); margin: 0 6px; }
-@media (max-width: 640px) { .kit { grid-template-columns: minmax(0, 1fr); } .kit dt { border-bottom: 0; padding-bottom: 2px; } .kit dd { padding-top: 0; } }
+/* Skills: one card per group, each item a tag, so the list scans at a glance. */
+.kit { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 30px; }
+.kit__group { background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg); padding: 20px 22px; }
+.kit dt { font-weight: 800; font-size: 15px; margin-bottom: 12px; }
+.kit dd { display: flex; flex-wrap: wrap; gap: 8px; }
+.kit dd span { font-size: 13.5px; font-weight: 600; color: var(--text); background: var(--chip); border-radius: var(--r-sm); padding: 6px 10px; }
+.kit > .state, .kit__group:last-child:nth-child(odd) { grid-column: 1 / -1; }
+@media (max-width: 640px) { .kit { grid-template-columns: minmax(0, 1fr); } .kit__group { padding: 18px; } }
 
 /* Work history band: fades in and out inside its own padding, so text stays on solid blue. */
 .band {

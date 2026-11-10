@@ -237,10 +237,10 @@ window.PORTFOLIO = {
   projectsPending: "Write-ups for Adhi Persada Beton, Amway and Bank Papua are in progress.",
 
   skills: {
-    "Business analysis": ["Requirement gathering (stakeholder interviews, operational data)", "Business process analysis", "As-is / to-be mapping", "Impact analysis", "Business case & benefit analysis", "Market research", "Competitor analysis", "User stories", "Acceptance criteria"],
-    "System design": ["ERP module design (procurement, supplier, customer order, invoicing, warehouse, trucking)", "Data modelling (ERD)", "System integration design", "UI design & screen specs", "JSON API spec", "Vendor technical document review (TSD)"],
+    "Business analysis": ["Requirement gathering", "Business process analysis", "As-is / to-be mapping", "Impact analysis", "Business case & benefit analysis", "Market research", "Competitor analysis", "User stories", "Acceptance criteria"],
+    "System design": ["ERP module design", "Data modelling (ERD)", "System integration design", "UI design & screen specs", "JSON API spec", "Vendor technical document review (TSD)"],
     "Documentation": ["BRD", "FSD", "TSD", "PRD", "Feature descriptions", "Test strategy", "Test scenarios"],
-    "Testing & delivery": ["SIT", "UAT with end users", "Project schedule & budget control", "Risk mitigation", "Vendor & stakeholder management", "Executive reporting", "Scrum Master activities (sprint planning, daily stand-up, sprint review)"],
+    "Testing & delivery": ["SIT", "UAT with end users", "Project schedule & budget control", "Risk mitigation", "Vendor & stakeholder management", "Executive reporting", "Scrum Master activities"],
     "Data & tools": ["Power BI (DAX)", "Cloudera data warehouse", "Talend", "SQL", "SQL Server", "Oracle", "DBeaver", "Postman", "Figma", "Jira", "Trello", "GitHub CI/CD", "Microsoft 365"],
     "AI": ["AI engineering", "AI prompting", "Hermes Agent", "AI-assisted prototyping"],
     "Methodology & domains": ["Waterfall", "Agile / Scrum", "SDLC", "Logistics & warehouse", "ERP", "HRIS", "Expense management", "Banking", "Insurance"],

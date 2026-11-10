@@ -275,7 +275,7 @@
   }, { empty: "No case studies are published yet. The work history below covers the same projects.", error: "Couldn't show the case studies." + REFRESH });
 
   section("#kit", Object.keys(D.skills || {}), function (k) {
-    return "<dt>" + esc(k) + "</dt><dd>" + list(D.skills[k], function (s) { return "<span>" + esc(s) + "</span>"; }) + "</dd>";
+    return '<div class="kit__group"><dt>' + esc(k) + "</dt><dd>" + list(D.skills[k], function (s) { return "<span>" + esc(s) + "</span>"; }) + "</dd></div>";
   }, { empty: "No skills are listed yet.", error: "Couldn't show the skills list." + REFRESH });
 
   // Work history: the first SHOW points of each role, the rest behind a toggle.

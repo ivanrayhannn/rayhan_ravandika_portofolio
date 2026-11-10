@@ -11,7 +11,7 @@ Live: https://ivanrayhannn.github.io/rayhan_ravandika_portofolio/
 | `index.html` | Page structure, loading text and the no-JavaScript message |
 | `assets/data.js` | All content: profile, services, workflows, case studies, skills, work history, clients, links |
 | `assets/main.js` | Renders the home page content, the ID card, the copy button and the nav |
-| `assets/workflow.js` | Waterfall and agile swimlanes with tabs and the expand toggle, on `tmmin.html` |
+| `assets/workflow.js` | Waterfall and agile swimlanes with tabs and the expand toggle, on `index.html` and `tmmin.html` |
 | `assets/styles.css` | Styles for desktop, tablet and phone |
 | `tmmin.html`, `hris.html`, `cimb.html` | Case studies with clickable screens |
 | `marketing.html` | Spin-the-wheel marketing tool prototype |

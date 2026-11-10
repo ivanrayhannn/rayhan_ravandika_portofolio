@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Toyota Indonesia logistics case study · Rayhan Ravandika</title>
+  <meta name="description" content="Case study: logistics systems at Toyota Indonesia (TMMIN) through Fujitsu. Milkrun and crossdock explained in general terms, and where a business system analyst fits in." />
+  <meta name="theme-color" content="#0b3a9e" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230d47c9'/><text x='32' y='43' text-anchor='middle' font-family='Arial' font-weight='800' font-size='30' fill='white'>R.</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/case.css" />
+</head>
+<body>
+  <a class="skip" href="#role">Skip to content</a>
+
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Rayhan Ravandika, portfolio home">Rayhan<span aria-hidden="true">.</span></a>
+      <a href="index.html#projects" class="nav__back">Back to portfolio</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="case-hero tone-blue" aria-labelledby="caseTitle">
+      <div class="wrap">
+        <p class="case-hero__kicker">Case study · Toyota Indonesia (TMMIN), via Fujitsu · 2023 to present</p>
+        <h1 id="caseTitle">Logistics at Toyota Indonesia: milkrun and crossdock</h1>
+        <p class="case-hero__lede">As a Fujitsu consultant dedicated to Toyota Indonesia's logistics, I work on the systems behind how parts move from suppliers to the plant. This page explains two of those flows, milkrun and crossdock, in general terms, and where a business system analyst fits in.</p>
+
+        <dl class="case-meta">
+          <div><dt>Role</dt><dd>Business System Analyst, Fujitsu consultant</dd></div>
+          <div><dt>Area</dt><dd>Logistic Export Department, TMMIN</dd></div>
+          <div><dt>Delivery</dt><dd>4+ projects to go-live, waterfall and agile</dd></div>
+          <div><dt>Worked with</dt><dd>Business users, IT management, vendor teams</dd></div>
+        </dl>
+
+        <nav class="toc" aria-label="On this page">
+          <a href="#role">My role</a>
+          <a href="#milkrun">Milkrun</a>
+          <a href="#crossdock">Crossdock</a>
+          <a href="#systems">Where systems help</a>
+        </nav>
+      </div>
+    </section>
+
+    <p class="wrap case-note" role="note">Milkrun and crossdock are explained here in general terms. Nothing on this page shows Toyota's internal processes, systems or figures.</p>
+
+    <section class="section" id="role" aria-labelledby="roleTitle">
+      <div class="wrap split">
+        <div>
+          <h2 class="title" id="roleTitle">What I do</h2>
+          <p class="intro">I sit between the logistics business users, IT management and the vendor teams who build the systems, from the first interview to support after go-live.</p>
+        </div>
+        <ol class="owned">
+          <li><h3>Requirements</h3><p>Interviews with business users and operational data collection, written up as BRD, FSD and UI screen specs.</p></li>
+          <li><h3>Process analysis</h3><p>As-is and to-be process flows, with improvements aligned with company rules and IT standards.</p></li>
+          <li><h3>System and data design</h3><p>Impact analysis on existing system logic, data models and integrations, and review of the vendors' technical documents.</p></li>
+          <li><h3>Global ERP</h3><p>ERP module design with Toyota Japan and Toyota Thailand: procurement, supplier management, customer order, invoicing, warehouse and trucking delivery.</p></li>
+          <li><h3>Delivery and testing</h3><p>Schedule, budget, daily progress and risks, then the test strategy and SIT and UAT with end users.</p></li>
+          <li><h3>Reporting</h3><p>Logistics cost and compliance dashboards in Power BI, on a Cloudera data warehouse fed by Talend.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section tone-tint" id="milkrun" aria-labelledby="milkrunTitle">
+      <div class="wrap">
+        <h2 class="title" id="milkrunTitle">Milkrun: one truck, many suppliers</h2>
+        <p class="intro">Instead of every supplier sending its own truck, one truck follows a fixed route and collects parts from several suppliers in one loop, on a fixed schedule. Trucks run fuller, and the plant knows when parts will arrive.</p>
+        <ol class="trail">
+          <li><span class="trail__code">Plan</span><span>Routes and a time window for each supplier.</span></li>
+          <li><span class="trail__code">Order</span><span>The parts to collect from each supplier on each cycle.</span></li>
+          <li><span class="trail__code">Pick up</span><span>The truck visits the suppliers in a set order.</span></li>
+          <li><span class="trail__code">Arrive</span><span>At the crossdock or the plant, inside its time window.</span></li>
+          <li><span class="trail__code">Return</span><span>Empty packaging goes back to the suppliers on the next loop.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="crossdock" aria-labelledby="crossdockTitle">
+      <div class="wrap">
+        <h2 class="title" id="crossdockTitle">Crossdock: sort, don't store</h2>
+        <p class="intro">Parts from many inbound trucks are unloaded, sorted by destination and loaded onto outbound trucks, with little or no storage in between. Milkrun trucks often end their loop here.</p>
+        <ol class="trail">
+          <li><span class="trail__code">Receive</span><span>Unload the inbound truck at its dock.</span></li>
+          <li><span class="trail__code">Check</span><span>Compare what arrived with what was ordered.</span></li>
+          <li><span class="trail__code">Sort</span><span>Group the parts by destination or route.</span></li>
+          <li><span class="trail__code">Stage</span><span>Move each group to its outbound lane.</span></li>
+          <li><span class="trail__code">Dispatch</span><span>Load the outbound truck and send it on time.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section tone-tint" id="systems" aria-labelledby="systemsTitle">
+      <div class="wrap">
+        <h2 class="title" id="systemsTitle">Where systems help</h2>
+        <p class="intro">Both flows run on timing and accuracy. This is the kind of support a logistics system gives each step, and where requirements work starts.</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Business needs and system support per step, scrollable">
+          <table class="modules">
+            <thead>
+              <tr><th scope="col">Step</th><th scope="col">What the business needs</th><th scope="col">What a system provides</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Route planning</th><td>Fixed routes and time windows per supplier</td><td>Master data for routes, suppliers and time windows</td></tr>
+              <tr><th scope="row">Pickup</th><td>Know exactly what to collect on each cycle</td><td>A pickup list per supplier per cycle</td></tr>
+              <tr><th scope="row">Receiving</th><td>Confirm what arrived against what was ordered</td><td>Checks against the order, with flags for shortages and extras</td></tr>
+              <tr><th scope="row">Sorting</th><td>Send the right parts to the right outbound truck</td><td>A destination for every part and route</td></tr>
+              <tr><th scope="row">Monitoring</th><td>See late trucks and shortages early</td><td>Dashboards of arrivals against time windows</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="policy-note">General examples of system support for these flows, not a description of Toyota's systems.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap case-end">
+        <p>Working on supplier logistics, milkrun or crossdock systems? I can help turn the operation into requirements a vendor can build.</p>
+        <div class="case-end__actions">
+          <a class="btn btn--primary" href="index.html#contact">Contact Rayhan</a>
+          <a class="btn btn--ghost-dark" href="index.html#workflow">See how I run a project</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__inner">
+      <span>© 2026 Muhammad Rayhan Ravandika</span>
+      <a href="#caseTitle">Back to top</a>
+    </div>
+  </footer>
+
+  <script src="assets/edits.js" defer></script>
+  <script src="assets/cms.js" defer></script>
+</body>
+</html>

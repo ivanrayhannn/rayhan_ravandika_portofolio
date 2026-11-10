@@ -201,6 +201,8 @@ window.PORTFOLIO = {
       logos: ["assets/clients/toyota-indonesia.png"],
       summary: "Led 4 IT development projects for the Logistic Department: 8 vendor teams, 8 systems and 50+ data integrations, delivered with both waterfall and agile, within a $12M+ budget and on schedule.",
       deliverables: ["Feasibility study", "System architecture", "FSD & specs", "Test strategy", "API validation", "Dashboards"],
+      link: "tmmin.html",
+      linkLabel: "Read the TMMIN logistics case study",
     },
     {
       title: "HRIS on web and mobile: attendance, leave, overtime and tasks",

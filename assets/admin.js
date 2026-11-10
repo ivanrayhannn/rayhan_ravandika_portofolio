@@ -9,6 +9,7 @@
 
   var PAGES = [
     ["index.html", "Home"],
+    ["tmmin.html", "TMMIN logistics case study"],
     ["hris.html", "HRIS case study"],
     ["cimb.html", "CIMB Niaga case study"],
     ["marketing.html", "Spin the wheel prototype"]

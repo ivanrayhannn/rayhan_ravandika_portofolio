@@ -1,8 +1,8 @@
 /* Written by the site editor (admin.html). Make changes there instead of by hand. */
 window.PORTFOLIO_EDITS = {
   "version": 1,
-  "rev": 19,
-  "published": "2026-11-10T04:58:27.000Z",
+  "rev": 20,
+  "published": "2026-11-10T05:30:06.643Z",
   "pages": {
     "index.html": {
       "nodes": {
@@ -306,6 +306,58 @@ window.PORTFOLIO_EDITS = {
         "/main:0/section:0/div:0/dl:0/div:4/dd:0": {
           "was": "Custom features for FWD Insurance",
           "html": "FWD, Bank Papua, Amway, Insurance Tugu, etc"
+        },
+        "/main:0/section:0/div:0/nav:0/a:0": {
+          "was": "My role",
+          "hidden": true
+        },
+        "/main:0/section:0/div:0/nav:0/a:1": {
+          "was": "Modules",
+          "hidden": true
+        },
+        "/main:0/section:0/div:0/nav:0/a:2": {
+          "was": "Released features",
+          "hidden": true
+        },
+        "/main:0/section:0/div:0/nav:0/a:3": {
+          "was": "FWD custom work",
+          "hidden": true
+        },
+        "/main:0/section:0/div:0/nav:0/a:4": {
+          "was": "UI design",
+          "hidden": true
+        },
+        "/main:0/section:0/div:0/nav:0/a:5": {
+          "was": "API endpoints",
+          "hidden": true
+        },
+        "/main:0/section:0/div:0/nav:0/a:6": {
+          "was": "Sprint workflow",
+          "hidden": true
+        },
+        "/main:0/section:0/div:0/nav:0/a:7": {
+          "was": "Documentation",
+          "hidden": true
+        },
+        "/main:0/section:0/div:0/nav:0/a:8": {
+          "was": "Policy master",
+          "hidden": true
+        },
+        "/main:0/p:0": {
+          "was": "The screens and API examples on this page are recreated for the portfolio with s",
+          "hidden": true
+        },
+        "#design/div:0/h3:0": {
+          "was": "Mobile app, employee",
+          "html": "Mobile app, employee&nbsp;"
+        },
+        "#designTitle": {
+          "was": "UI design: mobile and web",
+          "html": "UI design: mobile and web (Sample Dummy)"
+        },
+        "#apiTitle": {
+          "was": "API endpoints",
+          "html": "API endpoints (Sample Dummy)"
         }
       },
       "added": {},

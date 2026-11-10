@@ -1,8 +1,8 @@
 /* Written by the site editor (admin.html). Make changes there instead of by hand. */
 window.PORTFOLIO_EDITS = {
   "version": 1,
-  "rev": 15,
-  "published": "2026-11-09T04:50:40.168Z",
+  "rev": 16,
+  "published": "2026-11-10T01:32:18.419Z",
   "pages": {
     "index.html": {
       "nodes": {
@@ -95,6 +95,10 @@ window.PORTFOLIO_EDITS = {
           "html": "Marketing tools (Freelance)",
           "was": "Marketing tools"
         },
+        "#contact/div:0/div:0/div:0/p:0": {
+          "html": "Let's connect with me on Linkedin and if urgently you can contact on Whatsapp.",
+          "was": "Need a BRD, a process redesign, or someone to take a feature from the first work"
+        },
         "#contact/div:0/div:0/div:1/a:3": {
           "hidden": true,
           "was": "GitHub"
@@ -108,7 +112,7 @@ window.PORTFOLIO_EDITS = {
           "was": "Functional Specification Document"
         },
         "#docs/li:1/ul:0/li:1": {
-          "html": "ERD, Screen specs &amp; field validation",
+          "html": "ERD, Screen UI &amp; field validation",
           "was": "Screen specs & field validation"
         },
         "#docs/li:1/ul:0/li:2": {
@@ -261,9 +265,9 @@ window.PORTFOLIO_EDITS = {
           "html": "Documents I produce and I Review",
           "was": "Documents I produce"
         },
-        "#contact/div:0/div:0/div:0/p:0": {
-          "was": "Need a BRD, a process redesign, or someone to take a feature from the first work",
-          "html": "Let's connect with me on Linkedin and if urgently you can contact on Whatsapp."
+        "#docs/li:3/ul:0/li:3": {
+          "was": "Entry / exit criteria",
+          "html": "Mitigation Plan"
         }
       },
       "added": {},

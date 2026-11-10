@@ -1,8 +1,8 @@
 /* Written by the site editor (admin.html). Make changes there instead of by hand. */
 window.PORTFOLIO_EDITS = {
   "version": 1,
-  "rev": 21,
-  "published": "2026-11-10T05:41:15.358Z",
+  "rev": 22,
+  "published": "2026-11-10T06:07:05.000Z",
   "pages": {
     "index.html": {
       "nodes": {
@@ -285,11 +285,6 @@ window.PORTFOLIO_EDITS = {
           "#home/div:0/div:0/div:0",
           "#figures",
           "#home/div:0/div:0/p:4"
-        ],
-        "#panel-waterfall/figure:0": [
-          "#panel-waterfall/figure:0/figcaption:0",
-          "#panel-waterfall/figure:0/div:0",
-          "#panel-waterfall/figure:0/p:0"
         ]
       }
     },

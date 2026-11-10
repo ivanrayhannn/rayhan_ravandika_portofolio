@@ -42,6 +42,7 @@
           <a href="#milkrun">Milkrun</a>
           <a href="#crossdock">Crossdock</a>
           <a href="#systems">Where systems help</a>
+          <a href="#workflow">Project workflow</a>
         </nav>
       </div>
     </section>
@@ -115,12 +116,39 @@
       </div>
     </section>
 
+    <section class="section" id="workflow" aria-labelledby="workflowTitle">
+      <div class="wrap">
+        <div class="workflow__head">
+          <div>
+            <h2 class="title" id="workflowTitle">Project workflow</h2>
+            <p class="intro">How I run a project end to end, in a waterfall or an agile team. The highlighted lane is my part of the work.</p>
+          </div>
+          <div class="wf-tabs" id="wf-tabs" role="tablist" aria-label="Project methodology"></div>
+        </div>
+        <div class="wf-card">
+          <div id="wf-panels" class="is-collapsed"><p class="state">Loading workflow…</p></div>
+          <div class="wf-toggle-row">
+            <button type="button" class="wf-toggle" id="wf-toggle" aria-controls="wf-panels" aria-expanded="false">
+              <span class="wf-toggle__open">Show the full workflow</span><span class="wf-toggle__close">Collapse workflow</span>
+              <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.5l4 4 4-4" /></svg>
+            </button>
+          </div>
+          <ul class="wf-legend" aria-label="Diagram legend">
+            <li><i class="lg lg--flow" aria-hidden="true"></i>Next step</li>
+            <li><i class="lg lg--assoc" aria-hidden="true"></i>Runs in parallel, or I support it</li>
+            <li><i class="lg lg--gw" aria-hidden="true"></i>Decision</li>
+            <li><i class="lg lg--me" aria-hidden="true"></i>My lane</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <section class="section">
       <div class="wrap case-end">
         <p>Working on supplier logistics, milkrun or crossdock systems? I can help turn the operation into requirements a vendor can build.</p>
         <div class="case-end__actions">
           <a class="btn btn--primary" href="index.html#contact">Contact Rayhan</a>
-          <a class="btn btn--ghost-dark" href="index.html#workflow">See how I run a project</a>
+          <a class="btn btn--ghost-dark" href="index.html#projects">Back to all case studies</a>
         </div>
       </div>
     </section>
@@ -133,6 +161,8 @@
     </div>
   </footer>
 
+  <script src="assets/data.js" defer></script>
+  <script src="assets/workflow.js" defer></script>
   <script src="assets/edits.js" defer></script>
   <script src="assets/cms.js" defer></script>
 </body>

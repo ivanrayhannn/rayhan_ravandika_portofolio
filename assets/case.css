@@ -315,3 +315,13 @@ button.m-btn.m-btn--off:disabled { background: #c4cddd; color: #33415e; cursor: 
 .mkt__settings label { font-size: 14px; font-weight: 700; }
 .mkt__reset { margin-top: 16px; }
 @media (max-width: 600px) { .mkt__table input, .mkt__settings input { min-height: 44px; } .mkt__code .w-btn { min-height: 44px; } }
+
+/* Employee attendance list inside the face-check phone: an unmatched clock-in gets a red border on its date. */
+.att-list { display: grid; gap: 6px; margin-top: 10px; }
+.att-list li { display: flex; justify-content: space-between; gap: 8px; padding: 8px 10px; border: 1.5px solid var(--line); border-radius: var(--r-sm); background: #fff; font-size: 12.5px; color: #16294f; }
+.att-list__flag { border-color: #c62828 !important; color: #8e1b1b !important; font-weight: 700; }
+
+/* Sprint environments line under the sprint trail. */
+.envs { margin-top: 18px; font-size: 14.5px; color: var(--text-2); }
+.envs span { font-weight: 700; color: var(--text); margin-right: 6px; }
+.envs b { color: var(--blue); }

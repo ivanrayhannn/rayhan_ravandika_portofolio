@@ -45,6 +45,7 @@
           <a href="#fwd">FWD custom work</a>
           <a href="#design">UI design</a>
           <a href="#api">API endpoints</a>
+          <a href="#sprint">Sprint workflow</a>
           <a href="#docs">Documentation</a>
           <a href="#revenue">Revenue feature</a>
         </nav>
@@ -160,10 +161,10 @@
             <p class="feature__tag">Released · Attendance module</p>
             <h3 class="feature__title" id="faceTitle">Face match at clock-in</h3>
             <p><b>Problem.</b> Colleagues clocked in for each other (titip absen), so the log showed people at work who weren't there.</p>
-            <p><b>How it works.</b> Each employee has a registered photo approved by HR. At clock-in the app takes a selfie and compares it with that photo. A match saves the clock-in. A face that doesn't match is rejected with a clear reason, and repeated failures go to HR for review.</p>
+            <p><b>How it works.</b> Each employee has a registered photo approved by HR. At clock-in the app takes a selfie and compares it with that photo. A match saves the clock-in. A face that doesn't match still saves the clock-in, but flags it: the employee sees the flag right after clocking in, the date gets a red border in their own attendance list, and HR reviews it.</p>
             <ul class="feature__cases" aria-label="Cases the flow handles">
               <li>No face in frame or the room is too dark: the app asks for a new photo before comparing.</li>
-              <li>Face doesn't match: the employee can try again; repeated failures create a review item for HR.</li>
+              <li>Face doesn't match: the clock-in is saved with an Unmatched flag, and that date shows a red border in the employee's attendance list until HR accepts or rejects it.</li>
               <li>Appearance changed, for example glasses or a new haircut: HR can approve a new registered photo.</li>
             </ul>
           </div>
@@ -174,20 +175,25 @@
               <button type="button" aria-pressed="false" data-demo="face" data-state="nomatch">Doesn't match</button>
             </div>
             <figure class="phone-fig">
-              <div class="phone" id="demo-face" data-state="match" role="group" aria-label="Face check screen at clock-in" aria-live="polite">
+              <div class="phone phone--tall" id="demo-face" data-state="match" role="group" aria-label="Face check screen at clock-in" aria-live="polite">
                 <div class="phone__bar"><span>Face check</span></div>
                 <div class="phone__body">
                   <div class="cam" aria-hidden="true">
                     <svg viewBox="0 0 120 120"><ellipse cx="60" cy="58" rx="34" ry="44" fill="none" stroke-width="3" class="cam__ring" stroke-dasharray="6 4" /><circle cx="60" cy="48" r="16" fill="#9fb1cf" /><path d="M30 104c4-20 18-30 30-30s26 10 30 30" fill="#9fb1cf" /></svg>
                   </div>
                   <div class="m-card state-match"><span class="m-sub">Face matches your registered photo</span><span class="m-big m-ok">Clocked in 08:02</span></div>
-                  <div class="m-card m-card--warn state-nomatch"><span class="m-sub">Face doesn't match your registered photo</span><span class="m-big m-warn">Not clocked in</span></div>
-                  <p class="m-msg state-nomatch">Try again facing the camera in good light. If it keeps failing, HR will review it.</p>
+                  <div class="m-card m-card--warn state-nomatch"><span class="m-sub">Clocked in 08:02, flagged for HR review</span><span class="m-big m-warn">Unmatched</span></div>
+                  <ul class="att-list" aria-label="Your attendance this week">
+                    <li><span>Wed 8 Mar</span><span>08:01</span></li>
+                    <li><span>Thu 9 Mar</span><span>07:58</span></li>
+                    <li class="state-nomatch att-list__flag"><span>Fri 10 Mar</span><span>Unmatched</span></li>
+                    <li class="state-match"><span>Fri 10 Mar</span><span>08:02</span></li>
+                  </ul>
                   <button type="button" class="m-btn state-match" data-done="Saved to your log">Done</button>
-                  <button type="button" class="m-btn state-nomatch" data-demo="face" data-state="match">Try again</button>
+                  <button type="button" class="m-btn state-nomatch" data-done="HR will review it">OK</button>
                 </div>
               </div>
-              <figcaption>Mobile face check. Placeholder face, sample data.</figcaption>
+              <figcaption>Mobile face check and the employee's attendance list. Placeholder face, sample data.</figcaption>
             </figure>
           </div>
 
@@ -203,7 +209,7 @@
                   </div>
                   <div class="review__info">
                     <p><b>Employee 027</b> · Head Office · Today 08:04</p>
-                    <p class="m-sub">Failed face check 3 times</p>
+                    <p class="m-sub">Face didn't match at clock-in</p>
                     <span class="w-act"><button type="button" class="w-btn w-btn--primary" data-resolve="Clock-in accepted">Accept clock-in</button><button type="button" class="w-btn" data-resolve="Rejected" data-tone="late">Reject</button></span>
                   </div>
                 </div>
@@ -342,7 +348,7 @@
               <tr><td><span class="verb verb--get">GET</span></td><td><code>/v1/attendance?employee_id=&amp;month=</code></td><td>Monthly log for one employee</td></tr>
               <tr><td><span class="verb verb--post">POST</span></td><td><code>/v1/attendance/locations</code></td><td>HR adds a work location with a radius</td></tr>
               <tr><td><span class="verb verb--post">POST</span></td><td><code>/v1/attendance/face-profiles</code></td><td>Register or replace an employee's reference photo</td></tr>
-              <tr><td><span class="verb verb--get">GET</span></td><td><code>/v1/attendance/face-reviews?status=open</code></td><td>HR review queue of failed face checks</td></tr>
+              <tr><td><span class="verb verb--get">GET</span></td><td><code>/v1/attendance/face-reviews?status=open</code></td><td>HR review queue of unmatched clock-ins</td></tr>
               <tr><td><span class="verb verb--patch">PATCH</span></td><td><code>/v1/attendance/face-reviews/{id}</code></td><td>Accept or reject a flagged clock-in</td></tr>
               <tr><th scope="row" rowspan="3">Leave</th><td><span class="verb verb--get">GET</span></td><td><code>/v1/leave/balances/{employee_id}</code></td><td>Remaining days per leave type</td></tr>
               <tr><td><span class="verb verb--post">POST</span></td><td><code>/v1/leave/requests</code></td><td>Create a leave request</td></tr>
@@ -386,12 +392,16 @@
   "error": "OUTSIDE_GEOFENCE",
   "message": "You are 1.2 km from Head Office.",
   "distance_m": 1200
-}
-
-{
-  "error": "FACE_NOT_MATCHED",
-  "message": "Face doesn't match the registered photo.",
-  "attempts_left": 2
+}</code></pre>
+          </figure>
+          <figure class="code">
+            <figcaption>Face doesn't match · <code>201 Created</code>, saved and flagged</figcaption>
+<pre tabindex="0"><code>{
+  "id": "ATT-20230310-0811",
+  "clock_in_at": "2023-03-10T08:02:00+07:00",
+  "location_status": "INSIDE",
+  "face_status": "UNMATCHED",
+  "review_status": "OPEN"
 }</code></pre>
           </figure>
         </div>
@@ -428,6 +438,22 @@
 }</code></pre>
           </figure>
         </div>
+      </div>
+    </section>
+
+    <section class="section" id="sprint" aria-labelledby="sprintTitle">
+      <div class="wrap">
+        <h2 class="title" id="sprintTitle">How each sprint ran</h2>
+        <p class="intro">Every module was built in Scrum sprints. This is my part of each one, from preparing the features to checking them in production.</p>
+        <ol class="trail trail--6">
+          <li><span class="trail__code">Pre-sprint</span><span>Research the features and detail them for backend, frontend and mobile.</span></li>
+          <li><span class="trail__code">Planning</span><span>Present the features to the team, often as acting Scrum Master, then revise and finalise the requirements from their feedback.</span></li>
+          <li><span class="trail__code">Sprint</span><span>Write the test scenarios with QA while the engineers code, and answer their questions as they come up.</span></li>
+          <li><span class="trail__code">Testing</span><span>QA tests each feature, and I review the results.</span></li>
+          <li><span class="trail__code">Review</span><span>QA and I present the finished features to the project team.</span></li>
+          <li><span class="trail__code">Release</span><span>The infra team deploys the ready features, and QA tests them again in production.</span></li>
+        </ol>
+        <p class="envs"><span>Environments</span> <b>Development</b> → <b>Staging</b> → <b>Production</b></p>
       </div>
     </section>
 

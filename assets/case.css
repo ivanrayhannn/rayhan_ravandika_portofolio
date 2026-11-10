@@ -323,7 +323,7 @@ button.m-btn.m-btn--off:disabled { background: #c4cddd; color: #33415e; cursor: 
 .fl-t { font-size: 17px; font-weight: 800; fill: #16294f; text-anchor: middle; }
 .fl-s { font-size: 13px; font-weight: 600; fill: #4a5b7c; text-anchor: middle; }
 .fl-n { font-size: 14px; font-weight: 800; fill: #fff; text-anchor: middle; }
-.flow-scroll--wide svg { min-width: 880px; }
+.flow-scroll--wide svg { min-width: 1000px; }
 .cd-l { font-size: 11px; font-weight: 700; fill: #fff; text-anchor: middle; }
 .cd-n { font-size: 11px; font-weight: 800; fill: #fff; text-anchor: middle; }
 .cd-tag { font-size: 10px; font-weight: 700; fill: #fff; text-anchor: middle; }

@@ -274,8 +274,11 @@
       (p.link ? '<a class="case__link" href="' + esc(p.link) + '">' + esc(p.linkLabel || "Read the case study") + "</a>" : "") + "</div></article>";
   }, { empty: "No case studies are published yet. The work history below covers the same projects.", error: "Couldn't show the case studies." + REFRESH });
 
+  // Groups start open on wider screens and closed on phones, where seven open cards make a long scroll.
+  var kitOpen = window.matchMedia("(min-width: 641px)").matches ? " open" : "";
   section("#kit", Object.keys(D.skills || {}), function (k) {
-    return '<div class="kit__group"><dt>' + esc(k) + "</dt><dd>" + list(D.skills[k], function (s) { return "<span>" + esc(s) + "</span>"; }) + "</dd></div>";
+    return '<details class="kit__group"' + kitOpen + "><summary>" + esc(k) + '<span class="kit__count">' + D.skills[k].length + '</span></summary><div class="kit__items">' +
+      list(D.skills[k], function (s) { return "<span>" + esc(s) + "</span>"; }) + "</div></details>";
   }, { empty: "No skills are listed yet.", error: "Couldn't show the skills list." + REFRESH });
 
   // Work history: the first SHOW points of each role, the rest behind a toggle.

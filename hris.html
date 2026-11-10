@@ -36,6 +36,7 @@
           <div><dt>Modules</dt><dd>Attendance, leave, overtime, task management</dd></div>
           <div><dt>Worked with</dt><dd>CTO, VP, product and engineering</dd></div>
           <div><dt>Client work</dt><dd>Custom features for FWD Insurance</dd></div>
+          <div><dt>Tech stack</dt><dd>Go, SQL Server, React (JavaScript), Flutter, AWS</dd></div>
         </dl>
 
         <nav class="toc" aria-label="On this page">
@@ -53,6 +54,35 @@
     </section>
 
     <p class="wrap case-note" role="note">The screens and API examples on this page are recreated for the portfolio with sample data. Production screens and endpoints belong to Jojonomic.</p>
+
+    <section class="section" id="problems" aria-labelledby="problemsTitle">
+      <div class="wrap">
+        <h2 class="title" id="problemsTitle">The problems I fixed</h2>
+        <p class="intro">Client companies trusted the attendance log less and less, and their HR teams couldn't fit the leave rules to their own positions. These were the four problems I took on.</p>
+        <div class="policy-grid">
+          <div class="policy-card">
+            <h3>Clocking in for a colleague</h3>
+            <p><b>Problem.</b> Many employees of client companies clocked in for each other (titip absen).</p>
+            <p><b>What I changed.</b> Face match at clock-in: every selfie is compared with the employee's registered photo.</p>
+          </div>
+          <div class="policy-card">
+            <h3>Fake faces at check-in</h3>
+            <p><b>Problem.</b> Many users checked in with a face that wasn't their own.</p>
+            <p><b>What I changed.</b> A face that doesn't match is flagged: the date turns red in the employee's attendance list, and HR reviews it.</p>
+          </div>
+          <div class="policy-card">
+            <h3>No idea where people clocked in</h3>
+            <p><b>Problem.</b> HR couldn't see the location of a clock-in.</p>
+            <p><b>What I changed.</b> Geofenced attendance: the app records the location and checks it against the work areas HR sets.</p>
+          </div>
+          <div class="policy-card">
+            <h3>Leave rules that didn't fit</h3>
+            <p><b>Problem.</b> Each client's HR needed leave types that depend on the employee's position.</p>
+            <p><b>What I changed.</b> A leave policy master: each client's HR creates its own leave types per position.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section class="section" id="role" aria-labelledby="roleTitle">
       <div class="wrap split">
@@ -339,27 +369,12 @@
     <section class="section tone-tint" id="api" aria-labelledby="apiTitle">
       <div class="wrap">
         <h2 class="title" id="apiTitle">API endpoints</h2>
-        <p class="intro">I defined the endpoints with the backend engineers, so the mobile and web teams built against the same contract.</p>
-        <div class="table-scroll" tabindex="0" role="region" aria-label="Endpoint list, scrollable">
+        <p class="intro">I defined the endpoints with the backend engineers, so the mobile and web teams built against the same contract. This is the one that carries both attendance checks.</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Clock-in endpoint, scrollable">
           <table class="endpoints">
             <thead><tr><th scope="col">Module</th><th scope="col">Method</th><th scope="col">Endpoint</th><th scope="col">Used for</th></tr></thead>
             <tbody>
-              <tr><th scope="row" rowspan="7">Attendance</th><td><span class="verb verb--post">POST</span></td><td><code>/v1/attendance/clock-in</code></td><td>Clock in with location and selfie; checks geofence and face match. Clock-ins saved offline are sent here once the phone is back online</td></tr>
-              <tr><td><span class="verb verb--post">POST</span></td><td><code>/v1/attendance/clock-out</code></td><td>Record clock-out</td></tr>
-              <tr><td><span class="verb verb--get">GET</span></td><td><code>/v1/attendance?employee_id=&amp;month=</code></td><td>Monthly log for one employee</td></tr>
-              <tr><td><span class="verb verb--post">POST</span></td><td><code>/v1/attendance/locations</code></td><td>HR adds a work location with a radius</td></tr>
-              <tr><td><span class="verb verb--post">POST</span></td><td><code>/v1/attendance/face-profiles</code></td><td>Register or replace an employee's reference photo</td></tr>
-              <tr><td><span class="verb verb--get">GET</span></td><td><code>/v1/attendance/face-reviews?status=open</code></td><td>HR review queue of unmatched clock-ins</td></tr>
-              <tr><td><span class="verb verb--patch">PATCH</span></td><td><code>/v1/attendance/face-reviews/{id}</code></td><td>Accept or reject a flagged clock-in</td></tr>
-              <tr><th scope="row" rowspan="3">Leave</th><td><span class="verb verb--get">GET</span></td><td><code>/v1/leave/balances/{employee_id}</code></td><td>Remaining days per leave type</td></tr>
-              <tr><td><span class="verb verb--post">POST</span></td><td><code>/v1/leave/requests</code></td><td>Create a leave request</td></tr>
-              <tr><td><span class="verb verb--patch">PATCH</span></td><td><code>/v1/leave/requests/{id}/approval</code></td><td>Approve or reject</td></tr>
-              <tr><th scope="row" rowspan="3">Overtime</th><td><span class="verb verb--post">POST</span></td><td><code>/v1/overtime/requests</code></td><td>Create an overtime request</td></tr>
-              <tr><td><span class="verb verb--patch">PATCH</span></td><td><code>/v1/overtime/requests/{id}/approval</code></td><td>Approve or reject</td></tr>
-              <tr><td><span class="verb verb--get">GET</span></td><td><code>/v1/overtime/summary?department_id=&amp;month=</code></td><td>Hours by department for reports</td></tr>
-              <tr><th scope="row" rowspan="3">Tasks</th><td><span class="verb verb--post">POST</span></td><td><code>/v1/tasks</code></td><td>Create and assign a task</td></tr>
-              <tr><td><span class="verb verb--patch">PATCH</span></td><td><code>/v1/tasks/{id}/status</code></td><td>Move a task between statuses</td></tr>
-              <tr><td><span class="verb verb--get">GET</span></td><td><code>/v1/tasks?assignee_id=&amp;status=</code></td><td>Task list for one person</td></tr>
+              <tr><th scope="row">Attendance</th><td><span class="verb verb--post">POST</span></td><td><code>/v1/attendance/clock-in</code></td><td>Clock in with location and selfie; checks geofence and face match. Clock-ins saved offline are sent here once the phone is back online</td></tr>
             </tbody>
           </table>
         </div>
@@ -407,38 +422,6 @@
           </figure>
         </div>
 
-        <h3 class="subtitle">Example from the API spec: create a leave request</h3>
-        <p class="intro intro--tight">Each endpoint in the spec had a request, a success response and the error cases the mobile app had to handle.</p>
-        <div class="code-grid">
-          <figure class="code">
-            <figcaption>Request · <code>POST /v1/leave/requests</code></figcaption>
-<pre tabindex="0"><code>{
-  "employee_id": "EMP-014",
-  "leave_type": "ANNUAL",
-  "start_date": "2023-03-13",
-  "end_date": "2023-03-14",
-  "reason": "Family event"
-}</code></pre>
-          </figure>
-          <figure class="code">
-            <figcaption>Response · <code>201 Created</code></figcaption>
-<pre tabindex="0"><code>{
-  "id": "LV-20230310-0042",
-  "status": "WAITING_APPROVAL",
-  "days": 2,
-  "approver_id": "EMP-002",
-  "balance_after": 7
-}</code></pre>
-          </figure>
-          <figure class="code">
-            <figcaption>Error · <code>422 Unprocessable Entity</code></figcaption>
-<pre tabindex="0"><code>{
-  "error": "INSUFFICIENT_BALANCE",
-  "message": "Only 1 day of annual leave left.",
-  "field": "end_date"
-}</code></pre>
-          </figure>
-        </div>
       </div>
     </section>
 
@@ -503,7 +486,7 @@
           </div>
           <div class="policy-card">
             <h3>Leave</h3>
-            <p>HR creates the company's own leave types and sets the quota for each. Employees see their balance per type before they send a request.</p>
+            <p>HR creates the company's own leave types, chooses which positions get each type, and sets the quota. Employees see their balance per type before they send a request.</p>
             <div class="table-scroll" tabindex="0" role="region" aria-label="Sample leave types and quotas, scrollable">
               <table class="modules">
                 <thead><tr><th scope="col">Leave type</th><th scope="col">Quota</th></tr></thead>
@@ -513,7 +496,7 @@
                 </tbody>
               </table>
             </div>
-            <p class="policy-note">Sample types and quotas. Each company defines its own.</p>
+            <p class="policy-note">Sample types and quotas. Each company defines its own, per position.</p>
           </div>
         </div>
       </div>

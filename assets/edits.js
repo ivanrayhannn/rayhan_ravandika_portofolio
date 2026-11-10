@@ -1,8 +1,8 @@
 /* Written by the site editor (admin.html). Make changes there instead of by hand. */
 window.PORTFOLIO_EDITS = {
   "version": 1,
-  "rev": 20,
-  "published": "2026-11-10T05:30:06.643Z",
+  "rev": 21,
+  "published": "2026-11-10T05:41:15.358Z",
   "pages": {
     "index.html": {
       "nodes": {
@@ -362,6 +362,54 @@ window.PORTFOLIO_EDITS = {
       },
       "added": {},
       "order": {}
+    },
+    "cimb.html": {
+      "nodes": {
+        "/main:0/p:0": {
+          "html": "**Screens, amounts and rules on this page are recreated for the portfolio with sample data. They show how the modules work, not CIMB Niaga's internal policy.",
+          "was": "Screens, amounts and rules on this page are recreated for the portfolio with sam"
+        },
+        "/main:0/section:0/div:0/nav:0/a:0": {
+          "hidden": true,
+          "was": "My role"
+        },
+        "/main:0/section:0/div:0/nav:0/a:1": {
+          "hidden": true,
+          "was": "Modules"
+        },
+        "/main:0/section:0/div:0/nav:0/a:2": {
+          "hidden": true,
+          "was": "Integration"
+        },
+        "/main:0/section:0/div:0/nav:0/a:3": {
+          "hidden": true,
+          "was": "Screens"
+        },
+        "/main:0/section:0/div:0/nav:0/a:4": {
+          "hidden": true,
+          "was": "Delivery"
+        }
+      },
+      "added": {},
+      "order": {
+        "/main:0": [
+          "/main:0/section:0",
+          "#role",
+          "#modules",
+          "#integration",
+          "#screens",
+          "#delivery",
+          "/main:0/section:6"
+        ],
+        "/main:0/section:0/div:0": [
+          "/main:0/section:0/div:0/p:0",
+          "#caseTitle",
+          "/main:0/section:0/div:0/p:1",
+          "/main:0/p:0",
+          "/main:0/section:0/div:0/dl:0",
+          "/main:0/section:0/div:0/nav:0"
+        ]
+      }
     }
   }
 };

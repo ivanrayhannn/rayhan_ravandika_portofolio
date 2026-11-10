@@ -314,3 +314,12 @@ button.m-btn.m-btn--off:disabled { background: #c4cddd; color: #33415e; cursor: 
 .policy-card .table-scroll { margin-top: 16px; }
 .policy-note { margin-top: 10px; font-size: 13.5px; color: var(--text-2); }
 @media (max-width: 760px) { .policy-grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* Milkrun and crossdock flow illustrations: full width on desktop, sideways scroll on phones so labels stay readable. */
+.flow-fig { margin-top: 28px; }
+.flow-scroll { overflow-x: auto; background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg); padding: 12px; }
+.flow-scroll svg { display: block; width: 100%; min-width: 700px; height: auto; font-family: var(--font); }
+.flow-fig figcaption { margin-top: 10px; font-size: 13.5px; color: var(--text-2); }
+.fl-t { font-size: 17px; font-weight: 800; fill: #16294f; text-anchor: middle; }
+.fl-s { font-size: 13px; font-weight: 600; fill: #4a5b7c; text-anchor: middle; }
+.fl-n { font-size: 14px; font-weight: 800; fill: #fff; text-anchor: middle; }

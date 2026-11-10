@@ -1,8 +1,8 @@
 /* Written by the site editor (admin.html). Make changes there instead of by hand. */
 window.PORTFOLIO_EDITS = {
   "version": 1,
-  "rev": 17,
-  "published": "2026-11-10T02:47:36.668Z",
+  "rev": 18,
+  "published": "2026-11-10T04:37:11.403Z",
   "pages": {
     "index.html": {
       "nodes": {
@@ -306,6 +306,10 @@ window.PORTFOLIO_EDITS = {
         "#released/div:0/article:0/div:0/p:0": {
           "was": "Released · Attendance module",
           "html": "Attendance module"
+        },
+        "/main:0/section:0/div:0/dl:0/div:4/dd:0": {
+          "was": "Custom features for FWD Insurance",
+          "html": "FWD, Bank Papua, Amway, Insurance Tugu, etc"
         }
       },
       "added": {},

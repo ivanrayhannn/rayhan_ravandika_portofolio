@@ -275,7 +275,7 @@
   }, { empty: "No case studies are published yet. The work history below covers the same projects.", error: "Couldn't show the case studies." + REFRESH });
 
   section("#kit", Object.keys(D.skills || {}), function (k) {
-    return '<details class="kit__group"><summary>" + esc(k) + '<span class="kit__count">' + D.skills[k].length + '</span></summary><div class="kit__items">' +
+    return '<details class="kit__group"><summary>' + esc(k) + '<span class="kit__count">' + D.skills[k].length + '</span></summary><div class="kit__items">' +
       list(D.skills[k], function (s) { return "<span>" + esc(s) + "</span>"; }) + "</div></details>";
   }, { empty: "No skills are listed yet.", error: "Couldn't show the skills list." + REFRESH });
 

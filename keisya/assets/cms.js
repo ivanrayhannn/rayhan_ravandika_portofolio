@@ -381,7 +381,7 @@
 
   function readDraft(done) {
     try {
-      var req = indexedDB.open("portfolio-cms", 1);
+      var req = indexedDB.open("portfolio-cms-keisya", 1);
       req.onupgradeneeded = function () { req.result.createObjectStore("kv"); };
       req.onerror = function () { done(null); };
       req.onsuccess = function () {

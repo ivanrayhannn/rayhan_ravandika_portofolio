@@ -61,10 +61,11 @@ Every push to `claude/optimistic-faraday-6kxzio` or `main` deploys to GitHub Pag
 
 The Figma file (https://www.figma.com/design/gU6TdvJecOgKTtGIuvIjF3) still shows an earlier design.
 
-## Keisya copy (`keisya/`)
+## Keisya's portfolio (`keisya/`)
 
-A full copy of the site for Keisya's portfolio, served at `/keisya/` until it moves to its own repository. Content is still Rayhan's and is replaced later.
+Keisya's portfolio, served at `/keisya/` until it moves to its own repository. One page (`keisya/index.html`), content from her CV in `keisya/assets/data.js`, photo in `keisya/assets/photo.jpg`.
 
-- Every page has `<meta name="robots" content="noindex">` so search engines skip the copy while it holds placeholder content.
+- Every page has `<meta name="robots" content="noindex">`. Remove it when the site should show up in search.
 - `keisya/admin.html` has `<meta name="cms-dir" content="keisya/">`, so Publish writes to `keisya/assets/edits.js` and `keisya/assets/uploads/`, not to the main site.
-- To move it to a new repository: copy the contents of `keisya/` to the new repository root, remove the `cms-dir` meta tag, change `DEFAULT_GH` in `assets/admin.js` to the new repository and branch, add a Pages workflow, then remove the `noindex` tags once the content is Keisya's.
+- Its editor keeps drafts in its own browser database (`portfolio-cms-keisya`), so drafts of the two sites never mix.
+- To move it to a new repository: copy the contents of `keisya/` to the new repository root, remove the `cms-dir` meta tag, change `DEFAULT_GH` in `assets/admin.js` to the new repository and branch, and add a Pages workflow.

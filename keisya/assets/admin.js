@@ -8,11 +8,7 @@
   "use strict";
 
   var PAGES = [
-    ["index.html", "Home"],
-    ["tmmin.html", "TMMIN logistics case study"],
-    ["hris.html", "HRIS case study"],
-    ["cimb.html", "CIMB Niaga case study"],
-    ["marketing.html", "Spin the wheel prototype"]
+    ["index.html", "Home"]
   ];
   var DEFAULT_GH = { repo: "ivanrayhannn/rayhan_ravandika_portofolio", branch: "claude/optimistic-faraday-6kxzio" };
   // Folder of this site inside the repository, from <meta name="cms-dir">: "" at the root, "keisya/" for a copy in a subfolder.
@@ -105,7 +101,7 @@
     function db() {
       if (!opening) opening = new Promise(function (resolve, reject) {
         if (!window.indexedDB) { reject(new Error("No IndexedDB")); return; }
-        var r = indexedDB.open("portfolio-cms", 1);
+        var r = indexedDB.open("portfolio-cms-keisya", 1);
         r.onupgradeneeded = function () { r.result.createObjectStore("kv"); };
         r.onsuccess = function () { resolve(r.result); };
         r.onerror = function () { reject(r.error); };
@@ -1210,7 +1206,7 @@
     if (!f || !fileTarget || fileTarget.page !== S.page) return;
     useFile(f, fileTarget.key);
   });
-  function fullName() { var D = F.win && F.win.PORTFOLIO; return (D && (D.fullName || D.name)) || "Rayhan Ravandika"; }
+  function fullName() { var D = F.win && F.win.PORTFOLIO; return (D && (D.fullName || D.name)) || "Keisya Putri"; }
   function useFile(file, key) {
     var el = F.CMS.el(key), isPhoto = !!(el && el.hasAttribute("data-cms-photo"));
     toast("Preparing the image…");
@@ -1352,7 +1348,7 @@
       h.push('<section class="p-sec"><h3>' + (btnish ? "Button" : "Link") + "</h3>");
       h.push('<div class="field"><label for="f-label">Label</label><input id="f-label" class="input" data-f="label" value="' + esc(label) + '" /></div>');
       h.push('<div class="field"><label for="f-href">Link to</label><input id="f-href" class="input" data-f="href" spellcheck="false" value="' + esc(href) + '" placeholder="https://… or #contact" aria-describedby="f-href-help" />' +
-        '<p class="help" id="f-href-help">A web address, a page such as hris.html, a section such as #contact, or mailto: and tel: links.</p></div>');
+        '<p class="help" id="f-href-help">A web address, a section such as #contact, or mailto: and tel: links.</p></div>');
       h.push('<label class="check"><input type="checkbox" data-f="newTab"' + ((isA ? p.newTab : link && link.getAttribute("target") === "_blank") ? " checked" : "") + " /> Open in a new tab</label>");
       if (btnish) h.push(chipsHtml("l-variant", "Style", "variant", VARIANTS, variant) + '<p class="help">The white styles are made for blue backgrounds.</p>');
       h.push("</section>");
@@ -1370,7 +1366,7 @@
       if (k === "photo") h.push('<p class="help">A portrait works best. The card crops it to fill the frame; Focus picks the part that stays visible.</p>');
       else h.push('<div class="field"><label for="f-src">Or paste an image address</label><input id="f-src" class="input" data-f="src" spellcheck="false" value="' + esc(typed) + '" placeholder="https://…" /></div>');
       h.push('<div class="field"><label for="f-alt">Description for screen readers</label><input id="f-alt" class="input" data-f="alt" value="' + esc(alt) + '"' + (p.deco ? " disabled" : "") + ' aria-describedby="f-alt-help" />' +
-        '<p class="help" id="f-alt-help">Say what it shows, for example "Rayhan presenting the BRD to the business team".</p></div>');
+        '<p class="help" id="f-alt-help">Say what it shows, for example "Keisya at a customer visit".</p></div>');
       if (k !== "photo") h.push('<label class="check"><input type="checkbox" data-f="deco"' + (p.deco ? " checked" : "") + " /> Decorative, no description needed</label>");
       if (k === "photo" || isA || p.h) h.push(chipsHtml("l-pos", "Focus", "pos", [["top", "Top"], ["center", "Center"], ["bottom", "Bottom"]], p.pos || "center"));
       if (isA || (k === "image" && p.h)) h.push(chipsHtml("l-fit", "Fit", "fit", [["cover", "Fill the frame"], ["contain", "Show it whole"]], p.fit || "cover"));
@@ -1453,7 +1449,7 @@
     } else if (f === "href") {
       var ok = v.trim() === "" || F.CMS.safeUrl(v) !== "";
       t.setAttribute("aria-invalid", String(!ok));
-      $("#f-href-help").textContent = ok ? "A web address, a page such as hris.html, a section such as #contact, or mailto: and tel: links."
+      $("#f-href-help").textContent = ok ? "A web address, a section such as #contact, or mailto: and tel: links."
         : "That link can't be used. Start with https://, mailto: or tel:, or use a page or #section name.";
       $("#f-href-help").className = ok ? "help" : "help msg msg--error";
       if (!ok) return;

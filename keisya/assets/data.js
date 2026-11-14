@@ -3,7 +3,7 @@
  * Every fact here comes from Keisya's CV (assets/CV_Keisyazka_Fathaya_Putri.pdf).
  */
 window.PORTFOLIO = {
-  name: "Keisya Putri",
+  name: "Keisyazka Fathaya Putri",
   fullName: "Keisyazka Fathaya Putri",
   role: "Micro Credit Analyst",
   tagline:

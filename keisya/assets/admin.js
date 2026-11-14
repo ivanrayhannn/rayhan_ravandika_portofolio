@@ -1206,7 +1206,7 @@
     if (!f || !fileTarget || fileTarget.page !== S.page) return;
     useFile(f, fileTarget.key);
   });
-  function fullName() { var D = F.win && F.win.PORTFOLIO; return (D && (D.fullName || D.name)) || "Keisya Putri"; }
+  function fullName() { var D = F.win && F.win.PORTFOLIO; return (D && (D.fullName || D.name)) || "Keisyazka Fathaya Putri"; }
   function useFile(file, key) {
     var el = F.CMS.el(key), isPhoto = !!(el && el.hasAttribute("data-cms-photo"));
     toast("Preparing the image…");

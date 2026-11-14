@@ -15,6 +15,8 @@
     ["marketing.html", "Spin the wheel prototype"]
   ];
   var DEFAULT_GH = { repo: "ivanrayhannn/rayhan_ravandika_portofolio", branch: "claude/optimistic-faraday-6kxzio" };
+  // Folder of this site inside the repository, from <meta name="cms-dir">: "" at the root, "keisya/" for a copy in a subfolder.
+  var SITE_DIR = ((document.querySelector('meta[name="cms-dir"]') || {}).content || "").replace(/^\/+/, "");
   var DEVICES = { desktop: 1280, tablet: 820, phone: 390 };
   var COLORS = [["", "Default"], ["text", "Main text", "#16294f"], ["muted", "Soft text", "#4a5b7c"], ["blue", "Blue", "#0d47c9"], ["navy", "Navy", "#0a2a78"], ["cyan", "Cyan", "#7ee3f0"], ["white", "White", "#ffffff"]];
   var FILLS = [["", "Default"], ["none", "Transparent"], ["white", "White", "#ffffff"], ["surface", "Light grey", "#f3f6fa"], ["mist", "Mist", "#dde5f1"], ["tint", "Tint", "#e2e9f4"], ["blue", "Blue", "#0d47c9"], ["navy", "Navy", "#0a2a78"], ["cyan", "Cyan", "#7ee3f0"]];
@@ -1951,7 +1953,7 @@
     set("check", "active");
     gh.req("GET", R + "/git/ref/heads/" + B).then(function (ref) {
       head = ref.object.sha;
-      return gh.req("GET", R + "/contents/assets/edits.js?ref=" + encodeURIComponent(c.branch), null, null, true).then(function (text) {
+      return gh.req("GET", R + "/contents/" + SITE_DIR + "assets/edits.js?ref=" + encodeURIComponent(c.branch), null, null, true).then(function (text) {
         try { var r = parseEdits(text); remoteRev = typeof r.rev === "number" ? r.rev : 0; return r; } catch (e) { return null; }
       }, function (e) { if (e.status === 404) return null; throw e; });
     }).then(function (remote) {
@@ -1972,7 +1974,7 @@
       return files.reduce(function (chain, f, i) {
         return chain.then(function () {
           return gh.req("POST", R + "/git/blobs", { content: f.b64, encoding: "base64" }).then(function (b) {
-            entries.push({ path: f.path, sha: b.sha });
+            entries.push({ path: SITE_DIR + f.path, sha: b.sha });
             if (files.length > 1) set("images", "active", "Uploading images (" + (i + 1) + " of " + files.length + ")");
           });
         });
@@ -1983,7 +1985,7 @@
       set("save", "active");
       return gh.req("POST", R + "/git/blobs", { content: editsText(out), encoding: "utf-8" });
     }).then(function (blob) {
-      entries.push({ path: "assets/edits.js", sha: blob.sha });
+      entries.push({ path: SITE_DIR + "assets/edits.js", sha: blob.sha });
       return gh.req("GET", R + "/git/commits/" + head);
     }).then(function (commit) {
       return gh.req("POST", R + "/git/trees", {

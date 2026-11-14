@@ -60,3 +60,11 @@ Then open http://localhost:8000. Copy-to-clipboard needs `localhost` or HTTPS; e
 Every push to `claude/optimistic-faraday-6kxzio` or `main` deploys to GitHub Pages through `.github/workflows/pages.yml`.
 
 The Figma file (https://www.figma.com/design/gU6TdvJecOgKTtGIuvIjF3) still shows an earlier design.
+
+## Keisya copy (`keisya/`)
+
+A full copy of the site for Keisya's portfolio, served at `/keisya/` until it moves to its own repository. Content is still Rayhan's and is replaced later.
+
+- Every page has `<meta name="robots" content="noindex">` so search engines skip the copy while it holds placeholder content.
+- `keisya/admin.html` has `<meta name="cms-dir" content="keisya/">`, so Publish writes to `keisya/assets/edits.js` and `keisya/assets/uploads/`, not to the main site.
+- To move it to a new repository: copy the contents of `keisya/` to the new repository root, remove the `cms-dir` meta tag, change `DEFAULT_GH` in `assets/admin.js` to the new repository and branch, add a Pages workflow, then remove the `noindex` tags once the content is Keisya's.

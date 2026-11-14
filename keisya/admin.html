@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="cms-dir" content="keisya/" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Site editor · Rayhan Ravandika</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230a2a78'/><text x='32' y='43' text-anchor='middle' font-family='Arial' font-weight='800' font-size='30' fill='white'>R.</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/admin.css" />
+</head>
+<body>
+  <svg width="0" height="0" class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-heading" viewBox="0 0 16 16"><path d="M3.5 3v10M12.5 3v10M3.5 8h9" /></symbol>
+    <symbol id="i-text" viewBox="0 0 16 16"><path d="M2 4h12M2 8h12M2 12h7.5" /></symbol>
+    <symbol id="i-label" viewBox="0 0 16 16"><path d="M2 3.5h7l4.5 4.5L9 12.5H2z" /><circle cx="5" cy="8" r="1" /></symbol>
+    <symbol id="i-button" viewBox="0 0 16 16"><rect x="1.5" y="4.5" width="13" height="7" rx="2" /><path d="M5.5 8h5" /></symbol>
+    <symbol id="i-image" viewBox="0 0 16 16"><rect x="1.5" y="2.5" width="13" height="11" rx="1.5" /><path d="M2 12l4-4 3 3 2-2 3.5 3.5" /><circle cx="11" cy="5.8" r="1.1" /></symbol>
+    <symbol id="i-shape" viewBox="0 0 16 16"><rect x="1.5" y="1.5" width="7.5" height="7.5" rx="1.5" /><circle cx="11" cy="11" r="3.5" /></symbol>
+    <symbol id="i-columns" viewBox="0 0 16 16"><rect x="1.5" y="2.5" width="13" height="11" rx="1.5" /><path d="M8 2.5v11" /></symbol>
+    <symbol id="i-photo" viewBox="0 0 16 16"><rect x="2.5" y="1.5" width="11" height="13" rx="2" /><circle cx="8" cy="6.5" r="2.2" /><path d="M4.5 12.5c.7-1.8 2-2.6 3.5-2.6s2.8.8 3.5 2.6" /></symbol>
+    <symbol id="i-link" viewBox="0 0 16 16"><path d="M6.5 9.5l3-3M7 4.5l1.2-1.2a2.8 2.8 0 0 1 4 4L11 8.5M9 11.5l-1.2 1.2a2.8 2.8 0 0 1-4-4L5 7.5" /></symbol>
+    <symbol id="i-box" viewBox="0 0 16 16"><rect x="1.5" y="1.5" width="13" height="13" rx="2" stroke-dasharray="2.5 2" /></symbol>
+    <symbol id="i-undo" viewBox="0 0 16 16"><path d="M5.5 3L2.5 6l3 3M2.5 6h7a4 4 0 0 1 0 8H7" /></symbol>
+    <symbol id="i-redo" viewBox="0 0 16 16"><path d="M10.5 3l3 3-3 3M13.5 6h-7a4 4 0 0 0 0 8H9" /></symbol>
+    <symbol id="i-desktop" viewBox="0 0 16 16"><rect x="1.5" y="2.5" width="13" height="9" rx="1" /><path d="M5.5 14h5M8 11.5V14" /></symbol>
+    <symbol id="i-tablet" viewBox="0 0 16 16"><rect x="3" y="1.5" width="10" height="13" rx="1.5" /><path d="M7 12.3h2" /></symbol>
+    <symbol id="i-phone" viewBox="0 0 16 16"><rect x="4.5" y="1.5" width="7" height="13" rx="1.5" /><path d="M7.3 12.3h1.4" /></symbol>
+    <symbol id="i-eye" viewBox="0 0 16 16"><path d="M1.5 8S4 3.5 8 3.5 14.5 8 14.5 8 12 12.5 8 12.5 1.5 8 1.5 8z" /><circle cx="8" cy="8" r="2" /></symbol>
+    <symbol id="i-eye-off" viewBox="0 0 16 16"><path d="M1.5 8S4 3.5 8 3.5 14.5 8 14.5 8 12 12.5 8 12.5 1.5 8 1.5 8z" /><path d="M2.5 2.5l11 11" /></symbol>
+    <symbol id="i-trash" viewBox="0 0 16 16"><path d="M2.5 4.5h11M6 4.5V2.8h4v1.7M4 4.5l.8 9h6.4l.8-9" /></symbol>
+    <symbol id="i-up" viewBox="0 0 16 16"><path d="M8 13V3M4 7l4-4 4 4" /></symbol>
+    <symbol id="i-down" viewBox="0 0 16 16"><path d="M8 3v10M4 9l4 4 4-4" /></symbol>
+    <symbol id="i-copy" viewBox="0 0 16 16"><rect x="5.5" y="5.5" width="8.5" height="8.5" rx="1.5" /><path d="M10.5 5.5V3.5A1.5 1.5 0 0 0 9 2H3.5A1.5 1.5 0 0 0 2 3.5V9a1.5 1.5 0 0 0 1.5 1.5h2" /></symbol>
+    <symbol id="i-reset" viewBox="0 0 16 16"><path d="M2.5 3v3.5H6M2.8 6.3A5.5 5.5 0 1 1 3 10" /></symbol>
+    <symbol id="i-upload" viewBox="0 0 16 16"><path d="M8 10.5V2.5M4.5 6L8 2.5 11.5 6M2.5 10.5v3h11v-3" /></symbol>
+    <symbol id="i-branch" viewBox="0 0 16 16"><circle cx="4.5" cy="3.5" r="1.6" /><circle cx="4.5" cy="12.5" r="1.6" /><circle cx="11.5" cy="5" r="1.6" /><path d="M4.5 5.1v5.8M11.5 6.6c0 3.2-7 1.6-7 4.3" /></symbol>
+    <symbol id="i-play" viewBox="0 0 16 16"><path d="M4.5 2.8v10.4L13 8z" /></symbol>
+    <symbol id="i-refresh" viewBox="0 0 16 16"><path d="M13.5 3v3.5H10M13.2 6.3A5.5 5.5 0 1 0 13 10" /></symbol>
+    <symbol id="i-cursor" viewBox="0 0 16 16"><path d="M3 2l9.5 5-4 1.2L7 12.5z" /></symbol>
+    <symbol id="i-hand" viewBox="0 0 16 16"><path d="M5.5 8V3.3a1.1 1.1 0 0 1 2.2 0V7.5M7.7 7V2.6a1.1 1.1 0 0 1 2.2 0V7.5M9.9 7.2V3.6a1.1 1.1 0 0 1 2.2 0v5.6c0 3-1.8 5.3-4.6 5.3-2.2 0-3.4-1.3-4.4-3.2L1.9 8.6a1.1 1.1 0 0 1 1.9-1.1L5.5 10" /></symbol>
+    <symbol id="i-external" viewBox="0 0 16 16"><path d="M9.5 2.5h4v4M13.5 2.5L7.5 8.5M11.5 9.5v4h-9v-9h4" /></symbol>
+    <symbol id="i-check" viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 5" /></symbol>
+    <symbol id="i-alert" viewBox="0 0 16 16"><path d="M8 2L1.5 13.5h13z" /><path d="M8 6.5v3M8 11.6v.1" /></symbol>
+    <symbol id="i-left" viewBox="0 0 16 16"><path d="M2.5 4h11M2.5 8h7M2.5 12h9" /></symbol>
+    <symbol id="i-center" viewBox="0 0 16 16"><path d="M2.5 4h11M4.5 8h7M3.5 12h9" /></symbol>
+    <symbol id="i-right" viewBox="0 0 16 16"><path d="M2.5 4h11M6.5 8h7M4.5 12h9" /></symbol>
+  </svg>
+
+  <header class="bar">
+    <div class="bar__group">
+      <a class="bar__back" href="index.html">Site</a>
+      <h1 class="bar__title">Site editor</h1>
+      <label class="sr-only" for="pageSelect">Page to edit</label>
+      <select id="pageSelect" class="select"></select>
+    </div>
+    <div class="bar__group bar__group--mid">
+      <div class="seg" role="group" aria-label="Canvas mode">
+        <button type="button" data-mode="edit" aria-pressed="true" title="Click to select, drag to move"><svg><use href="#i-cursor" /></svg>Edit</button>
+        <button type="button" data-mode="interact" aria-pressed="false" title="Use the page like a visitor: open tabs, expand sections"><svg><use href="#i-hand" /></svg>Interact</button>
+      </div>
+      <div class="seg" role="group" aria-label="Screen size">
+        <button type="button" data-device="desktop" aria-pressed="true" title="Desktop, 1280 pixels"><svg><use href="#i-desktop" /></svg><span class="sr-only">Desktop</span></button>
+        <button type="button" data-device="tablet" aria-pressed="false" title="Tablet, 820 pixels"><svg><use href="#i-tablet" /></svg><span class="sr-only">Tablet</span></button>
+        <button type="button" data-device="phone" aria-pressed="false" title="Phone, 390 pixels"><svg><use href="#i-phone" /></svg><span class="sr-only">Phone</span></button>
+      </div>
+      <label class="sr-only" for="zoomSelect">Zoom</label>
+      <select id="zoomSelect" class="select select--small">
+        <option value="fit">Fit</option>
+        <option value="1">100%</option>
+      </select>
+      <div class="seg seg--plain" role="group" aria-label="History">
+        <button type="button" id="undoBtn" title="Undo (Ctrl+Z)" disabled><svg><use href="#i-undo" /></svg><span class="sr-only">Undo</span></button>
+        <button type="button" id="redoBtn" title="Redo (Ctrl+Shift+Z)" disabled><svg><use href="#i-redo" /></svg><span class="sr-only">Redo</span></button>
+      </div>
+    </div>
+    <div class="bar__group bar__group--end">
+      <p class="save" id="saveState" role="status" aria-live="polite">Loading…</p>
+      <button type="button" class="tbtn" id="refreshBtn" title="Load the latest version of this page from the website. Your draft stays."><svg><use href="#i-refresh" /></svg><span class="tlabel">Refresh</span></button>
+      <button type="button" class="tbtn" id="previewBtn" title="Open the draft in a new tab"><svg><use href="#i-play" /></svg><span class="tlabel">Preview</span></button>
+      <button type="button" class="tbtn" id="githubBtn"><svg><use href="#i-branch" /></svg><span class="tlabel" id="githubLabel">Connect GitHub</span></button>
+      <button type="button" class="pbtn" id="publishBtn" disabled>Publish<span class="pbtn__count" id="publishCount" hidden></span></button>
+    </div>
+  </header>
+
+  <div class="app">
+    <aside class="side side--left" aria-label="Components and layers">
+      <div class="tabs" role="tablist" aria-label="Left panel">
+        <button type="button" role="tab" id="tab-add" aria-controls="panel-add" aria-selected="true">Add</button>
+        <button type="button" role="tab" id="tab-layers" aria-controls="panel-layers" aria-selected="false" tabindex="-1">Layers</button>
+      </div>
+      <div class="side__scroll" role="tabpanel" id="panel-add" aria-labelledby="tab-add">
+        <p class="hint">Click a component to add it below the selected block, or drag it onto the page.</p>
+        <ul class="comps" id="comps">
+          <li><button type="button" class="comp" data-add="heading"><svg><use href="#i-heading" /></svg>Heading</button></li>
+          <li><button type="button" class="comp" data-add="text"><svg><use href="#i-text" /></svg>Text</button></li>
+          <li><button type="button" class="comp" data-add="label"><svg><use href="#i-label" /></svg>Small label</button></li>
+          <li><button type="button" class="comp" data-add="button"><svg><use href="#i-button" /></svg>Button</button></li>
+          <li><button type="button" class="comp" data-add="image"><svg><use href="#i-image" /></svg>Image</button></li>
+          <li><button type="button" class="comp" data-add="shape"><svg><use href="#i-shape" /></svg>Shape</button></li>
+          <li><button type="button" class="comp" data-add="columns"><svg><use href="#i-columns" /></svg>Columns</button></li>
+        </ul>
+        <h2 class="side__title">Basics</h2>
+        <ul class="howto">
+          <li>Click once to select. Double-click text or a button to type.</li>
+          <li>Drag a block to move it. Drag the square handles to resize.</li>
+          <li>Put blocks side by side with Columns. They stack on phones.</li>
+          <li>Your draft saves on this browser as you go. Visitors only see it after you publish.</li>
+        </ul>
+        <h2 class="side__title">Shortcuts</h2>
+        <dl class="keys">
+          <div><dt>Enter</dt><dd>Type in the selected text</dd></div>
+          <div><dt>Esc</dt><dd>Select the parent, or stop typing</dd></div>
+          <div><dt>Delete</dt><dd>Delete an added block, hide anything else</dd></div>
+          <div><dt>Alt + ↑ ↓</dt><dd>Move the selection up or down</dd></div>
+          <div><dt>Ctrl + D</dt><dd>Duplicate</dd></div>
+          <div><dt>Ctrl + Z</dt><dd>Undo (add Shift to redo)</dd></div>
+        </dl>
+      </div>
+      <div class="side__scroll" role="tabpanel" id="panel-layers" aria-labelledby="tab-layers" hidden>
+        <div id="layers" class="layers"><p class="hint">Loading layers…</p></div>
+      </div>
+    </aside>
+
+    <main class="stage" id="stage" aria-label="Page canvas">
+      <div class="notice" id="notice" hidden></div>
+      <div class="stage__scroll" id="stageScroll">
+        <div class="stage__inner" id="stageInner">
+          <iframe id="frame" title="Page you are editing"></iframe>
+        </div>
+      </div>
+      <div class="stage__state" id="stageState">
+        <p id="stageText" role="status">Loading the page…</p>
+        <button type="button" class="tbtn" id="stageRetry" hidden>Try again</button>
+      </div>
+      <div class="toast" id="toast" role="status" aria-live="polite"><span id="toastText"></span><button type="button" id="toastAction" hidden></button></div>
+    </main>
+
+    <aside class="side side--right" aria-label="Properties">
+      <div class="side__scroll" id="props"></div>
+    </aside>
+  </div>
+
+  <main class="narrow" id="narrow" hidden>
+    <h1>The editor needs a bigger screen</h1>
+    <p>Open this page on a laptop or desktop at least 960 pixels wide. Your draft stays saved on the browser where you made it.</p>
+    <a href="index.html">Back to the site</a>
+  </main>
+
+  <div class="drag-ghost" id="dragGhost" aria-hidden="true"></div>
+  <input type="file" id="fileInput" accept="image/png,image/jpeg,image/webp,image/gif" hidden />
+
+  <dialog id="ghDialog" aria-labelledby="ghTitle">
+    <form id="ghForm" novalidate>
+      <h2 id="ghTitle">Connect GitHub</h2>
+      <p class="d-lede">Publishing saves your changes to the site's repository. GitHub Pages then rebuilds the live site, which takes about a minute.</p>
+      <div class="field">
+        <label for="ghRepo">Repository</label>
+        <input id="ghRepo" class="input" autocomplete="off" spellcheck="false" placeholder="owner/name" />
+      </div>
+      <div class="field">
+        <label for="ghBranch">Branch the site is built from</label>
+        <input id="ghBranch" class="input" autocomplete="off" spellcheck="false" />
+      </div>
+      <div class="field">
+        <label for="ghToken">Access token</label>
+        <div class="pw">
+          <input id="ghToken" class="input" type="password" autocomplete="off" spellcheck="false" aria-describedby="ghTokenHelp" />
+          <button type="button" class="tbtn" id="ghShow" aria-pressed="false">Show</button>
+        </div>
+        <p class="help" id="ghTokenHelp">Use a fine-grained token with access to this repository only and the permission "Contents: Read and write". <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">Create one on GitHub</a></p>
+      </div>
+      <label class="check"><input type="checkbox" id="ghRemember" /> Remember the token on this browser</label>
+      <p class="help">Left unticked, the token is forgotten when you close this tab. Don't tick it on a shared computer.</p>
+      <p class="d-error" id="ghError" role="alert" hidden></p>
+      <div class="d-actions">
+        <button type="button" class="tbtn tbtn--danger" id="ghDisconnect" hidden>Disconnect</button>
+        <span class="d-actions__gap"></span>
+        <button type="button" class="tbtn" id="ghCancel">Cancel</button>
+        <button type="submit" class="pbtn" id="ghConnect">Connect</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="pubDialog" aria-labelledby="pubTitle">
+    <div class="d-body">
+      <h2 id="pubTitle">Publish changes</h2>
+      <div id="pubSummary"></div>
+      <div id="pubIssues"></div>
+      <div class="field" id="pubMsgField">
+        <label for="pubMsg">Note for the change history</label>
+        <input id="pubMsg" class="input" maxlength="120" />
+      </div>
+      <p class="help" id="pubWhere"></p>
+      <ol class="steps" id="pubSteps" hidden></ol>
+      <p class="d-error" id="pubError" role="alert" hidden></p>
+      <div class="d-done" id="pubDone" role="status" hidden></div>
+      <div class="d-actions">
+        <button type="button" class="tbtn" id="pubDownload">Download edits.js instead</button>
+        <span class="d-actions__gap"></span>
+        <button type="button" class="tbtn" id="pubClose">Cancel</button>
+        <button type="button" class="pbtn" id="pubGo">Publish to GitHub</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="askDialog" aria-labelledby="askTitle" aria-describedby="askText">
+    <div class="d-body">
+      <h2 id="askTitle"></h2>
+      <p id="askText" class="d-lede"></p>
+      <div class="d-actions">
+        <span class="d-actions__gap"></span>
+        <button type="button" class="tbtn" id="askNo"></button>
+        <button type="button" class="pbtn" id="askYes"></button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="assets/edits.js"></script>
+  <script src="assets/admin.js" defer></script>
+</body>
+</html>

@@ -75,6 +75,20 @@ window.PORTFOLIO = {
     "Leadership": ["Vice President, Himpunan Mahasiswa Akuakultur (2022)", "Research Assistant, aquaculture research project (2023)", "Human Resources Development Staff, Himpunan Mahasiswa Akuakultur (2021)", "Supervision Staff, Dewan Legislatif Mahasiswa (2021)"],
   },
 
+  // Case studies shown on the home page
+  projects: [
+    {
+      title: "Micro credit, from the first visit to restructuring",
+      client: "PT Bank Mandiri (Persero) Tbk.",
+      period: "2026 to present",
+      badge: "Bank Mandiri",
+      summary: "How I assess a micro business loan in five processes: business feasibility, repayment capacity, collateral and legal documents, early warning and collection, and credit restructuring.",
+      deliverables: ["Feasibility check", "Repayment capacity", "SLIK history", "Collateral and APHT", "Early warning", "Restructuring"],
+      link: "mandiri.html",
+      linkLabel: "Read the micro credit case study",
+    },
+  ],
+
   experience: [
     {
       period: "June 2026 to present",

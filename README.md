@@ -63,7 +63,7 @@ The Figma file (https://www.figma.com/design/gU6TdvJecOgKTtGIuvIjF3) still shows
 
 ## Keisya's portfolio (`keisya/`)
 
-Keisya's portfolio, served at `/keisya/` until it moves to its own repository. One page (`keisya/index.html`), content from her CV in `keisya/assets/data.js`, photo in `keisya/assets/photo.jpg`.
+Keisya's portfolio, served at `/keisya/` until it moves to its own repository. Home (`keisya/index.html`) and one case study (`keisya/mandiri.html`, styles in `keisya/assets/case.css`), content from her CV in `keisya/assets/data.js`, photo in `keisya/assets/photo.jpg`.
 
 - Every page has `<meta name="robots" content="noindex">`. Remove it when the site should show up in search.
 - `keisya/admin.html` has `<meta name="cms-dir" content="keisya/">`, so Publish writes to `keisya/assets/edits.js` and `keisya/assets/uploads/`, not to the main site.

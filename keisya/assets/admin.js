@@ -8,7 +8,8 @@
   "use strict";
 
   var PAGES = [
-    ["index.html", "Home"]
+    ["index.html", "Home"],
+    ["mandiri.html", "Micro credit case study"]
   ];
   var DEFAULT_GH = { repo: "ivanrayhannn/rayhan_ravandika_portofolio", branch: "claude/optimistic-faraday-6kxzio" };
   // Folder of this site inside the repository, from <meta name="cms-dir">: "" at the root, "keisya/" for a copy in a subfolder.

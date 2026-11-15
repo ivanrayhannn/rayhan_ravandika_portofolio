@@ -7,7 +7,7 @@ window.PORTFOLIO = {
   fullName: "Keisyazka Fathaya Putri",
   role: "Micro Credit Analyst",
   tagline:
-    "I review credit applications, find the risks in them and recommend a decision the business can stand behind.",
+    "I work in credit analysis, where attention to detail, analytical thinking and sound judgment matter every day. Beyond my professional role, I'm someone who enjoys exploring new things, building ideas, learning through experience and turning curiosity into action. I believe every experience has something to teach me, and every new challenge is an opportunity to grow.",
   location: "East Jakarta, Indonesia",
   email: "keisyazka.putri@gmail.com",
   phone: "+62 858 1122 3644",
@@ -16,36 +16,36 @@ window.PORTFOLIO = {
   github: "",
   cv: "assets/CV_Keisyazka_Fathaya_Putri.pdf",
 
-  heroWhere: "East Jakarta · currently at Bank Mandiri",
+  heroWhere: "",
   photo: "assets/photo.jpg",
   badgeTag: "Credit and risk",
   heroTags: ["Credit Analysis", "Risk Assessment", "Business Operations", "Market Research"],
-  statsSource: "From my CV: Bank Mandiri since June 2026, my own business since February 2025.",
+  statsSource: "My journey has taken me through different experiences: from business development and building my own business to working in banking. Each experience has shaped the way I think, work and see opportunities.",
   stats: [
     { value: "3", label: "workplaces" },
     { value: "3.79", label: "GPA out of 4.00" },
-    { value: "2", label: "certifications in 2026" },
+    { value: "2", label: "certifications" },
   ],
 
   // Shown in the About section's "At a glance" card
   facts: [
-    ["Now", "Micro Credit Analyst, PT Bank Mandiri (Persero) Tbk."],
+    ["Current role", "Micro Credit Analyst, PT Bank Mandiri (Persero) Tbk."],
     ["Business", "Founder and owner, Zift Hampers & Food"],
     ["Education", "Bachelor of Fisheries, Jenderal Soedirman University (2020 to 2024), GPA 3.79"],
-    ["Interested in", "Analytical, risk, business planning and corporate roles"],
+    ["Areas of interest", "Credit analysis, risk management, business development, human capital and organizational development"],
   ],
 
   // Employers shown in the "Worked with" strip. Without a logo the name shows as text.
   clients: [
-    { name: "Bank Mandiri", sector: "Banking" },
+    { name: "PT Bank Mandiri (Persero) Tbk.", sector: "Banking" },
     { name: "Zift Hampers & Food", sector: "My own business" },
-    { name: "Allegra Mitra Perkasa", sector: "Business development" },
+    { name: "PT Allegra Mitra Perkasa", sector: "Business development" },
   ],
 
   about: [
-    "I'm a Micro Credit Analyst at Bank Mandiri. I read a credit application the way a lender has to: who the customer is, how the business really runs, what the numbers say, and whether the documents back it up. Then I weigh the risk and recommend a decision.",
-    "Since February 2025 I have also run my own business, Zift Hampers & Food. I handle it end to end, from buying and budgeting to orders, customers and the books, so I know what a small business owner deals with every day.",
-    "Before that I was a business development intern at Allegra Mitra Perkasa, researching markets and preparing proposals. I'm looking to grow in analytical, risk, business planning and corporate roles.",
+    "I'm a Micro Credit Analyst at Bank Mandiri, with experience in credit assessment, risk analysis and business evaluation.",
+    "Beyond my full-time career, I'm also an entrepreneur running Zift Hampers & Food, and previously explored business development at Allegra Mitra Perkasa.",
+    "I'm a curious and proactive person who enjoys learning by doing, exploring new opportunities and challenging myself beyond my comfort zone.",
   ],
 
   services: [

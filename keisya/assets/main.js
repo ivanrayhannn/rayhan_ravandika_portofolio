@@ -67,7 +67,7 @@
   });
   $("#year").textContent = new Date().getFullYear();
 
-  $("#heroWhere").textContent = D.heroWhere || "";
+  if ($("#heroWhere")) $("#heroWhere").textContent = D.heroWhere || "";
   section("#heroTags", D.heroTags, function (t) { return "<span>" + esc(t) + "</span>"; }, { empty: "", error: "" });
   section("#figures", D.stats, function (s) {
     return "<div><dt>" + esc(s.label) + "</dt><dd>" + esc(s.value) + "</dd></div>";

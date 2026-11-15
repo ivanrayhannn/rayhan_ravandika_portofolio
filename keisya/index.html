@@ -54,7 +54,6 @@
     <section class="hero tone-blue" id="home" aria-labelledby="heroTitle">
       <div class="wrap hero__inner">
         <div class="hero__text">
-          <p class="hero__where" id="heroWhere"></p>
           <h1 id="heroTitle">Hi, I'm<br /><span class="hero__name" data-bind="name"></span></h1>
           <p class="hero__role" data-bind="role"></p>
           <p class="hero__tags" id="heroTags"></p>
@@ -77,11 +76,7 @@
               <div class="badge__photo" id="badgePhoto" data-cms-photo></div>
               <p class="badge__name" data-bind="name"></p>
               <p class="badge__role" data-bind="role"></p>
-              <p class="badge__org">Bank Mandiri, East Jakarta</p>
-              <div class="badge__foot">
-                <span data-bind="badgeTag"></span>
-                <span>Since 2026</span>
-              </div>
+              <p class="badge__org">PT Bank Mandiri (Persero) Tbk.</p>
             </div>
           </div>
           <p class="badge-hint" id="badgeHint">Drag the card to swing it</p>
@@ -95,10 +90,13 @@
           <h2 class="title" id="aboutTitle">About me</h2>
           <div class="about__text" id="aboutText"><p class="state">Loading profile…</p></div>
         </div>
-        <aside class="panel about__facts" aria-labelledby="factsTitle">
-          <h3 id="factsTitle">At a glance</h3>
-          <dl id="facts"></dl>
-        </aside>
+        <div class="about__side">
+          <img class="about__portrait" src="assets/portrait.jpg" alt="Keisyazka Fathaya Putri in a black blazer" width="560" height="499" loading="lazy" />
+          <aside class="panel about__facts" aria-labelledby="factsTitle">
+            <h3 id="factsTitle">At a glance</h3>
+            <dl id="facts"></dl>
+          </aside>
+        </div>
       </div>
     </section>
 
@@ -106,7 +104,7 @@
       <div class="wrap services">
         <div class="services__head">
           <h2 class="title" id="servicesTitle">What I do</h2>
-          <p class="intro">The work I do every day as a credit analyst and as a business owner.</p>
+          <p class="intro">My work and experience span finance, business development and entrepreneurship.</p>
         </div>
         <ol class="reqs" id="reqs"><li class="state">Loading services…</li></ol>
       </div>
@@ -137,7 +135,6 @@
     <section class="section" id="clients" aria-labelledby="clientsTitle">
       <div class="wrap">
         <h2 class="title" id="clientsTitle">Where I have worked</h2>
-        <p class="intro">Employers and my own business, 2024 to today.</p>
         <ul class="clients" id="clientsGrid"><li class="state">Loading clients…</li></ul>
       </div>
     </section>

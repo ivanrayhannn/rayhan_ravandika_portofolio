@@ -474,3 +474,11 @@ h1, h2, h3 { letter-spacing: -0.02em; text-wrap: balance; }
 .copy:hover { background: rgba(255, 255, 255, 0.6); }
 .copy:active { background: rgba(255, 255, 255, 0.75); }
 .cms-preview-bar { box-shadow: 0 10px 28px -12px rgba(40, 30, 22, 0.7); }
+.about__side { display: grid; gap: 20px; }
+.about__portrait { display: block; width: 100%; height: auto; border-radius: var(--r-lg); background: var(--beige); }
+.about__side .about__facts { margin-top: 0; }
+@media (max-width: 600px) {
+  .figures { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .figures div { padding: 2px 12px; }
+  .figures div:nth-child(3) { padding-left: 12px; border-left: 1px solid var(--line); }
+}

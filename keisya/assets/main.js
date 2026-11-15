@@ -115,7 +115,7 @@
   }, { empty: "", error: "Couldn't show these details." });
 
   section("#reqs", D.services, function (s, i) {
-    return '<li><span class="req__id">' + esc(s.where || "") + "</span><h3>" + esc(s.title) + "</h3><p>" + esc(s.text) + "</p></li>";
+    return '<li><span class="req__id">' + String(i + 1).padStart(2, "0") + "</span><h3>" + esc(s.title) + "</h3><p>" + esc(s.text) + "</p></li>";
   }, { empty: "No services are listed yet. The work history below shows what I've delivered.", error: "Couldn't show the services list." + REFRESH });
   section("#docs", D.deliverables, function (d) {
     return '<li class="doc"><div class="doc__code">' + esc(d.code) + '</div><p class="doc__name">' + esc(d.name) +

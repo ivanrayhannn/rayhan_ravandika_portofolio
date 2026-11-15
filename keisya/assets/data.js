@@ -19,11 +19,10 @@ window.PORTFOLIO = {
   heroWhere: "",
   photo: "assets/photo.jpg",
   badgeTag: "Credit and risk",
-  heroTags: ["Credit Analysis", "Risk Assessment", "Business Operations", "Market Research"],
+  heroTags: [],
   statsSource: "My journey has taken me through different experiences: from business development and building my own business to working in banking. Each experience has shaped the way I think, work and see opportunities.",
   stats: [
     { value: "3", label: "workplaces" },
-    { value: "3.79", label: "GPA out of 4.00" },
     { value: "2", label: "certifications" },
   ],
 
@@ -39,8 +38,8 @@ window.PORTFOLIO = {
   // Logo credits: assets/clients/README.md
   clients: [
     { name: "PT Bank Mandiri (Persero) Tbk.", sector: "Banking", logo: "assets/clients/bank-mandiri.svg", logoSize: [80, 25], logoHeight: 30 },
-    { name: "Zift Hampers & Food", sector: "My own business" },
-    { name: "PT Allegra Mitra Perkasa", sector: "Business development" },
+    { name: "Zift Hampers & Food", sector: "My own business", logo: "assets/clients/zift-hampers.png", logoSize: [233, 240], logoHeight: 58 },
+    { name: "PT Allegra Mitra Perkasa", sector: "Construction", logo: "assets/clients/allegra-mitra-perkasa.png", logoSize: [636, 160], logoHeight: 40 },
   ],
 
   about: [
@@ -49,14 +48,13 @@ window.PORTFOLIO = {
     "I'm a curious and proactive person who enjoys learning by doing, exploring new opportunities and challenging myself beyond my comfort zone.",
   ],
 
-  // where: the job each service comes from, shown next to it
   services: [
-    { where: "Bank Mandiri", title: "Credit analysis", text: "I evaluate the customer's profile, financial information, business condition and supporting documents, then recommend a credit decision within my authorised limits." },
-    { where: "Bank Mandiri", title: "Risk assessment", text: "I assess creditworthiness and point out the risks before a decision is made, and I keep watching the borrower's business after the money is disbursed." },
-    { where: "Bank Mandiri", title: "Document review", text: "I check that credit documents are complete, accurate and valid under internal policies and procedures." },
-    { where: "Zift", title: "Business operations", text: "In my own business I run procurement, budgeting, order fulfilment, customer service and daily administration, and track sales and costs to plan ahead." },
-    { where: "Zift, Allegra", title: "Market research", text: "I research markets and customers to find opportunities, and use STP (segmentation, targeting, positioning) to shape products, pricing and promotion." },
-    { where: "Bank Mandiri", title: "Stakeholder coordination", text: "I work with the business units and teams involved so applications move quickly and assessment issues get resolved." },
+    { title: "Credit analysis", text: "I evaluate the customer's profile, financial information, business condition and supporting documents, then recommend a credit decision within my authorised limits." },
+    { title: "Risk assessment", text: "I assess creditworthiness and point out the risks before a decision is made, and I keep watching the borrower's business after the money is disbursed." },
+    { title: "Document review", text: "I check that credit documents are complete, accurate and valid under internal policies and procedures." },
+    { title: "Business operations", text: "In my own business I run procurement, budgeting, order fulfilment, customer service and daily administration, and track sales and costs to plan ahead." },
+    { title: "Market research", text: "I research markets and customers to find opportunities, and use STP (segmentation, targeting, positioning) to shape products, pricing and promotion." },
+    { title: "Stakeholder coordination", text: "I work with the business units and teams involved so applications move quickly and assessment issues get resolved." },
   ],
 
   // "How I review a credit application", shown as a chain of steps

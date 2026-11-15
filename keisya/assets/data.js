@@ -48,13 +48,14 @@ window.PORTFOLIO = {
     "I'm a curious and proactive person who enjoys learning by doing, exploring new opportunities and challenging myself beyond my comfort zone.",
   ],
 
+  // where: the job each service comes from, shown next to it
   services: [
-    { icon: "file", title: "Credit analysis", text: "I evaluate the customer's profile, financial information, business condition and supporting documents, then recommend a credit decision within my authorised limits." },
-    { icon: "activity", title: "Risk assessment", text: "I assess creditworthiness and point out the risks before a decision is made, and I keep watching the borrower's business after the money is disbursed." },
-    { icon: "check", title: "Document review", text: "I check that credit documents are complete, accurate and valid under internal policies and procedures." },
-    { icon: "flow", title: "Business operations", text: "In my own business I run procurement, budgeting, order fulfilment, customer service and daily administration, and track sales and costs to plan ahead." },
-    { icon: "users", title: "Market research", text: "I research markets and customers to find opportunities, and use STP (segmentation, targeting, positioning) to shape products, pricing and promotion." },
-    { icon: "layout", title: "Stakeholder coordination", text: "I work with the business units and teams involved so applications move quickly and assessment issues get resolved." },
+    { where: "Bank Mandiri", title: "Credit analysis", text: "I evaluate the customer's profile, financial information, business condition and supporting documents, then recommend a credit decision within my authorised limits." },
+    { where: "Bank Mandiri", title: "Risk assessment", text: "I assess creditworthiness and point out the risks before a decision is made, and I keep watching the borrower's business after the money is disbursed." },
+    { where: "Bank Mandiri", title: "Document review", text: "I check that credit documents are complete, accurate and valid under internal policies and procedures." },
+    { where: "Zift", title: "Business operations", text: "In my own business I run procurement, budgeting, order fulfilment, customer service and daily administration, and track sales and costs to plan ahead." },
+    { where: "Zift, Allegra", title: "Market research", text: "I research markets and customers to find opportunities, and use STP (segmentation, targeting, positioning) to shape products, pricing and promotion." },
+    { where: "Bank Mandiri", title: "Stakeholder coordination", text: "I work with the business units and teams involved so applications move quickly and assessment issues get resolved." },
   ],
 
   // "How I review a credit application", shown as a chain of steps
@@ -69,8 +70,7 @@ window.PORTFOLIO = {
     "Credit and risk": ["Credit analysis", "Risk identification", "Risk mitigation", "Creditworthiness assessment", "Financial and business assessment", "Portfolio monitoring"],
     "Business analysis": ["Business analysis", "Market research", "Customer analysis", "STP framework", "Sales and cost monitoring"],
     "Operations": ["Business operations", "Procurement", "Budgeting", "Order fulfilment", "Customer service"],
-    "Process and reporting": ["Document and process review", "Reporting and documentation", "Stakeholder coordination"],
-    "Tools": ["Microsoft Office"],
+    "Process, reporting and tools": ["Document and process review", "Reporting and documentation", "Stakeholder coordination", "Microsoft Office"],
     "Certifications": ["ESG: Accelerating Green Business Practices, Bank Mandiri (2026)", "Mandatory e-learning on APU, PPT and PPPSPM, Bank Mandiri (2026)"],
     "Leadership": ["Vice President, Himpunan Mahasiswa Akuakultur (2022)", "Research Assistant, aquaculture research project (2023)", "Human Resources Development Staff, Himpunan Mahasiswa Akuakultur (2021)", "Supervision Staff, Dewan Legislatif Mahasiswa (2021)"],
   },
@@ -78,7 +78,7 @@ window.PORTFOLIO = {
   // Case studies shown on the home page
   projects: [
     {
-      title: "Micro credit, from the first visit to restructuring",
+      title: "Micro credit, from application to restructuring",
       client: "PT Bank Mandiri (Persero) Tbk.",
       period: "2026 to present",
       badge: "Bank Mandiri",

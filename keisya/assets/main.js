@@ -73,7 +73,7 @@
     return "<div><dt>" + esc(s.label) + "</dt><dd>" + esc(s.value) + "</dd></div>";
   }, { empty: "", error: "" });
   $("#badgePhoto").innerHTML = D.photo
-    ? '<img src="' + esc(D.photo) + '" alt="Photo of ' + esc(D.fullName || D.name) + '" width="224" height="186" draggable="false" />'
+    ? '<img src="' + esc(D.photo) + '" alt="Photo of ' + esc(D.fullName || D.name) + '" width="224" height="186" fetchpriority="high" draggable="false" />'
     : '<span class="badge__initials" aria-hidden="true">' + esc((D.name || "").split(" ").map(function (w) { return w[0]; }).join("").slice(0, 2)) + "</span>";
 
   // Drag the lanyard card and it swings back like a pendulum. Decorative, so it is pointer-only.
@@ -115,7 +115,7 @@
   }, { empty: "", error: "Couldn't show these details." });
 
   section("#reqs", D.services, function (s, i) {
-    return '<li><span class="req__id">REQ-' + String(i + 1).padStart(2, "0") + "</span><h3>" + esc(s.title) + "</h3><p>" + esc(s.text) + "</p></li>";
+    return '<li><span class="req__id">' + esc(s.where || "") + "</span><h3>" + esc(s.title) + "</h3><p>" + esc(s.text) + "</p></li>";
   }, { empty: "No services are listed yet. The work history below shows what I've delivered.", error: "Couldn't show the services list." + REFRESH });
   section("#docs", D.deliverables, function (d) {
     return '<li class="doc"><div class="doc__code">' + esc(d.code) + '</div><p class="doc__name">' + esc(d.name) +

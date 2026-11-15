@@ -482,3 +482,5 @@ h1, h2, h3 { letter-spacing: -0.02em; text-wrap: balance; }
   .figures div { padding: 2px 12px; }
   .figures div:nth-child(3) { padding-left: 12px; border-left: 1px solid var(--line); }
 }
+.reqs li { grid-template-columns: 104px minmax(0, 1fr); }
+.req__id { font-variant-numeric: normal; }

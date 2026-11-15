@@ -482,3 +482,6 @@ h1, h2, h3 { letter-spacing: -0.02em; text-wrap: balance; }
   .figures div { padding: 2px 12px; }
   .figures div:nth-child(3) { padding-left: 12px; border-left: 1px solid var(--line); }
 }
+/* Photos have a transparent background: the ID card shows them on brand beige, About shows the cut-out on the page. */
+.badge__photo { background: linear-gradient(180deg, #e9dfd4 0%, var(--beige) 100%); }
+.about__portrait { background: none; border-radius: 0; }

@@ -17,7 +17,7 @@ window.PORTFOLIO = {
   cv: "assets/CV_Keisyazka_Fathaya_Putri.pdf",
 
   heroWhere: "",
-  photo: "assets/photo.jpg",
+  photo: "assets/photo.png",
   badgeTag: "Credit and risk",
   heroTags: [],
   statsSource: "My journey has taken me through different experiences: from business development and building my own business to working in banking. Each experience has shaped the way I think, work and see opportunities.",

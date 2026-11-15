@@ -35,9 +35,10 @@ window.PORTFOLIO = {
     ["Areas of interest", "Credit analysis, risk management, business development, human capital and organizational development"],
   ],
 
-  // Employers shown in the "Worked with" strip. Without a logo the name shows as text.
+  // Employers shown in the "Where I have worked" strip. Without a logo the name shows as text.
+  // Logo credits: assets/clients/README.md
   clients: [
-    { name: "PT Bank Mandiri (Persero) Tbk.", sector: "Banking" },
+    { name: "PT Bank Mandiri (Persero) Tbk.", sector: "Banking", logo: "assets/clients/bank-mandiri.svg", logoSize: [80, 25], logoHeight: 30 },
     { name: "Zift Hampers & Food", sector: "My own business" },
     { name: "PT Allegra Mitra Perkasa", sector: "Business development" },
   ],
@@ -81,7 +82,7 @@ window.PORTFOLIO = {
       title: "Micro credit, from application to restructuring",
       client: "PT Bank Mandiri (Persero) Tbk.",
       period: "2026 to present",
-      badge: "Bank Mandiri",
+      logos: ["assets/clients/bank-mandiri.svg"],
       summary: "How I assess a micro business loan in five processes: business feasibility, repayment capacity, collateral and legal documents, early warning and collection, and credit restructuring.",
       deliverables: ["Feasibility check", "Repayment capacity", "SLIK history", "Collateral and APHT", "Early warning", "Restructuring"],
       link: "mandiri.html",
